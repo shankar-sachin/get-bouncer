@@ -334,8 +334,12 @@ section {
 
 .header-tools .gh {
   color: var(--text-2);
-  font-size: 0.9375rem;
-  padding: 0 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
   text-decoration: none;
 }
 
