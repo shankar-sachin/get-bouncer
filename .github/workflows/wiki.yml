@@ -1,0 +1,57 @@
+name: wiki
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'docs/**'
+      - '.github/scripts/docs-to-wiki.mjs'
+      - '.github/workflows/wiki.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: wiki-sync
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v4
+        with:
+          path: src
+
+      - name: Clone the wiki
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+          if git clone "https://x-access-token:${GH_TOKEN}@github.com/${REPO}.wiki.git" wiki 2>/dev/null; then
+            echo "cloned existing wiki"
+          else
+            echo "wiki repository not initialised yet, starting an empty one"
+            git init -q wiki
+            git -C wiki remote add origin "https://x-access-token:${GH_TOKEN}@github.com/${REPO}.wiki.git"
+          fi
+
+      - name: Generate wiki pages from docs
+        run: node src/.github/scripts/docs-to-wiki.mjs --src src/docs --out wiki
+
+      - name: Commit and push if changed
+        working-directory: wiki
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "wiki already up to date"
+            exit 0
+          fi
+          git commit -q -m "docs: sync wiki from docs/ at ${GITHUB_SHA::7}"
+          git push origin HEAD:master

@@ -1,0 +1,52 @@
+# Privacy
+
+Bouncer runs models on your own computer. Your chats, models, and files stay on your machine. Bouncer connects to the internet only for the specific tasks listed below, and only when you use the feature that needs them.
+
+## What stays on your machine
+
+These are stored locally and are never uploaded by Bouncer:
+
+- **Models**: the model files you download or import, and your library.
+- **Chats**: your plain conversations in Bouncer Chat, and the bots and their chats in Rebound.
+- **Files**: the folders and files you open in Bouncer Code and the IDE.
+- **Checkpoints**: snapshots Bouncer Code takes before each turn, so you can rewind its changes. They are stored in Bouncer's data folder, not in your project.
+- **Settings**: your preferences, and presets.
+
+A chat with a local model is processed by the model on your computer. Bouncer does not send your messages to a server to get a reply.
+
+## What connects to the internet, and when
+
+| Activity | What is sent | When it happens |
+| --- | --- | --- |
+| Browsing and searching the Marketplace | Requests to Hugging Face for model listings, files, and model cards. | When Bouncer syncs the catalog on launch, when you come back online, and about every hour while it runs. You can also press **Update the catalog now**. |
+| Downloading a model | A request for the model file from Hugging Face. | Only when you click **Download**. |
+| Signing in to Hugging Face | Your access token, sent only to Hugging Face. | Only when you open a gated model or raise rate limits with a saved token. Public models never need it. |
+| Installing or updating the engine | A request to the GitHub API for llama.cpp releases, then the engine download. | Only when you install the engine, or click **Check for updates** or **Update to** in **Settings > Engine**. |
+| Checking for Bouncer updates | A request to github.com/shankar-sachin/get-bouncer for the latest release. | When Bouncer checks for updates. |
+| Web search in chat | Your search query, sent to DuckDuckGo. When a page is opened, Bouncer fetches that page. | Only when you turn on **Web search** for a chat. It is off by default. |
+
+Hugging Face, GitHub, and DuckDuckGo receive these requests the same way they receive any request from a browser or downloader, so their own privacy policies apply to what they log.
+
+## Your Hugging Face token
+
+If you sign in to Hugging Face, Bouncer stores your access token encrypted in your operating system's keychain. It sends the token only to Hugging Face. The token is never written to a `.bcn`, `.bml`, or `.bproj` file, so you can share those files safely. To remove the token, open **Settings > Hugging Face** and click **Sign out**.
+
+## What Bouncer Code can access
+
+Bouncer Code works only inside the folder you choose for a project. It does not read or change files outside that folder.
+
+You control how much Bouncer Code can do with its mode:
+
+- **plan** reads files and proposes changes. It makes no edits.
+- **manual** asks before every edit and command.
+- **accept edits** applies edits, but asks before it runs commands.
+- **autopilot** runs everything in the project folder without asking.
+
+Choose **manual** or **plan** for folders with sensitive files.
+
+## Related
+
+- [Models](models.md): downloading models and signing in to Hugging Face.
+- [Settings](settings.md): the Hugging Face section and About.
+- [File formats](file-formats.md): what is and is not stored in Bouncer's files.
+- [Updates](updates.md): how Bouncer gets new versions.

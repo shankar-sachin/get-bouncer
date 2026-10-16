@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bouncer docs</title>
+  <meta name="description" content="Documentation for Bouncer: install, chat, Rebound, Bouncer Code, models, settings and troubleshooting." />
+  <meta name="theme-color" content="#000000" />
+  <link rel="icon" href="logo.svg" type="image/svg+xml" />
+  <link rel="canonical" href="https://shankar-sachin.github.io/get-bouncer/docs.html" />
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('bouncer-theme');
+        if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+      } catch (e) {}
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400..600&family=Geist+Mono:wght@400..500&display=swap" />
+  <link rel="stylesheet" href="assets/style.css" />
+  <link rel="stylesheet" href="assets/docs.css" />
+  <script src="https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/dompurify@3.1.6/dist/purify.min.js" defer></script>
+  <script src="assets/docs.js" defer></script>
+</head>
+<body class="docs-body">
+  <a class="skip-link" href="#docs-article">skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="index.html" aria-label="Bouncer home">
+        <img src="logo.svg" width="28" height="28" alt="" />
+        <span>Bouncer</span>
+      </a>
+      <nav class="site-nav" aria-label="docs">
+        <a href="docs.html#/getting-started">docs</a>
+        <a href="index.html#download">download</a>
+        <a href="https://github.com/shankar-sachin/get-bouncer/releases">releases</a>
+      </nav>
+      <div class="header-tools">
+        <button class="btn btn-quiet btn-icon" type="button" id="theme-toggle" aria-label="switch to light theme">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+            <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z" />
+          </svg>
+        </button>
+        <a class="gh" href="https://github.com/shankar-sachin/get-bouncer" aria-label="Bouncer on GitHub" title="GitHub"><svg viewBox="0 0 16 16" width="20" height="20" aria-hidden="true" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg></a>
+      </div>
+    </div>
+  </header>
+
+  <div class="docs-shell">
+    <aside class="docs-sidebar" id="docs-sidebar" aria-label="documentation pages">
+      <nav id="docs-nav" aria-label="pages"></nav>
+    </aside>
+    <div class="docs-backdrop" id="docs-backdrop" hidden></div>
+
+    <main class="docs-main" id="main">
+      <div class="docs-toolbar">
+        <button class="btn btn-quiet docs-menu-btn" type="button" id="menu-toggle" aria-controls="docs-sidebar" aria-expanded="false">pages</button>
+      </div>
+
+      <article class="docs-article prose" id="docs-article" aria-live="polite">
+        <p class="docs-status">loading</p>
+      </article>
+
+      <footer class="docs-footer">
+        <nav class="docs-pager" id="docs-pager" aria-label="previous and next page"></nav>
+        <p class="docs-edit"><a id="docs-edit" href="https://github.com/shankar-sachin/get-bouncer/tree/main/docs">edit this page on GitHub</a></p>
+      </footer>
+    </main>
+
+    <aside class="docs-toc" aria-label="on this page">
+      <p class="docs-toc-title">on this page</p>
+      <nav id="docs-toc-nav"></nav>
+    </aside>
+  </div>
+
+  <noscript><p class="docs-noscript">The documentation viewer needs JavaScript. The same pages are on <a href="https://github.com/shankar-sachin/get-bouncer/tree/main/docs">GitHub</a>.</p></noscript>
+</body>
+</html>
