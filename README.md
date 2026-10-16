@@ -1,6 +1,8 @@
 <p align="center"><img src="logo.svg" width="72" alt="Bouncer logo" /></p>
 
-# Get Bouncer
+# Bouncer
+
+Website: https://shankar-sachin.github.io/get-bouncer/
 
 Bouncer is a local-first AI app for macOS, Windows and Linux: chat with models that run on your own machine, a coding agent with an IDE, and Rebound, where you make your own bots. Everything runs locally with llama.cpp; models come from Hugging Face.
 
@@ -31,6 +33,14 @@ Builds are not signed or notarized yet.
 - **macOS:** the installer removes the quarantine flag. If you downloaded the `.dmg` yourself and macOS blocks it, right-click Bouncer and choose Open.
 - **Windows:** SmartScreen may warn on first run. Choose More info, then Run anyway.
 - **Linux:** a `.deb` for Debian and Ubuntu, or an AppImage for everything else.
+
+## Documentation
+
+- [Documentation index](docs/README.md)
+- Getting started (placeholder)
+- Models and the marketplace (placeholder)
+- Bouncer Code and scheduled tasks (placeholder)
+- Rebound bots (placeholder)
 
 ---
 
