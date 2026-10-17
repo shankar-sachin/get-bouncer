@@ -20,10 +20,10 @@ Resolve the release and print what would happen. Nothing is downloaded or run.
 Run the installer with /S (no wizard). Without it, the normal installer wizard opens.
 
 .EXAMPLE
-irm https://getbouncer.pages.dev/install.ps1 | iex
+irm https://raw.githubusercontent.com/shankar-sachin/get-bouncer/main/install.ps1 | iex
 
 .EXAMPLE
-& ([scriptblock]::Create((irm https://getbouncer.pages.dev/install.ps1))) -DryRun
+& ([scriptblock]::Create((irm https://raw.githubusercontent.com/shankar-sachin/get-bouncer/main/install.ps1))) -DryRun
 
 .EXAMPLE
 powershell -NoProfile -ExecutionPolicy Bypass -File install.ps1 -Version v0.3.0 -Silent
@@ -126,9 +126,10 @@ if ($Version) {
     $Release = Get-Api "releases/tags/$Tag"
 }
 else {
-    $list = @(Get-Api 'releases?per_page=1')
+    # An empty JSON array can come back as a single $null, so drop nulls before counting.
+    $list = @(Get-Api 'releases?per_page=1' | Where-Object { $_ -and $_.tag_name })
     if ($list.Count -eq 0) {
-        throw "no releases found in $Repo"
+        throw "Bouncer has no published release yet. Watch https://github.com/$Repo/releases for the first one."
     }
     $Release = $list[0]
     $Tag = $Release.tag_name

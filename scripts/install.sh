@@ -2,8 +2,8 @@
 # Bouncer installer for macOS and Linux. POSIX sh: works with sh, bash, zsh and dash.
 #
 # Releases are public in github.com/shankar-sachin/get-bouncer (the source stays private):
-#   curl -fsSL https://getbouncer.pages.dev/install.sh | sh
-#   curl -fsSL https://getbouncer.pages.dev/install.sh | sh -s -- --dry-run
+#   curl -fsSL https://raw.githubusercontent.com/shankar-sachin/get-bouncer/main/install.sh | sh
+#   curl -fsSL https://raw.githubusercontent.com/shankar-sachin/get-bouncer/main/install.sh | sh -s -- --dry-run
 # or run a local copy: sh install.sh [--dry-run] [--version v0.3.0]
 #
 # No login needed. GH_TOKEN or GITHUB_TOKEN, when set, is sent to avoid GitHub's API rate limit.
@@ -32,7 +32,7 @@ usage() {
 Usage: install.sh [options]
 
 Installs the latest Bouncer release (prereleases included) or a given version from the
-public releases at shankar-sachin/get-bouncer.
+private repository shankar-sachin/bouncer.
 
   macOS   Downloads the .zip for this Mac's architecture and installs Bouncer.app into
           /Applications (or ~/Applications with --user), then removes the quarantine flag.
@@ -50,7 +50,7 @@ Options:
 No login needed: releases are public. GH_TOKEN or GITHUB_TOKEN, when set, raises the API rate limit.
 
 Piped usage passes options after -s --:
-  curl -fsSL https://getbouncer.pages.dev/install.sh | sh -s -- --dry-run
+  curl -fsSL https://raw.githubusercontent.com/shankar-sachin/get-bouncer/main/install.sh | sh -s -- --dry-run
 EOF
 }
 
@@ -128,7 +128,7 @@ resolve_release() {
   else
     api_get "releases?per_page=1" >"$TMP/release.json"
     TAG=$(grep -o '"tag_name": *"[^"]*"' "$TMP/release.json" | head -n 1 | sed 's/.*"\([^"]*\)"$/\1/')
-    [ -n "$TAG" ] || die "no releases found in $REPO"
+    [ -n "$TAG" ] || die "Bouncer has no published release yet. Watch https://github.com/$REPO/releases for the first one."
   fi
   VER="${TAG#v}"
 
