@@ -2,7 +2,7 @@
 
 Bouncer runs open models in the GGUF format. The Marketplace finds them on Hugging Face, downloads them into your library, and loads them for chat and coding. This page covers each part of that flow.
 
-<picture><source media="(prefers-color-scheme: dark)" srcset="images/model-detail-obsidian.png"><source media="(prefers-color-scheme: light)" srcset="images/model-detail-light.png"><img src="images/model-detail-light.png" alt="A model page in the Marketplace, with its quantizations and fit for this machine" /></picture>
+<picture><source media="(prefers-color-scheme: dark)" srcset="images/model-detail-obsidian.png"><source media="(prefers-color-scheme: light)" srcset="images/model-detail-light.png"><img src="images/model-detail-light.png" alt="A model page in the Marketplace, with its quant picker and model card" /></picture>
 
 ## Find a model
 
