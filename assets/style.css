@@ -367,6 +367,7 @@ section {
 
 .hero-grid {
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   gap: 40px;
   justify-items: center;
   text-align: center;
