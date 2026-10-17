@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="assets/brand/orb-ball.png" alt="" width="72" />
+<img src="site/assets/brand/orb-ball.png" alt="" width="72" />
 
 # Bouncer privacy policy
 

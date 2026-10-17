@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/brand/orb.png" width="160" alt="Bouncer orb logo" />
+  <img src="site/assets/brand/orb.png" width="160" alt="Bouncer orb logo" />
 </p>
 
 # Bouncer
@@ -7,7 +7,7 @@
 Bouncer is a local-first AI app for macOS, Windows and Linux. It runs open models on your own computer for chat, for coding in your folders, and for your own bots in Rebound. Models come from Hugging Face and run with llama.cpp.
 
 <p align="center">
-  <img src="assets/screens/hero-obsidian.jpg" width="800" alt="Bouncer Chat with a reply from a local model" />
+  <img src="site/assets/screens/hero-obsidian.jpg" width="800" alt="Bouncer Chat with a reply from a local model" />
 </p>
 
 This repository hosts the installers, the install scripts, the documentation and the website at https://getbouncer.pages.dev. Bouncer itself is closed source.
@@ -69,6 +69,21 @@ Bouncer is local-first. Your chats, models, and files stay on your computer, and
 - **DuckDuckGo:** web search, only when you turn it on for a chat. It is off by default.
 
 Bouncer has no analytics or telemetry. See the [privacy policy](PRIVACY.md) and [docs/privacy.md](docs/privacy.md) for the full list.
+
+## What's in this repository
+
+Bouncer's source code is private. This repository holds everything public around it:
+
+| Folder | What it holds |
+| --- | --- |
+| [`docs/`](docs) | The user guide, also shown on [getbouncer.pages.dev/docs](https://getbouncer.pages.dev/docs) and the wiki |
+| [`scripts/`](scripts) | The installers (`install.sh`, `install.ps1`) and the website build |
+| [`site/`](site) | The website at [getbouncer.pages.dev](https://getbouncer.pages.dev) |
+| [`examples/`](examples) | An example `BOUNCER.md` and Rebound bot ideas |
+| [`plugins/`](plugins) | Official plugins and the plugin guide, once plugins ship |
+| [`.github/`](.github) | Issue templates and the wiki sync |
+
+Installers for each version are attached to [Releases](https://github.com/shankar-sachin/get-bouncer/releases). Changes are in [CHANGELOG.md](CHANGELOG.md).
 
 ## License
 
