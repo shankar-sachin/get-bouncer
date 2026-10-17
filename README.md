@@ -68,11 +68,11 @@ Bouncer is local-first. Your chats, models, and files stay on your computer, and
 - **GitHub:** llama.cpp releases when you install or update the engine, and a check for the latest Bouncer release.
 - **DuckDuckGo:** web search, only when you turn it on for a chat. It is off by default.
 
-Bouncer has no analytics or telemetry. See [docs/privacy.md](docs/privacy.md) for the full list.
+Bouncer has no analytics or telemetry. See the [privacy policy](PRIVACY.md) and [docs/privacy.md](docs/privacy.md) for the full list.
 
 ## License
 
-Bouncer is proprietary software. The installers published here may be downloaded and used free of charge. The source code is not published. See [LICENSE.md](LICENSE.md).
+Bouncer is free to download and use, and its source code is private. See the [license](LICENSE.md) for the terms.
 
 ---
 
