@@ -7,13 +7,13 @@ Bouncer installs in one command on macOS, Linux and Windows, or from an installe
 **macOS and Linux** (in Terminal):
 
 ```sh
-curl -fsSL https://raw.githubusercontent.com/shankar-sachin/get-bouncer/main/install.sh | sh
+curl -fsSL https://getbouncer.pages.dev/install.sh | sh
 ```
 
 **Windows** (PowerShell 5.1 or 7):
 
 ```powershell
-irm https://raw.githubusercontent.com/shankar-sachin/get-bouncer/main/install.ps1 | iex
+irm https://getbouncer.pages.dev/install.ps1 | iex
 ```
 
 When the script finishes, open Bouncer from your Applications folder, your application menu or the Start menu.
@@ -25,7 +25,7 @@ When the script finishes, open Bouncer from your Applications folder, your appli
 Pass options after `-s --` when you pipe the script to `sh`:
 
 ```sh
-curl -fsSL https://raw.githubusercontent.com/shankar-sachin/get-bouncer/main/install.sh | sh -s -- --dry-run
+curl -fsSL https://getbouncer.pages.dev/install.sh | sh -s -- --dry-run
 ```
 
 | Option | What it does |
@@ -47,7 +47,7 @@ What the script does on each system:
 Run these in PowerShell. To see what the script would do without changing anything, run it with `-DryRun`:
 
 ```powershell
-& ([scriptblock]::Create((irm https://raw.githubusercontent.com/shankar-sachin/get-bouncer/main/install.ps1))) -DryRun
+& ([scriptblock]::Create((irm https://getbouncer.pages.dev/install.ps1))) -DryRun
 ```
 
 | Option | What it does |

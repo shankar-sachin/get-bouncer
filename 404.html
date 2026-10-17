@@ -3,18 +3,13 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <base href="/" />
   <title>Bouncer</title>
   <meta name="description" content="This page is not here. Bouncer is at the front door." />
   <meta name="robots" content="noindex" />
   <meta name="theme-color" content="#000000" />
-  <link rel="icon" href="logo.svg" type="image/svg+xml" />
-  <!-- Works on GitHub Pages project paths and on a root domain: point relative links at the site root. -->
-  <script>
-    (function () {
-      var root = location.pathname.indexOf('/get-bouncer/') === 0 ? '/get-bouncer/' : '/';
-      document.write('<base href="' + root + '" />');
-    })();
-  </script>
+  <link rel="icon" href="assets/brand/favicon-32.png" type="image/png" sizes="32x32" />
+  <link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png" />
   <script>
     (function () {
       try {
@@ -33,7 +28,7 @@
   <header class="site-header">
     <div class="wrap header-inner">
       <a class="brand" href="index.html">
-        <img src="logo.svg" width="28" height="28" alt="" />
+        <img src="assets/brand/orb-ball.png" width="28" height="28" alt="" />
         <span>Bouncer</span>
       </a>
       <nav class="site-nav" aria-label="main">

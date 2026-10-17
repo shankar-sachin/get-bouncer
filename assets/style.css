@@ -408,6 +408,13 @@ section {
   font-size: 1.125rem;
 }
 
+.hero-orb {
+  display: block;
+  width: 132px;
+  height: auto;
+  margin: 0 auto 22px;
+}
+
 .hero-actions {
   display: flex;
   flex-direction: column;

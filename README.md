@@ -13,13 +13,13 @@ This repository only hosts the installers. Bouncer itself is closed source.
 **macOS and Linux**
 
 ```sh
-curl -fsSL https://raw.githubusercontent.com/shankar-sachin/get-bouncer/main/install.sh | sh
+curl -fsSL https://getbouncer.pages.dev/install.sh | sh
 ```
 
 **Windows** (PowerShell 5.1 or 7)
 
 ```powershell
-irm https://raw.githubusercontent.com/shankar-sachin/get-bouncer/main/install.ps1 | iex
+irm https://getbouncer.pages.dev/install.ps1 | iex
 ```
 
 The installers pick the newest release (all current releases are prereleases) and verify its `SHA256SUMS`. Add `--dry-run` (`| sh -s -- --dry-run`) or `-DryRun` to see what would happen first, or choose a version with `--version v0.4.4` / `-Version v0.4.4`. You can also download an installer directly from [Releases](https://github.com/shankar-sachin/get-bouncer/releases).
