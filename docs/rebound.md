@@ -6,10 +6,11 @@ Rebound is where you make and chat with bots. A bot is a named persona with its 
 
 ## The starter bots
 
-Bouncer comes with four bots:
+Bouncer comes with five bots:
 
 | Bot | Tagline |
 | --- | --- |
+| Rebound | A plain, helpful assistant. Clear answers, no persona. |
 | Pip | Curious and upbeat. Explains things simply. |
 | Juno | Witty, a little sarcastic, straight answers. |
 | Sage | Calm and thoughtful. Good for thinking things through. |
