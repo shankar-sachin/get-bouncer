@@ -44,7 +44,7 @@ The **Hugging Face** section shows whether you are signed in. Sign in with an ac
 
 The **Hardware** section shows what Bouncer found on your machine, and how the models use it.
 
-![The Hardware section of Settings, showing detected CPU, memory, GPUs, and the resource monitor](images/settings-hardware.png)
+<picture><source media="(prefers-color-scheme: dark)" srcset="images/settings-hardware-obsidian.png"><source media="(prefers-color-scheme: light)" srcset="images/settings-hardware-light.png"><img src="images/settings-hardware-light.png" alt="The Hardware section of Settings, showing detected CPU, memory, GPUs, and the resource monitor" /></picture>
 
 - **CPU** shows the processor type and its features. **Recommended backend** shows which engine backend suits this machine.
 - **Memory capacity** shows your total RAM, or unified memory on Apple silicon.

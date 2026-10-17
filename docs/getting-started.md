@@ -2,7 +2,7 @@
 
 This guide takes you from a fresh install to your first chat with a model running on your own computer. It takes about ten minutes, plus the time it takes to download a model.
 
-![Bouncer Chat with a reply from a local model, in the obsidian theme](images/hero-obsidian.png)
+<picture><source media="(prefers-color-scheme: dark)" srcset="images/hero-obsidian.png"><source media="(prefers-color-scheme: light)" srcset="images/hero-light.png"><img src="images/hero-light.png" alt="Bouncer Chat with a finished reply: a code block, and the Bouncer orb under the reply" /></picture>
 
 ## 1. Install Bouncer
 
@@ -15,13 +15,15 @@ Builds are not signed yet. The first launch may show a warning from macOS or Win
 When Bouncer opens for the first time, a short onboarding dialog walks you through four steps:
 
 1. **Welcome.** A summary of what Bouncer does: chat and code with models that run on this computer.
-2. **Pick your look.** Choose a theme: **System**, **Graphite** (soft dark gray), **Obsidian** (pitch black) or **Light**. You can change this later in Settings.
+2. **Customize your experience.** Pick a theme from three cards: **Graphite** (soft dark gray), **Light** (paper) or **Obsidian** (pitch black). Each card previews its theme, and the choice applies at once. You can change it later in Settings.
 3. **Three ways to work.** An overview of **Bouncer Chat**, **Bouncer Code** and **Bouncer Studio**, which is coming later.
 4. **Bring a model.** A note that Bouncer checks what fits your machine before anything downloads. Use **Browse models** to go to the Marketplace now, or **Later** to finish.
 
-![The onboarding dialog on the welcome step](images/onboarding.png)
+<picture><source media="(prefers-color-scheme: dark)" srcset="images/onboarding-obsidian.png"><source media="(prefers-color-scheme: light)" srcset="images/onboarding-light.png"><img src="images/onboarding-light.png" alt="The onboarding dialog on the welcome step" /></picture>
 
 Press **Skip** at any time to close onboarding. You can open it again from Settings with **Replay onboarding**.
+
+If you finished setting up Bouncer before the theme step existed, the same choice appears once, in a dialog, the next time you open it. Picking a theme or closing the dialog keeps it from coming back.
 
 ## 3. Install the engine
 

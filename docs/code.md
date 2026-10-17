@@ -2,7 +2,7 @@
 
 Bouncer Code works inside a folder on your machine. You describe a change, and a model that runs locally reads the code, proposes edits, runs commands and summarizes what it did. You decide how much it may do on its own with the mode.
 
-![Bouncer Code with a finished session: the transcript, the diff of greet.txt, and the changed files list](images/code-light.png)
+<picture><source media="(prefers-color-scheme: dark)" srcset="images/code-obsidian.png"><source media="(prefers-color-scheme: light)" srcset="images/code-light.png"><img src="images/code-light.png" alt="Bouncer Code with a finished session: the transcript, the diff of greet.txt, and the changed files list" /></picture>
 
 ## Before you start
 
@@ -27,7 +27,7 @@ A session is one conversation in a folder: your requests, the replies, the tool 
 
 The same sessions also appear in the Bouncer Code panel of the [IDE](ide.md), so you can start a change in either place.
 
-![The IDE with a finished session in the Bouncer Code panel on the right, and the changed file open in the editor](images/ide-session-light.png)
+<picture><source media="(prefers-color-scheme: dark)" srcset="images/ide-session-obsidian.png"><source media="(prefers-color-scheme: light)" srcset="images/ide-session-light.png"><img src="images/ide-session-light.png" alt="The IDE with a finished session in the Bouncer Code panel on the right, and the changed file open in the editor" /></picture>
 
 ## Modes
 

@@ -2,7 +2,7 @@
 
 A scheduled task is a prompt that Bouncer Code runs in a folder, either when you ask or on a timetable. Each run lands in an inbox, where you review its changes and then merge or discard them. Nothing a scheduled run does reaches your folder until you merge it.
 
-![The Scheduled view in Bouncer Code: the task list, the inbox with a run to review, and its changes](images/code-scheduled-obsidian.png)
+<picture><source media="(prefers-color-scheme: dark)" srcset="images/code-scheduled-obsidian.png"><source media="(prefers-color-scheme: light)" srcset="images/code-scheduled-light.png"><img src="images/code-scheduled-light.png" alt="The Scheduled view in Bouncer Code: the task list, the inbox with a run to review, and its changes" /></picture>
 
 ## Open the Scheduled view
 

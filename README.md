@@ -7,7 +7,7 @@
 Bouncer is a local-first AI app for macOS, Windows and Linux. It runs open models on your own computer for chat, for coding in your folders, and for your own bots in Rebound. Models come from Hugging Face and run with llama.cpp.
 
 <p align="center">
-  <img src="site/assets/screens/hero-obsidian.jpg" width="800" alt="Bouncer Chat with a reply from a local model" />
+  <picture><source media="(prefers-color-scheme: dark)" srcset="site/assets/screens/hero-obsidian.jpg"><source media="(prefers-color-scheme: light)" srcset="site/assets/screens/hero-light.jpg"><img src="site/assets/screens/hero-light.jpg" width="800" alt="Bouncer Chat with a finished reply: a code block, and the Bouncer orb under the reply" /></picture>
 </p>
 
 This repository hosts the installers, the install scripts, the documentation and the website at https://getbouncer.pages.dev. Bouncer itself is closed source.
@@ -32,11 +32,12 @@ To download an installer yourself, see the [releases page](https://github.com/sh
 
 ## What is in the app
 
-- **Bouncer Chat**: talk with a model you have loaded, with effort levels, presets and slash commands.
+- **Bouncer Chat**: talk with a model you have loaded, with serif replies, the orb under each finished reply, effort levels, presets and slash commands.
 - **Bouncer Code**: describe a change in a folder. The model reads, edits and runs commands, and each edit waits for your approval, depending on the mode you choose.
 - **Bouncer IDE**: a file tree, editor tabs, a terminal, search and git in one window.
-- **Rebound**: make your own bots, each with a name, a personality, a face and its own chats.
+- **Rebound**: five starter bots, Rebound first, and your own bots, each with a name, a personality, a face and its own chats.
 - **Marketplace**: find GGUF models from Hugging Face, with an estimate of whether each one fits your machine.
+- **Bouncer Studio**: docs, decks, grids and designs. Coming later.
 
 ## Unsigned builds
 

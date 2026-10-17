@@ -2,7 +2,7 @@
 
 Rebound is where you make and chat with bots. A bot is a named persona with its own face, personality, greeting, and preferred model, and it runs on the models you have on your computer.
 
-![The Rebound tab with the starter bots](images/rebound-light.png)
+<picture><source media="(prefers-color-scheme: dark)" srcset="images/rebound-obsidian.png"><source media="(prefers-color-scheme: light)" srcset="images/rebound-light.png"><img src="images/rebound-light.png" alt="The Rebound tab with the starter bots" /></picture>
 
 ## The starter bots
 
@@ -20,7 +20,7 @@ Bouncer comes with five bots:
 
 Click **New bot** at the top of Rebound, or **Make a bot** in the last tile. The dialog has a face on the left and the personality on the right.
 
-![The bot builder with a face preview and personality fields](images/rebound-builder-obsidian.png)
+<picture><source media="(prefers-color-scheme: dark)" srcset="images/rebound-builder-obsidian.png"><source media="(prefers-color-scheme: light)" srcset="images/rebound-builder-light.png"><img src="images/rebound-builder-light.png" alt="The bot builder with a face preview and personality fields" /></picture>
 
 ### Face
 
@@ -31,7 +31,7 @@ Pick a face from the controls under the preview:
 - **shuffle shape**: keeps the color and eyes and changes the shape.
 - **surprise me**: picks a new random face.
 
-![Avatar options with color and eye styles](images/bot-avatars-light.png)
+<picture><source media="(prefers-color-scheme: dark)" srcset="images/bot-avatars-obsidian.png"><source media="(prefers-color-scheme: light)" srcset="images/bot-avatars-light.png"><img src="images/bot-avatars-light.png" alt="Avatar options with color and eye styles" /></picture>
 
 ### Name, tagline, and personality
 

@@ -2,7 +2,7 @@
 
 Bouncer IDE is an editor for a folder, with Bouncer Code docked on the right. Open a folder, edit its files, search, run commands in a terminal, and commit with source control. The Bouncer Code panel uses the same sessions as [Bouncer Code](code.md) for that folder.
 
-![The IDE with the editor, a terminal and the Bouncer Code panel on the right, after a session has changed a file](images/ide-obsidian.png)
+<picture><source media="(prefers-color-scheme: dark)" srcset="images/ide-obsidian.png"><source media="(prefers-color-scheme: light)" srcset="images/ide-light.png"><img src="images/ide-light.png" alt="The IDE with the explorer, an open file, a terminal and the Bouncer Code panel on the right, after a session has changed a file" /></picture>
 
 ## Open a folder
 
@@ -94,7 +94,7 @@ The editor follows the app's theme and accent color. Its defaults are a 13 px fo
 
 The panel on the right is Bouncer Code for the open folder. It works the same way as [Bouncer Code](code.md).
 
-![The Bouncer Code panel after a finished session: the changed file is listed, the transcript shows the edit and the command, and the editor shows the new content](images/ide-session-light.png)
+<picture><source media="(prefers-color-scheme: dark)" srcset="images/ide-session-obsidian.png"><source media="(prefers-color-scheme: light)" srcset="images/ide-session-light.png"><img src="images/ide-session-light.png" alt="The Bouncer Code panel after a finished session: the changed file is listed, the transcript shows the edit and the command, and the editor shows the new content" /></picture>
 
 - **The session title** at the top is a menu. Use it to start a **New session** or switch to another session in this folder. A session that is working says so.
 - **Open in Bouncer Code** (the arrow icon) opens the same session in the Code view.

@@ -288,6 +288,13 @@
       img.setAttribute('loading', 'lazy');
       img.setAttribute('decoding', 'async');
     });
+    // Light and obsidian screenshots are <picture> sources (see the README pattern in the docs).
+    var sources = article.querySelectorAll('source[srcset]');
+    Array.prototype.forEach.call(sources, function (source) {
+      var srcset = source.getAttribute('srcset');
+      if (/^(https?:|data:|\/)/i.test(srcset)) return;
+      source.setAttribute('srcset', 'docs/' + srcset.replace(/^\.\//, ''));
+    });
   }
 
   function addHeadingIds(article) {

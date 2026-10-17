@@ -227,14 +227,30 @@
     btn.setAttribute('title', 'switch to ' + next + ' theme');
   }
 
+  /* Screenshots come in a light and an obsidian version. Without a stored choice the browser picks by the
+     system preference (<picture> media queries). A manual choice overrides that: the matching source is
+     enabled and the other one is switched off, so the image follows the toggle. */
+  function applyScreens(theme) {
+    var pictures = document.querySelectorAll('picture');
+    for (var i = 0; i < pictures.length; i++) {
+      var dark = pictures[i].querySelector('source[data-scheme="dark"]');
+      var light = pictures[i].querySelector('source[data-scheme="light"]');
+      if (!dark || !light) continue;
+      dark.setAttribute('media', theme === 'dark' ? 'all' : 'not all');
+      light.setAttribute('media', theme === 'light' ? 'all' : 'not all');
+    }
+  }
+
   function setupTheme() {
     var btn = $('#theme-toggle');
     if (!btn) return;
     labelToggle(btn, currentTheme());
+    if (document.documentElement.getAttribute('data-theme')) applyScreens(currentTheme());
     btn.addEventListener('click', function () {
       var next = currentTheme() === 'light' ? 'dark' : 'light';
       document.documentElement.setAttribute('data-theme', next);
       labelToggle(btn, next);
+      applyScreens(next);
       try {
         localStorage.setItem(THEME_KEY, next);
       } catch (e) {

@@ -2,7 +2,7 @@
 
 Chat is where you talk with the model you have loaded, entirely on your computer. This page covers the conversation list, the composer, and the controls that shape each reply.
 
-![Bouncer Chat with a reply from a local model, in the obsidian theme](images/hero-obsidian.png)
+<picture><source media="(prefers-color-scheme: dark)" srcset="images/hero-obsidian.png"><source media="(prefers-color-scheme: light)" srcset="images/hero-light.png"><img src="images/hero-light.png" alt="Bouncer Chat with a finished reply: a code block, and the Bouncer orb under the reply" /></picture>
 
 ## Start a conversation
 
