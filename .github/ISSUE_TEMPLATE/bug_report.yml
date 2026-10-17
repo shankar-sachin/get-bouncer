@@ -1,0 +1,79 @@
+name: Bug report
+description: Something in Bouncer does not work the way the docs describe.
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Check [Troubleshooting](https://getbouncer.pages.dev/docs#/troubleshooting) first. Remove private text from logs before you paste them.
+  - type: input
+    id: version
+    attributes:
+      label: Bouncer version
+      description: Shown in Settings → About.
+      placeholder: "0.3.0"
+    validations:
+      required: true
+  - type: input
+    id: os
+    attributes:
+      label: Operating system and version
+      placeholder: "macOS 15 on Apple silicon, Windows 11, Ubuntu 24.04"
+    validations:
+      required: true
+  - type: textarea
+    id: hardware
+    attributes:
+      label: CPU, GPU and RAM
+      description: Settings → Hardware lists them. Click Copy info there and paste it here if you can.
+      placeholder: "Apple M3 Pro, 36 GB unified memory"
+    validations:
+      required: true
+  - type: dropdown
+    id: area
+    attributes:
+      label: Which part of Bouncer
+      options:
+        - Chat
+        - Code
+        - IDE
+        - Rebound
+        - Marketplace
+        - Install and updates
+        - Other
+    validations:
+      required: true
+  - type: input
+    id: model
+    attributes:
+      label: Model name and quantization
+      description: Leave empty if the problem does not involve a model.
+      placeholder: "Qwen 3 8B, Q4_K_M"
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      value: |
+        1.
+        2.
+        3.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Engine logs
+      description: Open them from Settings → Engine → View logs, or from the model pill in the title bar. Paste the lines around the error, and remove any private text first.
+      render: text

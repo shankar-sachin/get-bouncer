@@ -1,5 +1,7 @@
 # Bouncer documentation
 
+These pages are also on the website at https://getbouncer.pages.dev/docs.
+
 Bouncer runs open models on your own computer, so chats and files stay local. These pages cover how to install it, how to use each part, and where to get help.
 
 ## Start

@@ -1,0 +1,57 @@
+name: Model compatibility
+description: A model will not load, or it loads and misbehaves.
+labels: ["model"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this for models that fail or behave badly. For general model questions, see [Models](https://getbouncer.pages.dev/docs#/models).
+  - type: input
+    id: repo
+    attributes:
+      label: Hugging Face repository
+      description: The repository id as it appears in the URL, for example owner/model-name-GGUF.
+      placeholder: "owner/model-name-GGUF"
+    validations:
+      required: true
+  - type: input
+    id: file
+    attributes:
+      label: File name, quantization and size
+      description: The GGUF file you downloaded, and its size as shown in the Marketplace.
+      placeholder: "model-Q4_K_M.gguf, 5.0 GB"
+    validations:
+      required: true
+  - type: dropdown
+    id: problem
+    attributes:
+      label: What happens
+      options:
+        - It will not load
+        - It loads but crashes or stops
+        - The output is garbled or wrong
+        - It is very slow
+        - The fit estimate in the Marketplace is wrong
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: error
+    attributes:
+      label: Error text
+      description: The message from the Load failed dialog. Click the model pill, then View logs, and paste the lines around the error.
+      render: text
+  - type: input
+    id: hardware
+    attributes:
+      label: CPU, GPU, RAM and operating system
+      placeholder: "Windows 11, RTX 4070 with 12 GB VRAM, 32 GB RAM"
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Bouncer version and llama.cpp build
+      description: Bouncer version is in Settings → About. The llama.cpp build is in Settings → Engine.
+    validations:
+      required: true

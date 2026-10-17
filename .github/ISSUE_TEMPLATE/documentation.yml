@@ -1,0 +1,30 @@
+name: Documentation
+description: Something in the docs or the website is wrong, missing or unclear.
+labels: ["documentation"]
+body:
+  - type: input
+    id: page
+    attributes:
+      label: Page
+      description: The docs page or website address, for example https://getbouncer.pages.dev/docs#/install.
+      placeholder: "https://getbouncer.pages.dev/docs#/install"
+    validations:
+      required: true
+  - type: dropdown
+    id: problem
+    attributes:
+      label: What is the problem
+      options:
+        - It is wrong
+        - Something is missing
+        - It is unclear
+        - A link or command is broken
+    validations:
+      required: true
+  - type: textarea
+    id: details
+    attributes:
+      label: Details
+      description: Quote the sentence and say what it should say instead.
+    validations:
+      required: true

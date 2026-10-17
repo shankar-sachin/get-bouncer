@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Documentation
+    url: https://getbouncer.pages.dev/docs
+    about: Install guides, how-tos, troubleshooting and the FAQ.
+  - name: Report a security vulnerability
+    url: https://github.com/shankar-sachin/get-bouncer/security/advisories/new
+    about: Report vulnerabilities privately. Do not open a public issue for them.
