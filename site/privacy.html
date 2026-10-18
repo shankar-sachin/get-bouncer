@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Privacy policy · Bouncer</title>
+  <meta name="description" content="How Bouncer handles your data: what stays on your computer, which services it contacts and when." />
+  <meta name="theme-color" content="#000000" />
+  <link rel="icon" href="assets/brand/favicon-32.png" type="image/png" sizes="32x32" />
+  <link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png" />
+  <link rel="canonical" href="https://getbouncer.pages.dev/privacy.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Bouncer" />
+  <meta property="og:title" content="Privacy policy · Bouncer" />
+  <meta property="og:url" content="https://getbouncer.pages.dev/privacy.html" />
+
+  <!-- Theme before first paint: a stored choice wins, otherwise the system preference decides in CSS. -->
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('bouncer-theme');
+        if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+      } catch (e) {}
+    })();
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400..600&family=Geist+Mono:wght@400..500&display=swap" />
+  <link rel="stylesheet" href="assets/style.css" />
+  <script src="assets/app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="index.html" aria-label="Bouncer home">
+        <img src="assets/brand/orb-ball.png" width="28" height="28" alt="" />
+        <span>Bouncer</span>
+      </a>
+      <nav class="site-nav" aria-label="main">
+        <a href="index.html#features">features</a>
+        <a href="index.html#rebound">rebound</a>
+        <a href="index.html#download">download</a>
+        <a href="index.html#faq">faq</a>
+        <a href="docs.html#/getting-started">docs</a>
+      </nav>
+      <div class="header-tools">
+        <button class="btn btn-quiet btn-icon" type="button" id="theme-toggle" aria-label="switch to light theme">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+            <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z" />
+          </svg>
+        </button>
+        <a class="gh" href="https://github.com/shankar-sachin/get-bouncer" aria-label="Bouncer on GitHub" title="GitHub"><svg viewBox="0 0 16 16" width="20" height="20" aria-hidden="true" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg></a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main" class="wrap legal">
+    <span class="eyebrow">legal</span>
+    <h1>Privacy policy</h1>
+    <p class="legal-meta">Effective 2026-10-18 · Publisher: Sachin Shankar</p>
+
+    <p><strong>Short version:</strong> Bouncer runs on your computer and keeps your data there. It has no accounts, no analytics, no telemetry and no crash reporting. The publisher receives nothing about you or how you use it.</p>
+
+    <h2>What stays on your machine</h2>
+    <p>Your models, your chats in Bouncer Chat, your Rebound bots and their chats, the folders and files you open in Bouncer Code and the IDE, Bouncer Code's checkpoints, and your settings. A chat with a local model is answered by the model on your computer. Your messages are not sent to a server to get a reply.</p>
+
+    <h2>When Bouncer connects to the internet</h2>
+    <p>Bouncer goes online only for the tasks below, and only when you use the feature that needs them.</p>
+    <ul>
+      <li><strong>Marketplace and model downloads (Hugging Face).</strong> Bouncer requests model listings, files and model cards, and the model file you choose to download.</li>
+      <li><strong>Gated models (Hugging Face).</strong> If you saved a Hugging Face token, it is sent only to Hugging Face, and only for these requests.</li>
+      <li><strong>Engine (GitHub).</strong> Installing or updating the llama.cpp engine downloads it from GitHub releases.</li>
+      <li><strong>Updates (GitHub).</strong> Bouncer checks the GitHub releases of <a href="https://github.com/shankar-sachin/get-bouncer">shankar-sachin/get-bouncer</a> for a newer version.</li>
+      <li><strong>Web search and page fetch (off by default).</strong> If you turn these on for a chat, Bouncer sends your search query to DuckDuckGo and requests the pages it reads.</li>
+    </ul>
+    <p>These services receive each request the way a browser would send it, so their own privacy policies apply to what they log: <a href="https://huggingface.co/privacy">Hugging Face</a>, <a href="https://docs.github.com/site-policy/privacy-policies/github-general-privacy-statement">GitHub</a> and <a href="https://duckduckgo.com/privacy">DuckDuckGo</a>. Bouncer adds no identifiers of its own.</p>
+    <p>This website is hosted on <a href="https://www.cloudflare.com/privacypolicy/">Cloudflare Pages</a>, which is governed by its own privacy policy. The pages of this site load no analytics or tracking scripts.</p>
+
+    <h2>Your Hugging Face token</h2>
+    <p>If you save a Hugging Face token, Bouncer stores it on your device, encrypted with a key your operating system protects (the Keychain on macOS, DPAPI on Windows, the secret service on Linux). It is sent only to Hugging Face. To remove it, go to Settings, then Hugging Face, and choose Sign out.</p>
+
+    <h2>Deleting your data</h2>
+    <p>Uninstalling Bouncer and deleting its data folder removes everything it stored. The <a href="docs.html#/faq">FAQ</a> says where that folder is on each system.</p>
+
+    <h2>Changes</h2>
+    <p>If this policy changes, the new version is published in the <a href="https://github.com/shankar-sachin/get-bouncer">get-bouncer repository</a> and noted in its <a href="https://github.com/shankar-sachin/get-bouncer/blob/main/CHANGELOG.md">changelog</a>. The effective date at the top shows the latest version.</p>
+
+    <h2>Contact</h2>
+    <p>Questions about privacy go to <a href="https://github.com/shankar-sachin/get-bouncer/issues">GitHub issues</a>. The full technical details are in <a href="https://github.com/shankar-sachin/get-bouncer/blob/main/docs/privacy.md">docs/privacy.md</a>.</p>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>© Sachin Shankar. All rights reserved.</p>
+      <nav aria-label="footer">
+        <a href="https://github.com/shankar-sachin/get-bouncer/releases">Releases</a>
+        <a href="https://github.com/shankar-sachin/get-bouncer/blob/main/install.sh">Install scripts</a>
+        <a href="terms.html">Terms</a>
+        <a href="privacy.html">Privacy</a>
+      </nav>
+    </div>
+  </footer>
+</body>
+</html>

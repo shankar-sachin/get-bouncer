@@ -954,3 +954,34 @@ section {
     transition: none !important;
   }
 }
+
+/* Legal pages: terms and privacy */
+
+.legal {
+  max-width: 720px;
+  padding-top: 56px;
+  padding-bottom: 72px;
+}
+
+.legal h1 {
+  margin-bottom: 8px;
+}
+
+.legal-meta {
+  color: var(--text-3);
+  font-size: 0.875rem;
+  margin-bottom: 32px;
+}
+
+.legal h2 {
+  margin-top: 40px;
+}
+
+.legal ul {
+  margin: 0 0 16px;
+  padding-left: 20px;
+}
+
+.legal li + li {
+  margin-top: 8px;
+}

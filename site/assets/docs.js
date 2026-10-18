@@ -129,6 +129,24 @@
     btn.setAttribute('title', 'switch to ' + next + ' theme');
   }
 
+  /* Light and obsidian screenshots are <picture> sources. Without a stored choice the browser picks by the
+     system preference; a manual choice switches the matching source on and the other one off. Same logic
+     as the landing page (app.js). Sources need data-scheme, which rewriteImages sets from the media query. */
+  function applyScreens(theme) {
+    var pictures = document.querySelectorAll('#docs-article picture');
+    Array.prototype.forEach.call(pictures, function (picture) {
+      var dark = picture.querySelector('source[data-scheme="dark"]');
+      var light = picture.querySelector('source[data-scheme="light"]');
+      if (!dark || !light) return;
+      dark.setAttribute('media', theme === 'dark' ? 'all' : 'not all');
+      light.setAttribute('media', theme === 'light' ? 'all' : 'not all');
+    });
+  }
+
+  function syncScreens() {
+    if (document.documentElement.getAttribute('data-theme')) applyScreens(currentTheme());
+  }
+
   function setupTheme() {
     var btn = $('theme-toggle');
     if (!btn) return;
@@ -137,6 +155,7 @@
       var next = currentTheme() === 'light' ? 'dark' : 'light';
       document.documentElement.setAttribute('data-theme', next);
       labelToggle(btn, next);
+      applyScreens(next);
       try {
         localStorage.setItem(THEME_KEY, next);
       } catch (e) {
@@ -294,6 +313,9 @@
       var srcset = source.getAttribute('srcset');
       if (/^(https?:|data:|\/)/i.test(srcset)) return;
       source.setAttribute('srcset', 'docs/' + srcset.replace(/^\.\//, ''));
+      var media = source.getAttribute('media') || '';
+      if (/dark/.test(media)) source.setAttribute('data-scheme', 'dark');
+      else if (/light/.test(media)) source.setAttribute('data-scheme', 'light');
     });
   }
 
@@ -419,6 +441,7 @@
     addHeadingIds(article);
     rewriteLinks(article, slug);
     rewriteImages(article);
+    syncScreens();
     wrapTablesAndCode(article);
     buildToc(article);
     setPager(slug);
