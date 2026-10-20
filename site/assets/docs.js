@@ -47,6 +47,7 @@
       pages: [
         ['troubleshooting', 'Troubleshooting'],
         ['faq', 'FAQ'],
+        ['other-providers', 'Models from other apps'],
       ],
     },
     {
