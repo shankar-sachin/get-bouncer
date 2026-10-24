@@ -30,6 +30,7 @@
         ['scheduled-tasks', 'Scheduled tasks'],
         ['ide', 'IDE'],
         ['models', 'Models'],
+        ['providers', 'Cloud providers'],
       ],
     },
     {

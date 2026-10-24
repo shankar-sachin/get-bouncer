@@ -93,7 +93,7 @@ Reasoning models show their thinking in a block above the reply. It reads **Thin
 
 ### Speed and token counts
 
-Each reply shows its statistics under it: the tokens per second, the number of tokens, and the time to first token. The status bar also shows the latest tokens per second while you are in Chat.
+Each reply shows its statistics under it: the tokens per second, the number of tokens, and the time to first token. A reply from an OpenRouter model also shows what it cost, for example `$0.0012`. The status bar also shows the latest tokens per second while you are in Chat.
 
 A reply that stops at the length limit is marked **reached the token limit**.
 

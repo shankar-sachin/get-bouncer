@@ -1,8 +1,8 @@
 # Settings
 
-Settings control how Bouncer looks and behaves, which engine it uses, how it connects to Hugging Face, and how it treats your hardware. Open it from the app, and pick a section from the list on the left.
+Settings control how Bouncer looks and behaves, which engine it uses, how it connects to Hugging Face and cloud providers, and how it treats your hardware. Open it from the app, and pick a section from the list on the left.
 
-The sections are **Appearance**, **Experience**, **Engine**, **Hugging Face**, **Hardware**, and **About**.
+The sections are **Appearance**, **Experience**, **Engine**, **Hugging Face**, **Cloud providers**, **Hardware**, and **About**.
 
 ## Appearance
 
@@ -39,6 +39,10 @@ The **Engine** section manages llama.cpp, the program that runs your models. It 
 ## Hugging Face
 
 The **Hugging Face** section shows whether you are signed in. Sign in with an access token if you want to download gated models. The token is stored encrypted in your operating system's keychain, and Bouncer sends it only to Hugging Face. Public models never need it. See [models](models.md#gated-models-and-hugging-face-sign-in) for the steps.
+
+## Cloud providers
+
+The **Cloud providers** section has a card for Anthropic, OpenAI and OpenRouter. Each is off until you turn it on and save an API key. **Test** checks the key by listing the provider's models, and **Remove key** deletes it. Keys are encrypted with your operating system's keychain and sent only to their own provider. See [cloud providers](providers.md).
 
 ## Hardware
 

@@ -19,6 +19,7 @@ Bouncer runs open models on your own computer, so chats and files stay local. Th
 - [Scheduled tasks](scheduled-tasks.md): run a prompt in a folder later, and review its changes.
 - [IDE](ide.md): edit a folder in an editor, with Bouncer Code docked beside it.
 - [Models](models.md): find, download, load and tune models.
+- [Cloud providers](providers.md): use Anthropic, OpenAI or OpenRouter models next to local ones.
 
 ## Reference
 
