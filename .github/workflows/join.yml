@@ -1,0 +1,23 @@
+name: join v0.8.0 assets
+on:
+  push:
+    branches: [rel-v0.8.0-assets]
+permissions:
+  contents: write
+jobs:
+  join:
+    runs-on: ubuntu-latest
+    if: hashFiles('.github/workflows/join.yml') != ''
+    steps:
+      - uses: actions/checkout@v4
+      - name: Join, check and upload
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          cd parts
+          for f in Bouncer-0.8.0-arm64-mac.zip Bouncer-0.8.0-arm64.dmg Bouncer-0.8.0-mac.zip Bouncer-0.8.0.dmg Bouncer-Setup-0.8.0.exe; do
+            cat "$f".part-* > "$f"
+            grep "  $f\$" SHA256SUMS | sha256sum -c -
+          done
+          gh release upload v0.8.0 -R "$GITHUB_REPOSITORY" --clobber Bouncer-0.8.0-arm64-mac.zip Bouncer-0.8.0-arm64.dmg Bouncer-0.8.0-mac.zip Bouncer-0.8.0.dmg Bouncer-Setup-0.8.0.exe
