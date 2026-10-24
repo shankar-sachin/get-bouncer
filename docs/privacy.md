@@ -12,7 +12,7 @@ These are stored locally and are never uploaded by Bouncer:
 - **Checkpoints**: snapshots Bouncer Code takes before each turn, so you can rewind its changes. They are stored in Bouncer's data folder, not in your project.
 - **Settings**: your preferences, and presets.
 
-A chat with a local model is processed by the model on your computer. Bouncer does not send your messages to a server to get a reply.
+A chat with a local model is processed by the model on your computer. Bouncer does not send your messages to a server to get a reply. The one exception is a cloud model you choose yourself (see below).
 
 ## What connects to the internet, and when
 
@@ -24,12 +24,17 @@ A chat with a local model is processed by the model on your computer. Bouncer do
 | Installing or updating the engine | A request to the GitHub API for llama.cpp releases, then the engine download. | Only when you install the engine, or click **Check for updates** or **Update to** in **Settings > Engine**. |
 | Checking for Bouncer updates | A request to github.com/shankar-sachin/get-bouncer for the latest release. | When Bouncer checks for updates. |
 | Web search in chat | Your search query, sent to DuckDuckGo. When a page is opened, Bouncer fetches that page. | Only when you turn on **Web search** for a chat. It is off by default. |
+| Using a cloud model | Your messages, attachments and, in Bouncer Code, the files and command output the agent works with, sent to the provider whose model you picked (Anthropic, OpenAI or OpenRouter), with your API key. | Only after you turn the provider on in **Settings > Cloud providers**, save a key and pick one of its models. All providers are off by default. |
 
-Hugging Face, GitHub, and DuckDuckGo receive these requests the same way they receive any request from a browser or downloader, so their own privacy policies apply to what they log.
+Hugging Face, GitHub, DuckDuckGo and the cloud providers receive these requests the same way they receive any request from a browser or downloader, so their own privacy policies apply to what they log.
 
 ## Your Hugging Face token
 
 If you sign in to Hugging Face, Bouncer stores your access token encrypted in your operating system's keychain. It sends the token only to Hugging Face. The token is never written to a `.bcn`, `.bml`, or `.bproj` file, so you can share those files safely. To remove the token, open **Settings > Hugging Face** and click **Sign out**.
+
+## Your cloud provider keys
+
+API keys for cloud providers are kept the same way as the Hugging Face token: encrypted with your operating system's keychain, sent only to their own provider, and never written to Bouncer's files. **Remove key** in **Settings > Cloud providers** deletes one. See [cloud providers](providers.md).
 
 ## What Bouncer Code can access
 
@@ -47,6 +52,7 @@ Choose **manual** or **plan** for folders with sensitive files.
 ## Related
 
 - [Models](models.md): downloading models and signing in to Hugging Face.
-- [Settings](settings.md): the Hugging Face section and About.
+- [Settings](settings.md): the Hugging Face and Cloud providers sections, and About.
+- [Cloud providers](providers.md): what is sent when you use a cloud model.
 - [File formats](file-formats.md): what is and is not stored in Bouncer's files.
 - [Updates](updates.md): how Bouncer gets new versions.

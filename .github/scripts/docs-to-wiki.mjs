@@ -21,7 +21,7 @@ const MARKER = '<!-- generated from '
 
 const SECTIONS = [
   { title: 'Start', pages: ['getting-started', 'install', 'updates', 'system-requirements'] },
-  { title: 'Use Bouncer', pages: ['chat', 'rebound', 'code', 'scheduled-tasks', 'ide', 'models'] },
+  { title: 'Use Bouncer', pages: ['chat', 'rebound', 'code', 'scheduled-tasks', 'ide', 'models', 'providers'] },
   { title: 'Reference', pages: ['slash-commands', 'keyboard-shortcuts', 'file-formats', 'settings', 'privacy'] },
   { title: 'Help', pages: ['troubleshooting', 'faq'] },
   { title: 'Build', pages: ['plugins'] },
