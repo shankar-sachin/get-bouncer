@@ -35,7 +35,8 @@ Installs the latest Bouncer release (prereleases included) or a given version fr
 public releases at shankar-sachin/get-bouncer.
 
   macOS   Downloads the .zip for this Mac's architecture and installs Bouncer.app into
-          /Applications (or ~/Applications with --user), then removes the quarantine flag.
+          /Applications (or ~/Applications with --user), removes the quarantine flag and writes
+          ~/.local/bin/bouncer, so the bouncer command works in a terminal.
   Linux   On Debian and Ubuntu, offers the .deb (asks first, installs with sudo). Otherwise
           installs the AppImage to ~/.local/bin with a desktop entry and MIME types.
 
@@ -226,6 +227,7 @@ install_macos() {
     checksum_note
     echo "would unzip and install: $TARGET (replacing any existing copy)"
     echo "would remove quarantine: xattr -dr com.apple.quarantine"
+    echo "would write: $HOME/.local/bin/bouncer (runs $TARGET/Contents/MacOS/Bouncer)"
     return 0
   fi
 
@@ -247,7 +249,43 @@ install_macos() {
 
   info "installed $TARGET"
   echo "launch with: open \"$TARGET\""
+  link_cli "$TARGET"
   echo "If macOS still blocks the first launch (unsigned build): right-click Bouncer, choose Open."
+}
+
+# Writes ~/.local/bin/bouncer, a script that runs the app's binary, which runs the terminal app when given a
+# command. A script, not a symlink: through a symlink, Electron can't find its helper apps. Bouncer's own
+# script, or a link to a Bouncer.app from an earlier version, is replaced; anything else is left alone.
+link_cli() {
+  BIN_DIR="$HOME/.local/bin"
+  LINK="$BIN_DIR/bouncer"
+  APP_BIN="$1/Contents/MacOS/Bouncer"
+  MARK="# The bouncer command, written by Bouncer."
+  if [ -L "$LINK" ]; then
+    case "$(readlink "$LINK")" in
+      */Bouncer.app/Contents/MacOS/Bouncer) ;;
+      *)
+        warn "$LINK already exists and isn't Bouncer's, so the bouncer command was not set up"
+        return 0
+        ;;
+    esac
+  elif [ -e "$LINK" ] && ! grep -qF "$MARK" "$LINK" 2>/dev/null; then
+    warn "$LINK already exists and isn't Bouncer's, so the bouncer command was not set up"
+    return 0
+  fi
+  mkdir -p "$BIN_DIR"
+  rm -f "$LINK"
+  quoted=$(printf '%s' "$APP_BIN" | sed "s/'/'\\\\''/g")
+  printf "#!/bin/sh\n%s\nexec '%s' \"\$@\"\n" "$MARK" "$quoted" >"$LINK"
+  chmod 755 "$LINK"
+  info "wrote $LINK"
+  case ":$PATH:" in
+    *":$BIN_DIR:"*) echo "terminal: run bouncer --help" ;;
+    *)
+      echo "note: $BIN_DIR is not on your PATH. Add this line to ~/.zprofile, then open a new terminal:"
+      echo "  export PATH=\"\$HOME/.local/bin:\$PATH\""
+      ;;
+  esac
 }
 
 install_deb() {

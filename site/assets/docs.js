@@ -31,6 +31,7 @@
         ['ide', 'IDE'],
         ['models', 'Models'],
         ['providers', 'Cloud providers'],
+        ['cli', 'Terminal'],
       ],
     },
     {

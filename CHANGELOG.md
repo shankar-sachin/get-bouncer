@@ -1,5 +1,16 @@
 # Changelog
 
+## v0.9.0
+
+- The `bouncer` command: Bouncer in the terminal, shaped like the Ollama CLI and Claude Code.
+- `bouncer pull`, `list`, `rm`, `show`, `ps`, `stop`, `serve` and `engine` for models and the engine.
+- `bouncer run <model>` for a chat in the terminal, one reply with a prompt, or a pipe; `bouncer chat` continues the last one.
+- `bouncer code` runs Bouncer Code in the current folder, with the four modes, approvals, rewind, `@` mentions, `/` commands and ultracode.
+- The bouncing ball and the blob in every terminal screen.
+- Installed with the app: on macOS, `install.sh` and **install command line tool…** in the app menu add `~/.local/bin/bouncer`; on Windows, the installer adds `bouncer.cmd` to the user PATH.
+- Same models, engine, keys, chats and sessions as the desktop app. See [Terminal](docs/cli.md).
+- Fixed: the Intel Mac and Windows builds of v0.8.0 could not start, because their file search tool was missing.
+
 ## Unreleased
 
 - New orb logo across the app, the website and the installers.
