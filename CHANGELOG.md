@@ -1,5 +1,13 @@
 # Changelog
 
+## v0.9.1
+
+- Optional accounts: sign in with GitHub, Google or an emailed code from the title bar. Bouncer still works fully signed out and offline.
+- Add a profile photo and display name in Settings › Account. Sign out on this device or on all devices. See [Account](docs/account.md).
+- Docs links in the Rebound tab and in Settings › Docs.
+- About now shows Bouncer's version, not Electron's.
+- The website moved to bouncer-ai.pages.dev.
+
 ## v0.9.0
 
 - The `bouncer` command: Bouncer in the terminal, shaped like the Ollama CLI and Claude Code.
