@@ -5,7 +5,7 @@ body:
   - type: markdown
     attributes:
       value: |
-        Check [Troubleshooting](https://getbouncer.pages.dev/docs#/troubleshooting) first. Remove private text from logs before you paste them.
+        Check [Troubleshooting](https://bouncer-ai.pages.dev/docs#/troubleshooting) first. Remove private text from logs before you paste them.
   - type: input
     id: version
     attributes:

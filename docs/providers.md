@@ -37,7 +37,7 @@ When you use a cloud model, Bouncer sends the provider what the model needs to r
 
 The provider's own terms and privacy policy apply to what it receives. Bouncer adds no tracking, and it doesn't send anything to a provider you haven't picked a model from, apart from the model list when you click **Test** or open **Cloud models…**.
 
-OpenRouter also receives Bouncer's name and website (getbouncer.pages.dev) with each request, which it uses to label the app in your OpenRouter activity.
+OpenRouter also receives Bouncer's name and website (bouncer-ai.pages.dev) with each request, which it uses to label the app in your OpenRouter activity.
 
 ## Where keys are kept
 

@@ -10,20 +10,24 @@ Bouncer is a local-first AI app for macOS, Windows and Linux. It runs open model
   <picture><source media="(prefers-color-scheme: dark)" srcset="site/assets/screens/hero-obsidian.jpg"><source media="(prefers-color-scheme: light)" srcset="site/assets/screens/hero-light.jpg"><img src="site/assets/screens/hero-light.jpg" width="800" alt="Bouncer Chat with a finished reply: a code block, and the Bouncer orb under the reply" /></picture>
 </p>
 
-This repository hosts the installers, the install scripts, the documentation and the website at https://getbouncer.pages.dev. Bouncer itself is closed source.
+This repository hosts the installers, the install scripts, the documentation and the website at https://bouncer-ai.pages.dev. Bouncer itself is closed source.
+
+- [bouncer-ai.pages.dev](https://bouncer-ai.pages.dev): the website, the docs and the install scripts.
+- [rebound.web.app](https://rebound.web.app): Rebound.
+- [getbouncer.pages.dev](https://getbouncer.pages.dev): the old address. It redirects to bouncer-ai.pages.dev, so old links and install commands keep working.
 
 ## Get started
 
 **macOS and Linux**
 
 ```sh
-curl -fsSL https://getbouncer.pages.dev/install.sh | sh
+curl -fsSL https://bouncer-ai.pages.dev/install.sh | sh
 ```
 
 **Windows** (PowerShell 5.1 or 7)
 
 ```powershell
-irm https://getbouncer.pages.dev/install.ps1 | iex
+irm https://bouncer-ai.pages.dev/install.ps1 | iex
 ```
 
 The installers pick the newest release (all current releases are prereleases) and verify its `SHA256SUMS`. Add `--dry-run` (`| sh -s -- --dry-run`) or `-DryRun` to see what would happen first, or choose a version with `--version v0.3.0` / `-Version v0.3.0`.
@@ -49,7 +53,7 @@ Builds are not signed or notarized yet.
 
 ## Documentation
 
-- [Documentation site](https://getbouncer.pages.dev/docs)
+- [Documentation site](https://bouncer-ai.pages.dev/docs)
 - [Documentation source in docs/](docs/README.md)
 - [Wiki](https://github.com/shankar-sachin/get-bouncer/wiki), synced from `docs/`
 
@@ -77,9 +81,9 @@ Bouncer's source code is private. This repository holds everything public around
 
 | Folder | What it holds |
 | --- | --- |
-| [`docs/`](docs) | The user guide, also shown on [getbouncer.pages.dev/docs](https://getbouncer.pages.dev/docs) and the wiki |
+| [`docs/`](docs) | The user guide, also shown on [bouncer-ai.pages.dev/docs](https://bouncer-ai.pages.dev/docs) and the wiki |
 | [`scripts/`](scripts) | The installers (`install.sh`, `install.ps1`) and the website build |
-| [`site/`](site) | The website at [getbouncer.pages.dev](https://getbouncer.pages.dev) |
+| [`site/`](site) | The website at [bouncer-ai.pages.dev](https://bouncer-ai.pages.dev) |
 | [`examples/`](examples) | An example `BOUNCER.md` and Rebound bot ideas |
 | [`plugins/`](plugins) | Official plugins and the plugin guide, once plugins ship |
 | [`.github/`](.github) | Issue templates and the wiki sync |

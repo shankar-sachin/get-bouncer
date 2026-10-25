@@ -2,8 +2,8 @@
 # Bouncer installer for macOS and Linux. POSIX sh: works with sh, bash, zsh and dash.
 #
 # Releases are public in github.com/shankar-sachin/get-bouncer (the source stays private):
-#   curl -fsSL https://getbouncer.pages.dev/install.sh | sh
-#   curl -fsSL https://getbouncer.pages.dev/install.sh | sh -s -- --dry-run
+#   curl -fsSL https://bouncer-ai.pages.dev/install.sh | sh
+#   curl -fsSL https://bouncer-ai.pages.dev/install.sh | sh -s -- --dry-run
 # or run a local copy: sh install.sh [--dry-run] [--version v0.3.0]
 #
 # No login needed. GH_TOKEN or GITHUB_TOKEN, when set, is sent to avoid GitHub's API rate limit.
@@ -51,7 +51,7 @@ Options:
 No login needed: releases are public. GH_TOKEN or GITHUB_TOKEN, when set, raises the API rate limit.
 
 Piped usage passes options after -s --:
-  curl -fsSL https://getbouncer.pages.dev/install.sh | sh -s -- --dry-run
+  curl -fsSL https://bouncer-ai.pages.dev/install.sh | sh -s -- --dry-run
 EOF
 }
 

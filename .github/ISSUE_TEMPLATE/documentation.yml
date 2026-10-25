@@ -6,8 +6,8 @@ body:
     id: page
     attributes:
       label: Page
-      description: The docs page or website address, for example https://getbouncer.pages.dev/docs#/install.
-      placeholder: "https://getbouncer.pages.dev/docs#/install"
+      description: The docs page or website address, for example https://bouncer-ai.pages.dev/docs#/install.
+      placeholder: "https://bouncer-ai.pages.dev/docs#/install"
     validations:
       required: true
   - type: dropdown
