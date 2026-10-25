@@ -6,7 +6,7 @@ If you use Ollama or Claude Code, most of what you type already works. See [Comi
 
 ## Set up the command
 
-**macOS.** The [install script](install.md) links `~/.local/bin/bouncer` to the app. If you installed Bouncer another way, open Bouncer and choose **Bouncer > install command line tool…** in the menu bar. Both tell you when `~/.local/bin` isn't on your `PATH` yet, and give you the line to add to `~/.zprofile`:
+**macOS.** The [install script](install.md) adds `~/.local/bin/bouncer`, a small script that runs the app. If you installed Bouncer another way, open Bouncer and choose **Bouncer > install command line tool…** in the menu bar. Both tell you when `~/.local/bin` isn't on your `PATH` yet, and give you the line to add to `~/.zprofile`:
 
 ```sh
 export PATH="$HOME/.local/bin:$PATH"

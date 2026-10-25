@@ -35,8 +35,8 @@ Installs the latest Bouncer release (prereleases included) or a given version fr
 public releases at shankar-sachin/get-bouncer.
 
   macOS   Downloads the .zip for this Mac's architecture and installs Bouncer.app into
-          /Applications (or ~/Applications with --user), removes the quarantine flag and links
-          ~/.local/bin/bouncer to it, so the bouncer command works in a terminal.
+          /Applications (or ~/Applications with --user), removes the quarantine flag and writes
+          ~/.local/bin/bouncer, so the bouncer command works in a terminal.
   Linux   On Debian and Ubuntu, offers the .deb (asks first, installs with sudo). Otherwise
           installs the AppImage to ~/.local/bin with a desktop entry and MIME types.
 
@@ -227,7 +227,7 @@ install_macos() {
     checksum_note
     echo "would unzip and install: $TARGET (replacing any existing copy)"
     echo "would remove quarantine: xattr -dr com.apple.quarantine"
-    echo "would link: $HOME/.local/bin/bouncer -> $TARGET/Contents/MacOS/Bouncer"
+    echo "would write: $HOME/.local/bin/bouncer (runs $TARGET/Contents/MacOS/Bouncer)"
     return 0
   fi
 
@@ -253,24 +253,32 @@ install_macos() {
   echo "If macOS still blocks the first launch (unsigned build): right-click Bouncer, choose Open."
 }
 
-# Links ~/.local/bin/bouncer to the app's binary, which runs the terminal app when given a command.
-# An older link to a Bouncer.app is replaced; anything else is left alone.
+# Writes ~/.local/bin/bouncer, a script that runs the app's binary, which runs the terminal app when given a
+# command. A script, not a symlink: through a symlink, Electron can't find its helper apps. Bouncer's own
+# script, or a link to a Bouncer.app from an earlier version, is replaced; anything else is left alone.
 link_cli() {
   BIN_DIR="$HOME/.local/bin"
   LINK="$BIN_DIR/bouncer"
   APP_BIN="$1/Contents/MacOS/Bouncer"
-  if [ -e "$LINK" ] || [ -L "$LINK" ]; then
-    case "$(readlink "$LINK" 2>/dev/null || true)" in
+  MARK="# The bouncer command, written by Bouncer."
+  if [ -L "$LINK" ]; then
+    case "$(readlink "$LINK")" in
       */Bouncer.app/Contents/MacOS/Bouncer) ;;
       *)
-        warn "$LINK already exists and isn't a link to Bouncer, so the bouncer command was not linked"
+        warn "$LINK already exists and isn't Bouncer's, so the bouncer command was not set up"
         return 0
         ;;
     esac
+  elif [ -e "$LINK" ] && ! grep -qF "$MARK" "$LINK" 2>/dev/null; then
+    warn "$LINK already exists and isn't Bouncer's, so the bouncer command was not set up"
+    return 0
   fi
   mkdir -p "$BIN_DIR"
-  ln -sfn "$APP_BIN" "$LINK"
-  info "linked $LINK"
+  rm -f "$LINK"
+  quoted=$(printf '%s' "$APP_BIN" | sed "s/'/'\\\\''/g")
+  printf "#!/bin/sh\n%s\nexec '%s' \"\$@\"\n" "$MARK" "$quoted" >"$LINK"
+  chmod 755 "$LINK"
+  info "wrote $LINK"
   case ":$PATH:" in
     *":$BIN_DIR:"*) echo "terminal: run bouncer --help" ;;
     *)

@@ -38,7 +38,7 @@ curl -fsSL https://getbouncer.pages.dev/install.sh | sh -s -- --dry-run
 
 What the script does on each system:
 
-- **macOS:** downloads the `.zip` for your Mac's processor (Apple silicon or Intel), verifies it, and installs `Bouncer.app` into `/Applications`. If `/Applications` is not writable, it installs into `~/Applications`. It then removes the quarantine flag that macOS adds to downloads, and links `~/.local/bin/bouncer` to the app so the [`bouncer` command](cli.md) works in a terminal.
+- **macOS:** downloads the `.zip` for your Mac's processor (Apple silicon or Intel), verifies it, and installs `Bouncer.app` into `/Applications`. If `/Applications` is not writable, it installs into `~/Applications`. It then removes the quarantine flag that macOS adds to downloads, and adds the [`bouncer` command](cli.md) at `~/.local/bin/bouncer`, a small script that runs the app.
 - **Debian and Ubuntu:** offers to install the `.deb` system-wide with `sudo`. Answer `y` to install it, or press Enter to install the AppImage for your user instead. Without a terminal to ask in, the script installs the AppImage.
 - **Other Linux systems:** installs the AppImage to `~/.local/bin/bouncer.AppImage`, and adds a desktop entry and file type associations for `.bcn`, `.bml` and `.bproj` files. If `~/.local/bin` is not on your `PATH`, the script says so.
 
@@ -129,7 +129,7 @@ Windows SmartScreen may show *Windows protected your PC* on the first run. Click
 
 Uninstalling removes the app, not your models and chats. To delete those too, remove the data folder listed in the [FAQ](faq.md#where-is-my-data-stored).
 
-- **macOS:** quit Bouncer, then move `Bouncer.app` from Applications (or `~/Applications`) to the Trash. Delete the `~/.local/bin/bouncer` link too.
+- **macOS:** quit Bouncer, then move `Bouncer.app` from Applications (or `~/Applications`) to the Trash. Delete `~/.local/bin/bouncer` too.
 - **Windows:** open **Settings → Apps → Installed apps**, choose Bouncer, and select **Uninstall**. This also takes the `bouncer` command off your `PATH`.
 - **Debian and Ubuntu:** `sudo apt remove bouncer`.
 - **AppImage:** delete `~/.local/bin/bouncer.AppImage`, `~/.local/share/applications/bouncer.desktop` and `~/.local/share/mime/packages/bouncer.xml`. Then run `update-desktop-database ~/.local/share/applications` and `update-mime-database ~/.local/share/mime` if you have them.
