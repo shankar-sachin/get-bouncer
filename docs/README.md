@@ -20,6 +20,7 @@ Bouncer runs open models on your own computer, so chats and files stay local. Th
 - [IDE](ide.md): edit a folder in an editor, with Bouncer Code docked beside it.
 - [Models](models.md): find, download, load and tune models.
 - [Cloud providers](providers.md): use Anthropic, OpenAI or OpenRouter models next to local ones.
+- [Terminal](cli.md): the `bouncer` command, with a guide for Ollama and Claude Code users.
 
 ## Reference
 

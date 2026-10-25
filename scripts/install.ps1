@@ -7,6 +7,9 @@ Downloads Bouncer-Setup-<version>.exe from the latest release (prereleases inclu
 -Version, unblocks it and runs the installer. The installer is unsigned, so Windows SmartScreen
 may warn on first run: choose More info, then Run anyway.
 
+The installer also adds the bouncer command (bin\bouncer.cmd in the install folder) and puts
+its folder on the user PATH. This script reports where it is and adds it to this session's PATH.
+
 No login needed. GH_TOKEN or GITHUB_TOKEN, when set, raises GitHub's API rate limit.
 Version: -Version or BOUNCER_VERSION, otherwise the latest release.
 
@@ -81,6 +84,22 @@ function Save-Asset($Asset, [string]$Destination) {
         throw "download failed: $($Asset.name)"
     }
     Write-Step "downloaded $($Asset.name)"
+}
+
+# The bouncer command the installer wrote: the first user PATH folder holding bouncer.cmd, else the default folder.
+function Find-BouncerCommand {
+    $userPath = [Environment]::GetEnvironmentVariable('Path', 'User')
+    foreach ($dir in @($userPath -split ';' | Where-Object { $_ })) {
+        $candidate = Join-Path ([Environment]::ExpandEnvironmentVariables($dir)) 'bouncer.cmd'
+        if (Test-Path -LiteralPath $candidate) {
+            return [pscustomobject]@{ Path = $candidate; OnPath = $true }
+        }
+    }
+    $default = Join-Path $env:LOCALAPPDATA 'Programs\Bouncer\bin\bouncer.cmd'
+    if (Test-Path -LiteralPath $default) {
+        return [pscustomobject]@{ Path = $default; OnPath = $false }
+    }
+    return $null
 }
 
 function Test-Checksum($Release, $Installer, [string]$InstallerPath, [string]$WorkDir) {
@@ -158,6 +177,7 @@ if ($DryRun) {
     else {
         Write-Output 'would unblock and run the installer (wizard)'
     }
+    Write-Output 'would report the bouncer command (bin\bouncer.cmd, added to the user PATH by the installer)'
     Write-Output 'dry run: nothing was downloaded or run'
     return
 }
@@ -181,6 +201,24 @@ try {
         throw "the installer exited with code $($process.ExitCode)"
     }
     Write-Step 'installed Bouncer. Launch it from the Start menu.'
+
+    $command = Find-BouncerCommand
+    if (-not $command) {
+        Write-Warning 'bouncer.cmd was not found, so the bouncer command is not set up. Reinstall, or see the CLI docs.'
+    }
+    else {
+        $binDir = Split-Path -Parent $command.Path
+        if (-not (($env:Path -split ';') -contains $binDir)) {
+            $env:Path = "$env:Path;$binDir"
+        }
+        Write-Step "bouncer command: $($command.Path)"
+        if ($command.OnPath) {
+            Write-Output 'Run bouncer --help here, or in any new terminal.'
+        }
+        else {
+            Write-Warning "$binDir is not on your user PATH. Add it in Settings, System, About, Advanced system settings, Environment Variables."
+        }
+    }
 }
 finally {
     if (Test-Path -LiteralPath $work) {
