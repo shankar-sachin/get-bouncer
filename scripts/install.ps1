@@ -23,10 +23,10 @@ Resolve the release and print what would happen. Nothing is downloaded or run.
 Run the installer with /S (no wizard). Without it, the normal installer wizard opens.
 
 .EXAMPLE
-irm https://getbouncer.pages.dev/install.ps1 | iex
+irm https://bouncer-ai.pages.dev/install.ps1 | iex
 
 .EXAMPLE
-& ([scriptblock]::Create((irm https://getbouncer.pages.dev/install.ps1))) -DryRun
+& ([scriptblock]::Create((irm https://bouncer-ai.pages.dev/install.ps1))) -DryRun
 
 .EXAMPLE
 powershell -NoProfile -ExecutionPolicy Bypass -File install.ps1 -Version v0.3.0 -Silent

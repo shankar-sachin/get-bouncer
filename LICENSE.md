@@ -29,7 +29,7 @@ By installing or using Bouncer you agree to the terms below. If you don't agree,
 
 ## 1. The license
 
-Sachin Shankar ("the author") grants you a free, non-exclusive, non-transferable, revocable license to download, install and use Bouncer, in the form published at [github.com/shankar-sachin/get-bouncer](https://github.com/shankar-sachin/get-bouncer) and [getbouncer.pages.dev](https://getbouncer.pages.dev), subject to these terms.
+Sachin Shankar ("the author") grants you a free, non-exclusive, non-transferable, revocable license to download, install and use Bouncer, in the form published at [github.com/shankar-sachin/get-bouncer](https://github.com/shankar-sachin/get-bouncer) and [bouncer-ai.pages.dev](https://bouncer-ai.pages.dev), subject to these terms.
 
 ## 2. Restrictions
 
