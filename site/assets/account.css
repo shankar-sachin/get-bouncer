@@ -1,0 +1,276 @@
+/* The account portal (account.html). Uses the tokens from style.css; danger matches the app's tokens. */
+
+:root {
+  --danger: #ff8a80;
+  --danger-soft: rgba(255, 138, 128, 0.13);
+}
+
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme='dark']) {
+    --danger: #c0352f;
+    --danger-soft: rgba(192, 53, 47, 0.1);
+  }
+}
+
+:root[data-theme='light'] {
+  --danger: #c0352f;
+  --danger-soft: rgba(192, 53, 47, 0.1);
+}
+
+/* Forms and confirms set display; the hidden attribute still wins. */
+.portal [hidden] {
+  display: none !important;
+}
+
+.portal {
+  max-width: 720px;
+  padding-top: 56px;
+  padding-bottom: 72px;
+}
+
+.portal h1 {
+  font-size: clamp(2rem, 5vw, 2.75rem);
+}
+
+.portal-lede {
+  color: var(--text-2);
+  margin: 12px 0 32px;
+  font-size: 1.0625rem;
+}
+
+.portal-body {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.portal .card {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.portal .card h2 {
+  font-size: 1.125rem;
+  letter-spacing: -0.01em;
+}
+
+.portal-muted {
+  color: var(--text-3);
+  font-size: 0.9375rem;
+}
+
+.portal-text {
+  color: var(--text-2);
+  font-size: 0.9375rem;
+  line-height: 1.55;
+}
+
+.portal-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.portal .btn {
+  min-height: 40px;
+  padding: 8px 14px;
+  font-size: 0.9375rem;
+}
+
+.portal .btn:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.portal .btn-small {
+  min-height: 32px;
+  padding: 4px 10px;
+  font-size: 0.875rem;
+}
+
+.portal .btn-danger {
+  background: var(--danger);
+  border-color: var(--danger);
+  color: var(--bg);
+}
+
+.portal .btn-danger:hover {
+  background: var(--danger);
+  filter: brightness(1.08);
+}
+
+.sign-in-choices {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-width: 360px;
+}
+
+.sign-in-choices .btn {
+  justify-content: flex-start;
+  min-height: 44px;
+}
+
+.portal form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-width: 360px;
+}
+
+.portal label {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--text-3);
+}
+
+.portal input {
+  min-height: 40px;
+  padding: 8px 12px;
+  border-radius: var(--r-control);
+  border: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--text);
+  font: inherit;
+}
+
+.portal input:focus-visible {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.avatar {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-weight: 600;
+  overflow: hidden;
+}
+
+.avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.profile-name {
+  font-weight: 600;
+}
+
+.rows {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border: 1px solid var(--line-soft);
+  border-radius: var(--r-control);
+  overflow: hidden;
+}
+
+.rows li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  background: var(--surface);
+}
+
+.rows li + li {
+  border-top: 1px solid var(--line-soft);
+}
+
+.row-main {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  flex: 1;
+}
+
+.row-title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.row-sub {
+  color: var(--text-3);
+  font-size: 0.8125rem;
+}
+
+.pill {
+  display: inline-block;
+  margin-left: 8px;
+  padding: 1px 8px;
+  border-radius: var(--r-pill);
+  background: var(--accent-soft);
+  color: var(--text);
+  font-size: 0.75rem;
+  vertical-align: 1px;
+}
+
+.portal-error {
+  margin: 0;
+  padding: 8px 12px;
+  border-radius: var(--r-control);
+  background: var(--danger-soft);
+  color: var(--danger);
+  font-size: 0.875rem;
+}
+
+.portal-note {
+  margin: 0;
+  padding: 8px 12px;
+  border-radius: var(--r-control);
+  background: var(--accent-soft);
+  color: var(--text);
+  font-size: 0.875rem;
+}
+
+.card.danger-zone {
+  border-color: var(--danger-soft);
+}
+
+.confirm {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 12px;
+  border-radius: var(--r-control);
+  background: var(--danger-soft);
+}
+
+.confirm p {
+  color: var(--danger);
+  font-size: 0.875rem;
+}
+
+.handoff {
+  max-width: 440px;
+}
+
+.done-mark {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}

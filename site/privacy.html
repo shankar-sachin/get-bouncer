@@ -60,9 +60,9 @@
   <main id="main" class="wrap legal">
     <span class="eyebrow">legal</span>
     <h1>Privacy policy</h1>
-    <p class="legal-meta">Effective 2026-10-18 · Publisher: Sachin Shankar</p>
+    <p class="legal-meta">Effective 2026-10-29 · Publisher: Sachin Shankar</p>
 
-    <p><strong>Short version:</strong> Bouncer runs on your computer and keeps your data there. It has no accounts, no analytics, no telemetry and no crash reporting. The publisher receives nothing about you or how you use it.</p>
+    <p><strong>Short version:</strong> Bouncer runs on your computer and keeps your data there. It has no analytics, no telemetry and no crash reporting. An account is optional; without one, nothing about you leaves your computer. The publisher receives nothing about you or how you use it.</p>
 
     <h2>What stays on your machine</h2>
     <p>Your models, your chats in Bouncer Chat, your Rebound bots and their chats, the folders and files you open in Bouncer Code and the IDE, Bouncer Code's checkpoints, and your settings. A chat with a local model is answered by the model on your computer. Your messages are not sent to a server to get a reply.</p>
@@ -74,6 +74,8 @@
       <li><strong>Gated models (Hugging Face).</strong> If you saved a Hugging Face token, it is sent only to Hugging Face, and only for these requests.</li>
       <li><strong>Engine (GitHub).</strong> Installing or updating the llama.cpp engine downloads it from GitHub releases.</li>
       <li><strong>Updates (GitHub).</strong> Bouncer checks the GitHub releases of <a href="https://github.com/shankar-sachin/get-bouncer">shankar-sachin/get-bouncer</a> for a newer version.</li>
+      <li><strong>Account (optional).</strong> If you sign in, your email address and name from GitHub, Google or the email you type go to Bouncer's account server (Supabase), with the names and Bouncer versions of your signed-in computers and a profile photo if you add one. Passkeys are stored as public keys only.</li>
+      <li><strong>Sync (optional, off by default).</strong> Your settings, presets and the chats you choose are encrypted on your computer before they're sent, so the server can't read them.</li>
       <li><strong>Web search and page fetch (off by default).</strong> If you turn these on for a chat, Bouncer sends your search query to DuckDuckGo and requests the pages it reads.</li>
     </ul>
     <p>These services receive each request the way a browser would send it, so their own privacy policies apply to what they log: <a href="https://huggingface.co/privacy">Hugging Face</a>, <a href="https://docs.github.com/site-policy/privacy-policies/github-general-privacy-statement">GitHub</a> and <a href="https://duckduckgo.com/privacy">DuckDuckGo</a>. Bouncer adds no identifiers of its own.</p>
@@ -81,6 +83,9 @@
 
     <h2>Your Hugging Face token</h2>
     <p>If you save a Hugging Face token, Bouncer stores it on your device, encrypted with a key your operating system protects (the Keychain on macOS, DPAPI on Windows, the secret service on Linux). It is sent only to Hugging Face. To remove it, go to Settings, then Hugging Face, and choose Sign out.</p>
+
+    <h2>Your account</h2>
+    <p>Signing in is optional. On the <a href="account">account page</a> you can add or remove passkeys, sign out any device, start sync over, and delete your account with its devices and synced data. Chats, models and settings on your computers stay.</p>
 
     <h2>Deleting your data</h2>
     <p>Uninstalling Bouncer and deleting its data folder removes everything it stored. The <a href="docs.html#/faq">FAQ</a> says where that folder is on each system.</p>
@@ -98,6 +103,7 @@
       <nav aria-label="footer">
         <a href="https://github.com/shankar-sachin/get-bouncer/releases">Releases</a>
         <a href="https://github.com/shankar-sachin/get-bouncer/blob/main/install.sh">Install scripts</a>
+        <a href="account">Account</a>
         <a href="terms.html">Terms</a>
         <a href="privacy.html">Privacy</a>
       </nav>
