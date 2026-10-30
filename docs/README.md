@@ -21,7 +21,8 @@ Bouncer runs open models on your own computer, so chats and files stay local. Th
 - [Models](models.md): find, download, load and tune models.
 - [Cloud providers](providers.md): use Anthropic, OpenAI or OpenRouter models next to local ones.
 - [Terminal](cli.md): the `bouncer` command, with a guide for Ollama and Claude Code users.
-- [Account](account.md): optional sign-in with GitHub, Google or an emailed code, and your profile.
+- [Account](account.md): optional sign-in with GitHub, Google or an emailed code, your profile and your devices.
+- [Sync](sync.md): keep settings, presets and chosen chats the same on every computer, end-to-end encrypted.
 
 ## Reference
 

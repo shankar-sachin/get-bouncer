@@ -21,7 +21,7 @@ bouncer --version
 bouncer --help
 ```
 
-`bouncer` on its own opens the desktop app.
+`bouncer` on its own prints the help. `bouncer desktop` opens the desktop app, or brings it to the front; give it Bouncer files (`.bcn`, `.bml`, `.bproj`) to open them there.
 
 ## Models
 
@@ -69,6 +69,18 @@ bouncer code --model Qwen3-8B-GGUF --permission-mode plan
 It is the same agent as [Bouncer Code](code.md) in the app, with the same four modes, and the sessions show up there too. Shift+Tab cycles the mode. When a step needs your OK, an approval box asks; `-p` declines anything that needs approval and says so.
 
 Keys: `@` mentions a file (Tab completes it), `!` runs a shell command whose output goes with your next message, Esc stops the model, Esc twice on an empty line rewinds, `\` then Enter starts a new line, and Ctrl+C or Ctrl+D quits. Type `/` for commands: `/model`, `/mode`, `/clear`, `/resume`, `/rewind`, `/compact`, `/init`, `/ultracode`, `/diff`, `/context`, `/cost`, `/status`, `/export` and `/exit`.
+
+## Account
+
+```sh
+bouncer login                   # GitHub in your browser
+bouncer login google            # Google in your browser
+bouncer login email ada@example.com   # a code sent by email
+bouncer whoami                  # who this computer is signed in as (--json for scripts)
+bouncer logout                  # sign this computer out; --everywhere signs out every device
+```
+
+The terminal and the desktop app share one sign-in. An account is optional; every other command works signed out. See [Account](account.md).
 
 ## The local API server
 

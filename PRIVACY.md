@@ -8,7 +8,7 @@
 
 ---
 
-**Short version:** Bouncer runs on your computer and keeps your data there. It has no accounts, no analytics, no telemetry and no crash reporting. The author of Bouncer receives nothing about you or how you use it.
+**Short version:** Bouncer runs on your computer and keeps your data there. It has no analytics, no telemetry and no crash reporting. An account is optional; without one, nothing about you leaves your computer. The author of Bouncer receives nothing about you or how you use it.
 
 ## What stays on your machine
 
@@ -25,6 +25,8 @@ Bouncer only goes online for these tasks, and only when you use the feature that
 | Gated models | Hugging Face | Your Hugging Face token, only if you saved one, and only to Hugging Face |
 | Installing or updating the engine | GitHub | Requests for llama.cpp releases and the engine download |
 | Checking for Bouncer updates | GitHub | A request for the latest release in this repository |
+| Signing in (optional) | Bouncer's account server (Supabase) | Your email and name from GitHub, Google or the email you type; the names and versions of your signed-in computers; a profile photo if you add one |
+| Sync (optional, off by default) | Bouncer's account server (Supabase) | Your settings, presets and chosen chats, encrypted on your computer so the server can't read them |
 | Web search in Chat (off by default) | DuckDuckGo, and the pages it opens | Your search query, and requests for the pages Bouncer reads |
 
 These services receive the request the same way they would from a browser, so their own privacy policies apply to what they log. Bouncer adds no identifiers of its own.
@@ -32,6 +34,10 @@ These services receive the request the same way they would from a browser, so th
 ## Your Hugging Face token
 
 If you save a Hugging Face token, it is stored encrypted in your operating system's keychain and sent only to Hugging Face. **Settings > Hugging Face > Sign out** removes it.
+
+## Your account
+
+Signing in is optional. Your sign-in is stored in your keychain. **Settings › Account › Sign out on all devices** ends every session. Synced data is encrypted with a key only your computers and your recovery code hold; **Start over** in Settings › Account deletes it from the server. To delete your account, open a [GitHub issue](https://github.com/shankar-sachin/get-bouncer/issues).
 
 ## Deleting your data
 
