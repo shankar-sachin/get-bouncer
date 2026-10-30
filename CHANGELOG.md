@@ -1,5 +1,15 @@
 # Changelog
 
+## v0.10.0
+
+- Sync between your computers, optional and end-to-end encrypted: settings, presets and the chats you choose. Turn it on in Settings › Account and save the recovery code. See [Sync](docs/sync.md).
+- Add a computer by approving it from one that already syncs (compare six digits), or with the recovery code.
+- A sync switch for each chat in the chat list, and a quiet sync line in the status bar.
+- Sign in with a passkey: Touch ID, Windows Hello, your phone or a security key.
+- The account page at https://bouncer-ai.pages.dev/account: passkeys, devices, sync, and deleting your account. See [Account](docs/account.md).
+- Settings › Account lists your signed-in devices and signs any of them out.
+- `bouncer login`, `logout` and `whoami` in the terminal; `bouncer desktop` opens the app, and plain `bouncer` prints the help.
+
 ## v0.9.1
 
 - Optional accounts: sign in with GitHub, Google or an emailed code from the title bar. Bouncer still works fully signed out and offline.
