@@ -75,6 +75,7 @@ Keys: `@` mentions a file (Tab completes it), `!` runs a shell command whose out
 ```sh
 bouncer login                   # GitHub in your browser
 bouncer login google            # Google in your browser
+bouncer login passkey           # a passkey, on the account page in your browser
 bouncer login email ada@example.com   # a code sent by email
 bouncer whoami                  # who this computer is signed in as (--json for scripts)
 bouncer logout                  # sign this computer out; --everywhere signs out every device

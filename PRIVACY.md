@@ -37,7 +37,7 @@ If you save a Hugging Face token, it is stored encrypted in your operating syste
 
 ## Your account
 
-Signing in is optional. Your sign-in is stored in your keychain. **Settings › Account › Sign out on all devices** ends every session. Synced data is encrypted with a key only your computers and your recovery code hold; **Start over** in Settings › Account deletes it from the server. To delete your account, open a [GitHub issue](https://github.com/shankar-sachin/get-bouncer/issues).
+Signing in is optional. Your sign-in is stored in your keychain. **Settings › Account › Sign out on all devices** ends every session. Synced data is encrypted with a key only your computers and your recovery code hold; **Start over** in Settings › Account deletes it from the server. To delete your account, use the [account page](https://bouncer-ai.pages.dev/account).
 
 ## Deleting your data
 
