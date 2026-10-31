@@ -15,6 +15,8 @@ Bouncer runs open models on your own computer, so chats and files stay local. Th
 
 - [Chat](chat.md): talk with a model you have loaded.
 - [Rebound](rebound.md): make bots, each with its own room of chats.
+- [Lab](lab.md): send one prompt to several models, compare them side by side and rate them blind.
+- [Skills](skills.md): reusable instructions that Chat, Rebound and Bouncer Code load when a task needs them.
 - [Bouncer Code](code.md): work on a folder with a model, with changes you review before they apply.
 - [Scheduled tasks](scheduled-tasks.md): run a prompt in a folder later, and review its changes.
 - [IDE](ide.md): edit a folder in an editor, with Bouncer Code docked beside it.
