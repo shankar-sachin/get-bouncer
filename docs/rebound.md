@@ -80,6 +80,56 @@ Hover a bot's card and open its menu (the three dots):
 - **Reset to original** restores a starter bot to how it shipped. It appears only on starter bots.
 - **Delete** removes the bot and all of its chats.
 
+## Bring up Rebound from anywhere
+
+Turn these on in **Settings › Rebound**. Both are off until you do, and they belong to this computer only.
+
+- **Hotkey**: a global shortcut that opens Rebound with your last bot, from any app. Click **change** and press the keys you want. While it is on, other apps can't use that shortcut; if one already does, Bouncer says so.
+- **Menu bar icon** (macOS) or **Tray icon** (Windows and Linux): your bots, one click away. While it shows, closing the window keeps Bouncer running in the background.
+
+## Memory
+
+A bot can remember short facts about you across its chats, such as your name or a project you're on. Click **memory** in the bot's room to read, edit, add, delete or wipe them. Memories stay on this computer.
+
+- The bot reads its memories in every chat, and saves new facts itself when your model can call tools.
+- Turn the **Memory** switch off to stop using them; the list is kept until you wipe it.
+
+## Routines
+
+A routine sends a bot a prompt on a schedule and posts the reply in its own chat, named after the routine, with a notification. Click **routines** in the bot's room.
+
+- **daily**: at a time, on the days you pick.
+- **repeat**: every so many minutes or hours.
+- **on demand**: only when you click **run now**.
+
+Routines run while Bouncer is open. Turn one off with its switch, or delete it.
+
+## Voice
+
+Click **voice** in the bot's room.
+
+- **Read replies aloud** speaks each reply when it finishes, using your computer's own voices. Pick a **voice** and a **speed**, and click **try it**. Every bot reply also has a read aloud button.
+- **Talk to the bot**: the mic button next to send turns what you say into text in the message box. Click it to start, click again to stop. <kbd>Esc</kbd> throws the recording away.
+
+Speech input runs [whisper.cpp](https://github.com/ggml-org/whisper.cpp) on your computer; nothing is sent anywhere. The first time, pick a speech model and click **download**:
+
+| Model | Size | |
+| --- | --- | --- |
+| tiny | 78 MB | fastest, rougher |
+| base | 148 MB | quick and good for chat (default) |
+| small | 488 MB | more accurate, slower |
+
+Bouncer also downloads whisper.cpp itself once (about 9 to 66 MB, depending on your system). Every download is checked against a known checksum. macOS asks for microphone access the first time you record.
+
+## Connectors
+
+Connectors let a bot read things on your computer. They are off until you pick something, the bot can only read, and it needs a model that can call tools. Click **connectors** in the bot's room.
+
+- **Files**: one folder the bot can list and read. It can't see anything outside that folder, and it never changes a file. Text files up to 200 KB.
+- **Calendar**: an `.ics` file exported from your calendar app. The bot reads your events to answer questions like "what's on Thursday?". Export a fresh file to update it.
+
+Click **change** to pick another folder or file, or the x to turn a connector off. Mail is coming later.
+
 ## Related
 
 - [Chat](chat.md) for plain chats with a model
