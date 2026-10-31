@@ -1,5 +1,16 @@
 # Changelog
 
+## v0.12.0
+
+Bouncer Lab and Skills. See [Lab](docs/lab.md) and [Skills](docs/skills.md).
+
+- Lab, a new tab (⌘6 or Ctrl+6): send one prompt to two to six local or cloud models and compare the replies side by side, with speed, time to first token, memory and load time. Local models run one after another, so each is measured on its own.
+- Blind rating: models show as model A, B, … until you rate every reply one to five stars, or click Reveal. The best-rated model is marked.
+- Lab history on your computer, and export of a run to Markdown or CSV.
+- Skills: reusable instructions in a `SKILL.md` that Chat, Rebound bots and Bouncer Code load when a task needs them. Make and edit them in Settings › Skills, or put them in a project's `.bouncer/skills`.
+- Relics from Chat and Rebound: a model can make a doc, grid, deck or page, which opens in Studio.
+- The composer's send button no longer wraps in narrow windows; Settings no longer jumps while scrolling; recording a hotkey works again.
+
 ## v0.11.0
 
 Rebound extras. See [Rebound](docs/rebound.md).

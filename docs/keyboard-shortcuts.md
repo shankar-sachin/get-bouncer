@@ -19,9 +19,11 @@ These shortcuts work across Bouncer. On macOS the main modifier is <kbd>⌘</kbd
 | Code | <kbd>⌘</kbd> <kbd>2</kbd> | <kbd>Ctrl</kbd> <kbd>2</kbd> |
 | IDE | <kbd>⌘</kbd> <kbd>3</kbd> | <kbd>Ctrl</kbd> <kbd>3</kbd> |
 | Rebound | <kbd>⌘</kbd> <kbd>4</kbd> | <kbd>Ctrl</kbd> <kbd>4</kbd> |
-| Marketplace | <kbd>⌘</kbd> <kbd>6</kbd> | <kbd>Ctrl</kbd> <kbd>6</kbd> |
+| Studio | <kbd>⌘</kbd> <kbd>5</kbd> | <kbd>Ctrl</kbd> <kbd>5</kbd> |
+| Lab | <kbd>⌘</kbd> <kbd>6</kbd> | <kbd>Ctrl</kbd> <kbd>6</kbd> |
+| Marketplace | <kbd>⌘</kbd> <kbd>7</kbd> | <kbd>Ctrl</kbd> <kbd>7</kbd> |
 
-Studio (<kbd>⌘</kbd> <kbd>5</kbd>, <kbd>Ctrl</kbd> <kbd>5</kbd>) is coming later. Code is also reached with the **Chat | Code** toggle in the title bar.
+Code is also reached with the **Chat | Code** toggle in the title bar.
 
 ## Chat
 
