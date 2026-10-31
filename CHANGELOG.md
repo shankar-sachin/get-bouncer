@@ -24,7 +24,7 @@ Rebound extras. See [Rebound](docs/rebound.md).
 - A global hotkey that brings up Rebound with your last bot, and a menu bar or tray icon with your bots. Both off by default, in Settings › Rebound.
 - Bot memory: a bot remembers short facts about you across chats. Read, edit, add, delete or wipe them, or turn memory off.
 - Routines: a bot runs a prompt daily, on an interval or on demand, and posts the reply in its own chat with a notification.
-- Voice: replies read aloud with your computer's own voices, and a mic button that turns speech into text with whisper.cpp, on your computer.
+- Voice: replies read aloud with your computer's own voices, and a mic button that turns speech into text on your computer.
 - Connectors, off by default and read-only: a folder a bot can read, and an `.ics` calendar file.
 - Reply stats: click a reply's stats for a pop-up with input, output and total tokens, speed and timing.
 - Copy buttons copy reliably again.
