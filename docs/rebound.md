@@ -108,18 +108,25 @@ Routines run while Bouncer is open. Turn one off with its switch, or delete it.
 
 Click **voice** in the bot's room.
 
-- **Read replies aloud** speaks each reply when it finishes, using your computer's own voices. Pick a **voice** and a **speed**, and click **try it**. Every bot reply also has a read aloud button.
+- **Read replies aloud** speaks each reply when it finishes. Pick a **voice** and a **speed**, and click **try it**. Every bot reply also has a read aloud button.
 - **Talk to the bot**: the mic button next to send turns what you say into text in the message box. Click it to start, click again to stop. <kbd>Esc</kbd> throws the recording away.
 
-Speech input runs [whisper.cpp](https://github.com/ggml-org/whisper.cpp) on your computer; nothing is sent anywhere. The first time, pick a speech model and click **download**:
+### Voices for reading aloud
 
-| Model | Size | |
+- **System voice** and your computer's other voices: built in, nothing to download.
+- **Natural voices** (Heart, Bella, Michael, Fenrir): they sound more like a person and run on your computer. English only. The first time you pick one, Bouncer says what it needs before anything downloads: a 98 MB download, and about 700 MB of memory while it speaks. Bouncer frees that memory two minutes after the last reply, and when you quit. **Remove natural voices** deletes them again.
+
+### Voice recognition
+
+Pick how the mic turns speech into text:
+
+| Option | Where it runs | Setup |
 | --- | --- | --- |
-| tiny | 78 MB | fastest, rougher |
-| base | 148 MB | quick and good for chat (default) |
-| small | 488 MB | more accurate, slower |
+| **System Voice Recognition** | On your computer, with its own speech recognition. | Nothing to download. macOS asks to allow speech recognition the first time. macOS and Windows only. |
+| **Advanced Voice Recognition** (default) | On your computer. Nothing is sent anywhere. | Downloads once, by itself, the first time you click the mic (about 160 to 215 MB). Pick **fast**, **balanced** or **accurate** in the voice settings. |
+| **AI-powered Voice Recognition** | Online: your recordings are sent to an outside speech-to-text service. Don't use it for anything you want to keep private. | Sign in once in your browser; that account covers the use. |
 
-Bouncer also downloads whisper.cpp itself once (about 9 to 66 MB, depending on your system). Every download is checked against a known checksum. macOS asks for microphone access the first time you record.
+Every download is checked against a known checksum. macOS asks for microphone access the first time you record. On macOS, System Voice Recognition only works where your Mac can recognize the language on the device; it never sends audio to a server.
 
 ## Connectors
 
