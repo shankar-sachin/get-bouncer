@@ -36,6 +36,8 @@ Click **Replay onboarding** to see the first-run tour again.
 
 The **Engine** section manages llama.cpp, the program that runs your models. It lists installed builds, sets the active one, checks for updates, and shows logs. It also sets the backend that matches your hardware. See [models](models.md#engine) for the full list of controls.
 
+Bouncer installs llama.cpp on first launch and installs newer builds by itself at launch. In **Developer** mode, turn off **download engine updates automatically** to only be told about a newer build here, and update when you choose.
+
 ## Hugging Face
 
 The **Hugging Face** section shows whether you are signed in. Sign in with an access token if you want to download gated models. The token is stored encrypted in your operating system's keychain, and Bouncer sends it only to Hugging Face. Public models never need it. See [models](models.md#gated-models-and-hugging-face-sign-in) for the steps.

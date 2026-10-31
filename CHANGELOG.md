@@ -1,5 +1,11 @@
 # Changelog
 
+## Unreleased
+
+- Voice recognition options: **System** (your computer's own, nothing to download), **Advanced** (downloads by itself the first time you use the mic, then runs on your computer) and **AI-powered** (online, with a sign-in and a clear warning). See [Rebound](docs/rebound.md#voice).
+- Natural voices for reading replies aloud, on your computer: four English voices, with the download size and memory shown before anything downloads.
+- Developer mode can turn off automatic engine updates (Settings › Engine).
+
 ## v0.12.0
 
 Bouncer Lab and Skills. See [Lab](docs/lab.md) and [Skills](docs/skills.md).
@@ -18,7 +24,7 @@ Rebound extras. See [Rebound](docs/rebound.md).
 - A global hotkey that brings up Rebound with your last bot, and a menu bar or tray icon with your bots. Both off by default, in Settings › Rebound.
 - Bot memory: a bot remembers short facts about you across chats. Read, edit, add, delete or wipe them, or turn memory off.
 - Routines: a bot runs a prompt daily, on an interval or on demand, and posts the reply in its own chat with a notification.
-- Voice: replies read aloud with your computer's own voices, and a mic button that turns speech into text with whisper.cpp, on your computer.
+- Voice: replies read aloud with your computer's own voices, and a mic button that turns speech into text on your computer.
 - Connectors, off by default and read-only: a folder a bot can read, and an `.ics` calendar file.
 - Reply stats: click a reply's stats for a pop-up with input, output and total tokens, speed and timing.
 - Copy buttons copy reliably again.

@@ -109,7 +109,7 @@ The model pill sits in the top bar and shows the model that is loaded or loading
 Bouncer runs models with [llama.cpp](https://github.com/ggml-org/llama.cpp). **Settings > Engine** manages it.
 
 - **Installed builds** lists the llama.cpp builds on your machine. Use **Set active** to choose one, or remove a build you no longer need.
-- **Check for updates** looks for a newer llama.cpp build. When one is available, **Update to** installs it. **View logs** shows the engine's output if something goes wrong.
+- **Check for updates** looks for a newer llama.cpp build. When one is available, **Update to** installs it. Bouncer also updates by itself at launch; in Developer mode, **download engine updates automatically** turns that off. **View logs** shows the engine's output if something goes wrong.
 - **Backend** sets which hardware the engine uses: **Metal** (Apple GPUs), **CUDA** (NVIDIA), **Vulkan**, or **CPU**. Bouncer marks the **recommended** backend for your machine. Most people should keep it.
 
 When Bouncer has no engine yet, it installs one the first time you need it. Engine downloads show progress and can be canceled. The engine is downloaded from the llama.cpp releases on GitHub.
