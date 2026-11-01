@@ -1,10 +1,15 @@
 # Changelog
 
-## Unreleased
+## v0.12.1
+
+Voice options, natural voices and fixes.
 
 - Voice recognition options: **System** (your computer's own, nothing to download), **Advanced** (downloads by itself the first time you use the mic, then runs on your computer) and **AI-powered** (online, with a sign-in and a clear warning). See [Rebound](docs/rebound.md#voice).
 - Natural voices for reading replies aloud, on your computer: four English voices, with the download size and memory shown before anything downloads.
 - Developer mode can turn off automatic engine updates (Settings › Engine).
+- Terminal chat (`bouncer run`) and `bouncer code` open at the top of the terminal and show the version. `/unload` frees the model in the terminal chat.
+- An Unload button beside each loaded model in the model menu.
+- Dropdowns in dialogs (such as a bot's model) are no longer cut off, and Esc in an open dropdown closes only the dropdown.
 
 ## v0.12.0
 
