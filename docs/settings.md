@@ -36,6 +36,8 @@ Click **Replay onboarding** to see the first-run tour again.
 
 The **Engine** section manages llama.cpp, the program that runs your models. It lists installed builds, sets the active one, checks for updates, and shows logs. It also sets the backend that matches your hardware. See [models](models.md#engine) for the full list of controls.
 
+On a Mac with Apple silicon, the **MLX** part sets up mlx-lm, which runs [MLX models](models.md#mlx-models-apple-silicon). Nothing is installed until you click **Set up MLX**.
+
 Bouncer installs llama.cpp on first launch and installs newer builds by itself at launch. In **Developer** mode, turn off **download engine updates automatically** to only be told about a newer build here, and update when you choose.
 
 ## Hugging Face

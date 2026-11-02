@@ -106,13 +106,25 @@ The model pill sits in the top bar and shows the model that is loaded or loading
 
 ## Engine
 
-Bouncer runs models with [llama.cpp](https://github.com/ggml-org/llama.cpp). **Settings > Engine** manages it.
+Bouncer runs GGUF models with [llama.cpp](https://github.com/ggml-org/llama.cpp), and on Apple silicon MLX models with mlx-lm (see [MLX models](#mlx-models-apple-silicon)). **Settings > Engine** manages both.
 
 - **Installed builds** lists the llama.cpp builds on your machine. Use **Set active** to choose one, or remove a build you no longer need.
 - **Check for updates** looks for a newer llama.cpp build. When one is available, **Update to** installs it. Bouncer also updates by itself at launch; in Developer mode, **download engine updates automatically** turns that off. **View logs** shows the engine's output if something goes wrong.
 - **Backend** sets which hardware the engine uses: **Metal** (Apple GPUs), **CUDA** (NVIDIA), **Vulkan**, or **CPU**. Bouncer marks the **recommended** backend for your machine. Most people should keep it.
 
 When Bouncer has no engine yet, it installs one the first time you need it. Engine downloads show progress and can be canceled. The engine is downloaded from the llama.cpp releases on GitHub.
+
+## MLX models (Apple silicon)
+
+On a Mac with Apple silicon, Bouncer also runs MLX models: builds made for Apple's MLX framework, which many people publish next to GGUFs (for example under `mlx-community`). They run with [mlx-lm](https://github.com/ml-explore/mlx-lm) instead of llama.cpp.
+
+<picture><source media="(prefers-color-scheme: dark)" srcset="images/mlx-obsidian.png"><source media="(prefers-color-scheme: light)" srcset="images/mlx-light.png"><img src="images/mlx-light.png" alt="The Marketplace with MLX picked, listing MLX models" /></picture>
+
+1. Open **Settings > Engine** and click **Set up MLX**. Bouncer makes a private Python environment in its own folder, from your Mac's Python 3 (3.9 or newer; Homebrew, python.org or Apple's command line tools), and installs mlx-lm into it. This downloads a few hundred MB and takes a minute or two. **Remove MLX** deletes it again.
+2. In the Marketplace, switch **GGUF** to **MLX** and search. An MLX model shows one build, such as **MLX-4bit**, which downloads the whole model folder.
+3. Load it from your library like any other model. Chat, Rebound, Bouncer Code, workflows, the terminal and the local API server all use it the same way.
+
+The llama.cpp load options (GPU layers, KV cache types and so on) don't apply to MLX models; mlx-lm runs them on the GPU with its own settings. LM Studio's MLX models can be imported by reference with **Import from LM Studio / Ollama**.
 
 ## Gated models and Hugging Face sign-in
 
