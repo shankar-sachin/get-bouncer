@@ -1,0 +1,23 @@
+{
+  "format": "bouncer.package",
+  "schema": 1,
+  "name": "bouncer/llama-3.2-3b-brief",
+  "version": "1.0.0",
+  "description": "Llama 3.2 3B with a preset for short, direct answers. Runs on most machines.",
+  "license": "Apache-2.0",
+  "model": {
+    "engine": "gguf",
+    "repo": "bartowski/Llama-3.2-3B-Instruct-GGUF",
+    "quant": "Q4_K_M"
+  },
+  "load": {
+    "ctxSize": 8192
+  },
+  "preset": {
+    "name": "brief",
+    "systemPrompt": "Answer in as few words as the question needs. Use a list only when asked.",
+    "sampling": {
+      "temperature": 0.5
+    }
+  }
+}
