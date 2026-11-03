@@ -17,6 +17,7 @@ Bouncer runs open models on your own computer, so chats and files stay local. Th
 - [Rebound](rebound.md): make bots, each with its own room of chats.
 - [Lab](lab.md): send one prompt to several models, compare them side by side and rate them blind.
 - [Skills](skills.md): reusable instructions that Chat, Rebound and Bouncer Code load when a task needs them.
+- [Workflows](workflows.md): chain models, tools and agents into steps, and run them on demand, on a schedule, from Rebound or the terminal.
 - [Bouncer Code](code.md): work on a folder with a model, with changes you review before they apply.
 - [Scheduled tasks](scheduled-tasks.md): run a prompt in a folder later, and review its changes.
 - [IDE](ide.md): edit a folder in an editor, with Bouncer Code docked beside it.
@@ -30,7 +31,7 @@ Bouncer runs open models on your own computer, so chats and files stay local. Th
 
 - [Slash commands](slash-commands.md): change settings from the keyboard.
 - [Keyboard shortcuts](keyboard-shortcuts.md): every shortcut in one place.
-- [File formats](file-formats.md): the `.bcn`, `.bml` and `.bproj` files.
+- [File formats](file-formats.md): the `.bcn`, `.bml`, `.bproj` and `.bflow` files.
 - [Settings](settings.md): appearance, experience, engine, Hugging Face and hardware.
 - [Privacy](privacy.md): what stays on your machine and what connects to the internet.
 

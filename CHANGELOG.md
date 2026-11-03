@@ -1,5 +1,14 @@
 # Changelog
 
+## v0.13.0
+
+Bouncer Workflows and MLX models. See [Workflows](docs/workflows.md) and [MLX models](docs/models.md#mlx-models-apple-silicon).
+
+- Workflows, a new tab (⌘7 or Ctrl+7; the Marketplace moves to ⌘8): chain models, tools and agents on a canvas. Steps: prompt, tool, agent, condition and loop, each working on the one before.
+- Run a workflow on demand, daily or every few minutes, from a Rebound bot, or from the terminal with `bouncer workflow run`. A log for every run shows each step's input, output, tool calls, tokens and time.
+- Share a workflow as a `.bflow` file; open one to add it to your library. Schedules stay on your computer, never in the file.
+- MLX models on Apple silicon: set up mlx-lm in Settings › Engine, switch the Marketplace to MLX, and run MLX builds like any other model. LM Studio's MLX models can be imported too.
+
 ## v0.12.1
 
 Voice options, natural voices and fixes.

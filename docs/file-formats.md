@@ -1,26 +1,28 @@
 # File formats
 
-Bouncer saves three kinds of file so you can share and reuse your setup: a configuration file (`.bcn`), a model file (`.bml`), and a project file (`.bproj`). Each one is plain JSON, so you can read it, diff it, and keep it in version control.
+Bouncer saves four kinds of file so you can share and reuse your setup: a configuration file (`.bcn`), a model file (`.bml`), a project file (`.bproj`), and a workflow (`.bflow`). Each one is plain JSON, so you can read it, diff it, and keep it in version control.
 
-## The three file types
+## The file types
 
 | File | Icon | Name | What it holds |
 | --- | --- | --- | --- |
 | `.bcn` | ![Bouncer Configuration icon](images/bcn-256.png) | Bouncer Configuration | Settings, chat presets, and the mode. |
 | `.bml` | ![Bouncer Model icon](images/bml-256.png) | Bouncer Model | A model manifest: where to get the model, and its load and sampling settings. |
 | `.bproj` | ![Bouncer Project icon](images/bproj-256.png) | Bouncer Project | A coding project: its name, folder, instructions file, and mode. |
+| `.bflow` | ![Bouncer Workflow icon](images/bflow-256.png) | Bouncer Workflow | A [workflow](workflows.md): its steps, their settings and the links between them. |
 
 None of these files ever contains your Hugging Face token. Bouncer ignores unknown fields when it reads or writes a file, so a token cannot be stored in one by accident.
 
 ## Open a file
 
-Double-click a `.bcn`, `.bml`, or `.bproj` file, or use **Open with** on your system to choose Bouncer. You can also pick the file from Bouncer's open dialog. Bouncer reads the file and then does one of three things.
+Double-click a `.bcn`, `.bml`, `.bproj` or `.bflow` file, or use **Open with** on your system to choose Bouncer. You can also pick the file from Bouncer's open dialog. Bouncer reads the file and then does one of three things.
 
 | File | What happens |
 | --- | --- |
 | `.bproj` | The project folder opens in the IDE right away. If you last used Bouncer Code, it opens there instead. |
 | `.bml` | An **Open model** dialog shows the model, its repo and file, and its load settings. It also says whether the model is already in your library. Click **Load** if it is, or **Open in Marketplace** to find and download it. |
 | `.bcn` | An **Import settings** dialog lists what the file holds: settings, presets, and mode. Tick the parts you want, then click **Import**. |
+| `.bflow` | The workflow joins your workflow library. A workflow with the same name gets "(copy)" added. |
 
 If Bouncer cannot read a file, the **Couldn't open this file** dialog says why. For example, a damaged file reports where the JSON is broken, with its line and column.
 
@@ -29,6 +31,7 @@ If Bouncer cannot read a file, the **Couldn't open this file** dialog says why. 
 - **Configuration (.bcn)**: open **Settings > Experience** and click **Export settings…**. You can also run **Export settings** from the command palette.
 - **Model (.bml)**: in **Models > Library**, use the **Export** action on a model you downloaded from Hugging Face. Models you imported from a local file have no repo, so they cannot be exported.
 - **Project (.bproj)**: run **Export project file** from the command palette while a project is open. The file is saved in the project folder by default.
+- **Workflow (.bflow)**: in Workflows, open the workflow's menu (⋮) and click **export as .bflow**.
 
 ## Bouncer Configuration (.bcn)
 
@@ -183,17 +186,45 @@ The `agent.mode` field takes one of four values. They appear in Bouncer as:
 | `accept-edits` | accept edits | Applies edits, and asks before running commands. |
 | `autopilot` | autopilot | Runs everything in the project folder without asking. |
 
+## Bouncer Workflow (.bflow)
+
+A workflow file holds one [workflow](workflows.md):
+
+```json
+{
+  "format": "bouncer-workflow",
+  "version": 1,
+  "id": "4f0c…",
+  "name": "Digest",
+  "description": "Sums up a topic",
+  "steps": [
+    { "id": "s1", "kind": "start", "label": "Start", "x": 0, "y": 0, "config": { "inputLabel": "Topic", "defaultInput": "" } },
+    { "id": "s2", "kind": "prompt", "label": "Sum up", "x": 280, "y": 0, "config": { "model": "", "system": "", "prompt": "Sum up {{input}} in three lines.", "temperature": null } }
+  ],
+  "links": [{ "from": "s1", "port": "out", "to": "s2" }],
+  "createdAt": "2026-11-01T12:00:00.000Z",
+  "updatedAt": "2026-11-01T12:00:00.000Z"
+}
+```
+
+- `steps` are the boxes on the canvas, with their position and settings. `kind` is `start`, `prompt`, `tool`, `agent`, `condition` or `loop`.
+- `links` join a step's port to the next step: `out` for most steps, `true` and `false` for a condition, `body` and `done` for a loop.
+- A `model` of `""` means the model you have loaded. A step that names a model you don't have fails when it runs, until you pick another.
+- Schedules are not in the file: they stay on the computer that set them.
+
 ## Versions
 
-Every file carries a `version` number. The current version of all three formats is `1`.
+Every file carries a `version` number. The current version of all four formats is `1`.
 
 - If a file's version is newer than your copy of Bouncer, Bouncer refuses to open it and says **Made by a newer Bouncer (version N); update to open it**. Update Bouncer, then open the file again.
 - The version number lets a future Bouncer change the format and still read files written today.
 - Bouncer rejects files larger than 5 MB.
+- A newer `.bflow` says **This workflow was made by a newer Bouncer. Update Bouncer to open it.**
 
 ## Related
 
 - [Settings](settings.md): the settings a `.bcn` file can carry.
 - [Models](models.md): downloading models and managing your library.
 - [Code](code.md): working with projects and Bouncer Code.
+- [Workflows](workflows.md): building and running workflows.
 - [Privacy](privacy.md): what stays on your machine.

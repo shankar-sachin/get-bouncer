@@ -70,6 +70,17 @@ It is the same agent as [Bouncer Code](code.md) in the app, with the same four m
 
 Keys: `@` mentions a file (Tab completes it), `!` runs a shell command whose output goes with your next message, Esc stops the model, Esc twice on an empty line rewinds, `\` then Enter starts a new line, and Ctrl+C or Ctrl+D quits. Type `/` for commands: `/model`, `/mode`, `/clear`, `/resume`, `/rewind`, `/compact`, `/init`, `/ultracode`, `/diff`, `/context`, `/cost`, `/status`, `/export` and `/exit`.
 
+## Workflows
+
+```sh
+bouncer workflow list                        # or: bouncer workflow ls
+bouncer workflow run Digest "space news"     # the words after the name are the input
+cat notes.txt | bouncer workflow run Digest  # or pipe it in
+bouncer workflow run Digest --json           # the whole run, with every step's log
+```
+
+`bouncer workflow run` runs a [workflow](workflows.md) from the desktop app's library, named by its name (any case) or id. The output goes to stdout and each step is reported on stderr as it ends (`-q` turns that off), so you can redirect the output to a file. With no input, the workflow's default input is used. Ctrl+C stops the run. The run shows in the app's history, marked "from the terminal".
+
 ## Account
 
 ```sh

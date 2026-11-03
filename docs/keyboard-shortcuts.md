@@ -21,7 +21,8 @@ These shortcuts work across Bouncer. On macOS the main modifier is <kbd>⌘</kbd
 | Rebound | <kbd>⌘</kbd> <kbd>4</kbd> | <kbd>Ctrl</kbd> <kbd>4</kbd> |
 | Studio | <kbd>⌘</kbd> <kbd>5</kbd> | <kbd>Ctrl</kbd> <kbd>5</kbd> |
 | Lab | <kbd>⌘</kbd> <kbd>6</kbd> | <kbd>Ctrl</kbd> <kbd>6</kbd> |
-| Marketplace | <kbd>⌘</kbd> <kbd>7</kbd> | <kbd>Ctrl</kbd> <kbd>7</kbd> |
+| Workflows | <kbd>⌘</kbd> <kbd>7</kbd> | <kbd>Ctrl</kbd> <kbd>7</kbd> |
+| Marketplace | <kbd>⌘</kbd> <kbd>8</kbd> | <kbd>Ctrl</kbd> <kbd>8</kbd> |
 
 Code is also reached with the **Chat | Code** toggle in the title bar.
 
