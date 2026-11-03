@@ -1,0 +1,14 @@
+{
+  "format": "bouncer.package",
+  "schema": 1,
+  "name": "bouncer/qwen3-8b-mlx",
+  "version": "1.0.0",
+  "description": "Qwen3 8B as a 4-bit MLX build, for Apple silicon with mlx-lm.",
+  "license": "Apache-2.0",
+  "model": {
+    "engine": "mlx",
+    "repo": "mlx-community/Qwen3-8B-4bit"
+  },
+  "load": {},
+  "preset": null
+}

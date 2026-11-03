@@ -1,0 +1,17 @@
+{
+  "format": "bouncer.package",
+  "schema": 1,
+  "name": "bouncer/gemma-3-4b",
+  "version": "1.0.0",
+  "description": "Gemma 3 4B from the official llama.cpp build, with an 8K context. Small and quick.",
+  "license": "Apache-2.0",
+  "model": {
+    "engine": "gguf",
+    "repo": "ggml-org/gemma-3-4b-it-GGUF",
+    "quant": "Q4_K_M"
+  },
+  "load": {
+    "ctxSize": 8192
+  },
+  "preset": null
+}

@@ -1,0 +1,18 @@
+{
+  "format": "bouncer.package",
+  "schema": 1,
+  "name": "bouncer/qwen3-8b",
+  "version": "1.0.0",
+  "description": "Qwen3 8B, a strong all-round assistant, with a 16K context and flash attention on.",
+  "license": "Apache-2.0",
+  "model": {
+    "engine": "gguf",
+    "repo": "unsloth/Qwen3-8B-GGUF",
+    "quant": "Q4_K_M"
+  },
+  "load": {
+    "ctxSize": 16384,
+    "flashAttn": "on"
+  },
+  "preset": null
+}

@@ -4,3 +4,7 @@
 /install.ps1
   Content-Type: text/plain; charset=utf-8
   Cache-Control: public, max-age=300, must-revalidate
+/bcr/*
+  Content-Type: application/json; charset=utf-8
+  Cache-Control: public, max-age=300, must-revalidate
+  Access-Control-Allow-Origin: *

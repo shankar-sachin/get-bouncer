@@ -1,0 +1,27 @@
+{
+  "format": "bouncer.package",
+  "schema": 1,
+  "name": "bouncer/qwen2.5-coder-7b",
+  "version": "1.0.0",
+  "description": "Qwen2.5 Coder 7B for code: a 32K context with an 8-bit KV cache, and a low-temperature coding preset.",
+  "license": "Apache-2.0",
+  "model": {
+    "engine": "gguf",
+    "repo": "unsloth/Qwen2.5-Coder-7B-Instruct-GGUF",
+    "quant": "Q4_K_M"
+  },
+  "load": {
+    "ctxSize": 32768,
+    "flashAttn": "on",
+    "cacheTypeK": "q8_0",
+    "cacheTypeV": "q8_0"
+  },
+  "preset": {
+    "name": "coder",
+    "systemPrompt": "You are a careful coding assistant. Answer with working code first, then a short explanation. Say when you are unsure.",
+    "sampling": {
+      "temperature": 0.2,
+      "topP": 0.9
+    }
+  }
+}

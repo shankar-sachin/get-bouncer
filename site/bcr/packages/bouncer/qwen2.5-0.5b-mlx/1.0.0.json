@@ -1,0 +1,14 @@
+{
+  "format": "bouncer.package",
+  "schema": 1,
+  "name": "bouncer/qwen2.5-0.5b-mlx",
+  "version": "1.0.0",
+  "description": "Qwen2.5 0.5B as a 4-bit MLX build: a tiny model to try MLX on Apple silicon.",
+  "license": "Apache-2.0",
+  "model": {
+    "engine": "mlx",
+    "repo": "mlx-community/Qwen2.5-0.5B-Instruct-4bit"
+  },
+  "load": {},
+  "preset": null
+}
