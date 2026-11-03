@@ -120,7 +120,7 @@ On a Mac with Apple silicon, Bouncer also runs MLX models: builds made for Apple
 
 <picture><source media="(prefers-color-scheme: dark)" srcset="images/mlx-obsidian.png"><source media="(prefers-color-scheme: light)" srcset="images/mlx-light.png"><img src="images/mlx-light.png" alt="The Marketplace with MLX picked, listing MLX models" /></picture>
 
-1. Open **Settings > Engine** and click **Set up MLX**. Bouncer makes a private Python environment in its own folder, from your Mac's Python 3 (3.9 or newer; Homebrew, python.org or Apple's command line tools), and installs mlx-lm into it. This downloads a few hundred MB and takes a minute or two. **Remove MLX** deletes it again.
+1. Open **Settings > Engine** and click **Set up MLX**. Bouncer makes a private Python environment in its own folder, from your Mac's Python (3.11 to 3.14, from Homebrew or python.org; it picks the newest one in that range), and installs mlx-lm into it. This downloads a few hundred MB and takes a minute or two. **Remove MLX** deletes it again.
 2. In the Marketplace, switch **GGUF** to **MLX** and search. An MLX model shows one build, such as **MLX-4bit**, which downloads the whole model folder.
 3. Load it from your library like any other model. Chat, Rebound, Bouncer Code, workflows, the terminal and the local API server all use it the same way.
 
