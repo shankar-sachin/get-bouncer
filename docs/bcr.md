@@ -6,8 +6,8 @@ Packages come from the **bcr index** at https://bouncer-ai.pages.dev/bcr/, or fr
 
 ## In the app
 
-1. Open the **Marketplace** (⌘8 or Ctrl+8), then **Discover**.
-2. Pick **packages** in the switch above the results (next to GGUF and, on Apple silicon, MLX).
+1. Open the **Marketplace** (⌘8 or Ctrl+8).
+2. Open the **Packages** tab (next to Discover, Library and Downloads).
 3. Search with the search box, then click **install** on a package.
 
 The model downloads in the background; its progress shows on the package and in **Downloads**. When it finishes, the package shows its version, its model and its preset. Load the model as usual: its load options are already set, and the preset is in the composer's preset menu.
