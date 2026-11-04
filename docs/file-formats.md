@@ -214,7 +214,7 @@ A workflow file holds one [workflow](workflows.md):
 
 ## Bouncer package (.bcr.json)
 
-A package file holds one model with its load options and preset, for [bcr](bcr.md). Install it with `bcr install file.bcr.json` or **install from file** in the Marketplace's packages view. [Packages](bcr.md#the-package-file) describes its fields; it carries `"format": "bouncer.package"` and `"schema": 1`.
+A package file holds one model with its load options and preset, for [bcr](bcr.md). Install it with `bcr install file.bcr.json` or **install from file** in the Marketplace's Packages tab. [Packages](bcr.md#the-package-file) describes its fields; it carries `"format": "bouncer.package"` and `"schema": 1`.
 
 ## Versions
 

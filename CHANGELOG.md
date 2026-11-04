@@ -1,5 +1,15 @@
 # Changelog
 
+## v0.14.2
+
+Marketplace and polish.
+
+- A **format** filter in the Marketplace sidebar (All, MLX, GGUF) replaces the format switch. MLX is offered on Apple silicon only. In All, a model with both builds shows a GGUF / MLX switch in its details. See [MLX models](docs/models.md#mlx-models-apple-silicon).
+- A fuller MLX list: hundreds of models, one card per model with its bit widths, and a build picker in the details. The company filter works for MLX too.
+- Packages have their own **Packages** tab in the Marketplace. See [Packages](docs/bcr.md).
+- MLX models show their maker's logo, and their details show the architecture and context length.
+- Fixes: the model menu shows full names and a one-line status; Chat's delete confirmation fits on one line; the workflow delete confirmation is a proper dialog; on narrow windows a model's details slide over the list.
+
 ## v0.14.0
 
 Packages for models (bcr). See [Packages](docs/bcr.md).

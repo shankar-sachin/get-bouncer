@@ -121,7 +121,7 @@ On a Mac with Apple silicon, Bouncer also runs MLX models: builds made for Apple
 <picture><source media="(prefers-color-scheme: dark)" srcset="images/mlx-obsidian.png"><source media="(prefers-color-scheme: light)" srcset="images/mlx-light.png"><img src="images/mlx-light.png" alt="The Marketplace with MLX picked, listing MLX models" /></picture>
 
 1. Open **Settings > Engine** and click **Set up MLX**. Bouncer makes a private Python environment in its own folder, from your Mac's Python (3.11 to 3.14, from Homebrew or python.org; it picks the newest one in that range), and installs mlx-lm into it. This downloads a few hundred MB and takes a minute or two. **Remove MLX** deletes it again.
-2. In the Marketplace, switch **GGUF** to **MLX** and search. An MLX model shows one build, such as **MLX-4bit**, which downloads the whole model folder.
+2. In the Marketplace, pick **MLX** under **format** in the sidebar (or **All** for GGUF and MLX together) and search. Each MLX model is one card with its bit widths; its details have a **build** picker (for example **4bit** from `lmstudio-community`), and each build downloads the whole model folder. In **All**, a model that has both a GGUF and an MLX build shows a **GGUF / MLX** switch at the top of its details.
 3. Load it from your library like any other model. Chat, Rebound, Bouncer Code, workflows, the terminal and the local API server all use it the same way.
 
 The llama.cpp load options (GPU layers, KV cache types and so on) don't apply to MLX models; mlx-lm runs them on the GPU with its own settings. LM Studio's MLX models can be imported by reference with **Import from LM Studio / Ollama**.
