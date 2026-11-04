@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## v0.14.0
 
 Packages for models (bcr). See [Packages](docs/bcr.md).
 
@@ -79,7 +79,7 @@ Rebound extras. See [Rebound](docs/rebound.md).
 - Same models, engine, keys, chats and sessions as the desktop app. See [Terminal](docs/cli.md).
 - Fixed: the Intel Mac and Windows builds of v0.8.0 could not start, because their file search tool was missing.
 
-## Unreleased
+## v0.14.0
 
 - New orb logo across the app, the website and the installers.
 - Replies stream with a bouncing ball that lands as the orb.

@@ -227,7 +227,7 @@ install_macos() {
     checksum_note
     echo "would unzip and install: $TARGET (replacing any existing copy)"
     echo "would remove quarantine: xattr -dr com.apple.quarantine"
-    echo "would write: $HOME/.local/bin/bouncer (runs $TARGET/Contents/MacOS/Bouncer)"
+    echo "would write: $HOME/.local/bin/bouncer and bcr (run $TARGET/Contents/MacOS/Bouncer)"
     return 0
   fi
 
@@ -279,6 +279,14 @@ link_cli() {
   printf "#!/bin/sh\n%s\nexec '%s' \"\$@\"\n" "$MARK" "$quoted" >"$LINK"
   chmod 755 "$LINK"
   info "wrote $LINK"
+  # bcr (model packages) is `bouncer bcr`, written when its name is free or already Bouncer's.
+  BCR="$BIN_DIR/bcr"
+  if [ ! -e "$BCR" ] && [ ! -L "$BCR" ] || grep -qF "$MARK" "$BCR" 2>/dev/null; then
+    rm -f "$BCR"
+    printf "#!/bin/sh\n%s\nexec '%s' bcr \"\$@\"\n" "$MARK" "$quoted" >"$BCR"
+    chmod 755 "$BCR"
+    info "wrote $BCR"
+  fi
   case ":$PATH:" in
     *":$BIN_DIR:"*) echo "terminal: run bouncer --help" ;;
     *)
