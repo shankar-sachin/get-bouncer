@@ -22,6 +22,7 @@ Bouncer runs open models on your own computer, so chats and files stay local. Th
 - [Scheduled tasks](scheduled-tasks.md): run a prompt in a folder later, and review its changes.
 - [IDE](ide.md): edit a folder in an editor, with Bouncer Code docked beside it.
 - [Models](models.md): find, download, load and tune models.
+- [Packages (bcr)](bcr.md): install a model with the settings it runs best with, in the app or with `bcr`.
 - [Cloud providers](providers.md): use Anthropic, OpenAI or OpenRouter models next to local ones.
 - [Terminal](cli.md): the `bouncer` command, with a guide for Ollama and Claude Code users.
 - [Account](account.md): optional sign-in with GitHub, Google or an emailed code, your profile and your devices.
@@ -31,7 +32,7 @@ Bouncer runs open models on your own computer, so chats and files stay local. Th
 
 - [Slash commands](slash-commands.md): change settings from the keyboard.
 - [Keyboard shortcuts](keyboard-shortcuts.md): every shortcut in one place.
-- [File formats](file-formats.md): the `.bcn`, `.bml`, `.bproj` and `.bflow` files.
+- [File formats](file-formats.md): the `.bcn`, `.bml`, `.bproj` and `.bflow` files, and `.bcr.json` packages.
 - [Settings](settings.md): appearance, experience, engine, Hugging Face and hardware.
 - [Privacy](privacy.md): what stays on your machine and what connects to the internet.
 

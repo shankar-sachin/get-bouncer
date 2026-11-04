@@ -212,9 +212,13 @@ A workflow file holds one [workflow](workflows.md):
 - A `model` of `""` means the model you have loaded. A step that names a model you don't have fails when it runs, until you pick another.
 - Schedules are not in the file: they stay on the computer that set them.
 
+## Bouncer package (.bcr.json)
+
+A package file holds one model with its load options and preset, for [bcr](bcr.md). Install it with `bcr install file.bcr.json` or **install from file** in the Marketplace's packages view. [Packages](bcr.md#the-package-file) describes its fields; it carries `"format": "bouncer.package"` and `"schema": 1`.
+
 ## Versions
 
-Every file carries a `version` number. The current version of all four formats is `1`.
+Every file carries a `version` number. The current version of all four formats is `1`. A package file (`.bcr.json`) carries `schema` instead, also `1`.
 
 - If a file's version is newer than your copy of Bouncer, Bouncer refuses to open it and says **Made by a newer Bouncer (version N); update to open it**. Update Bouncer, then open the file again.
 - The version number lets a future Bouncer change the format and still read files written today.

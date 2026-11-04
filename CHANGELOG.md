@@ -1,5 +1,12 @@
 # Changelog
 
+## v0.14.0
+
+Packages for models (bcr). See [Packages](docs/bcr.md).
+
+- A package is a model with the settings it runs best with: load options and a preset. Install one from the new **packages** view in the Marketplace, or with `bcr install` in the terminal (`bcr` is `bouncer bcr`).
+- Packages come from the bcr index at bouncer-ai.pages.dev/bcr, from a `.bcr.json` file or from a URL. `bcr update` moves to newer versions; removing a package takes away what it added and leaves models you already had.
+
 ## v0.13.0
 
 Bouncer Workflows and MLX models. See [Workflows](docs/workflows.md) and [MLX models](docs/models.md#mlx-models-apple-silicon).
@@ -72,7 +79,7 @@ Rebound extras. See [Rebound](docs/rebound.md).
 - Same models, engine, keys, chats and sessions as the desktop app. See [Terminal](docs/cli.md).
 - Fixed: the Intel Mac and Windows builds of v0.8.0 could not start, because their file search tool was missing.
 
-## Unreleased
+## v0.14.0
 
 - New orb logo across the app, the website and the installers.
 - Replies stream with a bouncing ball that lands as the orb.

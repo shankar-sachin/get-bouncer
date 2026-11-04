@@ -81,6 +81,18 @@ bouncer workflow run Digest --json           # the whole run, with every step's 
 
 `bouncer workflow run` runs a [workflow](workflows.md) from the desktop app's library, named by its name (any case) or id. The output goes to stdout and each step is reported on stderr as it ends (`-q` turns that off), so you can redirect the output to a file. With no input, the workflow's default input is used. Ctrl+C stops the run. The run shows in the app's history, marked "from the terminal".
 
+## Packages
+
+```sh
+bcr search code                      # or: bouncer bcr search code
+bcr install bouncer/qwen2.5-coder-7b
+bcr list
+bcr update
+bcr remove bouncer/qwen2.5-coder-7b
+```
+
+`bcr` installs [packages](bcr.md): a model with its load options and preset. `bcr` is the same as `bouncer bcr`; on Linux, use `bouncer bcr`.
+
 ## Account
 
 ```sh
