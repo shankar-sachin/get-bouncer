@@ -6,9 +6,10 @@ Sync keeps your settings, presets and chosen chats the same on every computer si
 
 | Kind | What goes along | What stays on each computer |
 | --- | --- | --- |
-| **Settings** | Theme, accent, contrast, editor preferences, agent mode, model loading and autocomplete preferences. | API keys, your Hugging Face token, folders, GPUs, which models are installed and loaded. |
+| **Settings** | Theme, accent, contrast, editor preferences, agent mode, model loading and autocomplete preferences. | Folders, GPUs, which models are installed and loaded. |
 | **Presets** | Your own presets and the built-in ones you edited, and deletions. | |
 | **Chats** | Only chats you turn sync on for, with every branch and their Relics. | Attached files, Bouncer Code sessions and checkpoints. |
+| **API keys** | Only when [API key sync](#api-keys) is on for your account: the OpenAI, Anthropic and OpenRouter keys and your Hugging Face token, and their removal. | Your account's own sign-in. |
 
 Turn each kind on or off per computer in **Settings › Account › sync**.
 
@@ -28,6 +29,15 @@ Sign in on the new computer and open **Settings › Account**. Then either:
 
 - **Ask another device.** The new computer shows six digits. On a computer that already syncs, open **Settings › Account**: it shows the request with six digits. If they match, choose **Approve**. If they don't, choose **Deny**.
 - **Use your recovery code.** Type it in and choose **Use code**. Case, spaces and dashes don't matter.
+
+## API keys
+
+API key sync puts your cloud provider keys and Hugging Face token on every computer signed in to your account. It's off until you turn it on, for the whole account, on the [account page](https://bouncer-ai.pages.dev/account#api-keys) under **API keys**. Bouncer offers it once with a small card at the bottom left; **Turn on** opens that page and **Not now** closes the card.
+
+- Keys move only between computers where sync is on, and they're encrypted like everything else that syncs: the account page and Bouncer's server never see them.
+- Removing a key on one computer removes it on the others.
+- Turning it off stops keys moving. Each computer keeps the keys it has.
+- **Settings › Account › sync** shows whether it's on, with a link to the account page.
 
 ## Status
 
