@@ -494,13 +494,60 @@ function deleteAccount(user) {
   return section
 }
 
+/** The account-wide switch for API key sync. The app reads it; the keys themselves sync sealed, like chats. */
+const KEY_SYNC = 'bouncer_sync_api_keys'
+
+function apiKeys(user) {
+  let on = !!(user.user_metadata && user.user_metadata[KEY_SYNC] === true)
+  const note = h('div')
+  const status = h('p', { class: 'portal-muted', 'data-testid': 'portal-keys-status' })
+  const toggle = h('button', {
+    type: 'button',
+    class: 'switch',
+    role: 'switch',
+    'aria-label': 'Sync API keys',
+    'data-testid': 'portal-keys-switch',
+    onclick: async () => {
+      toggle.disabled = true
+      const { data, error } = await supabase.auth.updateUser({ data: { [KEY_SYNC]: !on } })
+      toggle.disabled = false
+      if (error) return note.replaceChildren(errorNote(messageOf(error)))
+      on = !!(data && data.user && data.user.user_metadata && data.user.user_metadata[KEY_SYNC] === true)
+      note.replaceChildren()
+      paint()
+    },
+  })
+  function paint() {
+    toggle.setAttribute('aria-checked', String(on))
+    status.textContent = on
+      ? 'On. Keys saved on one computer show up on the others within a minute. Sync has to be on in the app as well.'
+      : 'Off. Each computer keeps its own keys.'
+  }
+  paint()
+  const section = card(
+    'API keys',
+    h(
+      'div',
+      { class: 'switch-row' },
+      h('p', { class: 'portal-text', text: 'Sync your cloud provider keys (OpenAI, Anthropic, OpenRouter) and your Hugging Face token to every computer signed in to your account. They are end-to-end encrypted with your sync key, so this page and Bouncer’s server never see them.' }),
+      toggle,
+    ),
+    status,
+    note,
+  )
+  section.id = 'api-keys'
+  return section
+}
+
 async function render() {
   const { data } = await supabase.auth.getUser()
   const user = data && data.user
   if (!user) return signedOut(new URLSearchParams(location.hash.slice(1)).get('error_description'))
   title.textContent = 'Your Bouncer account'
   lede.textContent = 'Passkeys, signed-in devices, sync, and deleting your account.'
-  show(profile(user), passkeys(), devices(user), sync(), deleteAccount(user))
+  show(profile(user), passkeys(), devices(user), sync(), apiKeys(user), deleteAccount(user))
+  // The app's "Turn on" opens this page at #api-keys.
+  if (location.hash === '#api-keys') document.getElementById('api-keys')?.scrollIntoView({ block: 'center' })
 }
 
 /* ---------- boot ---------- */
