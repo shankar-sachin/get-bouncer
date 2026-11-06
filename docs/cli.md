@@ -44,13 +44,14 @@ bouncer run Qwen3-8B-GGUF                       # a chat, full screen
 bouncer run Qwen3-8B-GGUF "Explain mmap in two lines."   # print one reply and exit
 git diff | bouncer run Qwen3-8B-GGUF "Write a commit message for this."
 bouncer chat                                    # continue your last terminal chat
+bouncer                                         # a chat with no model yet; /load picks one
 ```
 
-`bouncer run` with a prompt, or with piped input, prints the reply and exits, so it works in scripts. Without one it opens a chat. If the model isn't downloaded yet, it asks whether to pull it.
+`bouncer run` with a prompt, or with piped input, prints the reply and exits, so it works in scripts. Without one it opens a chat. If the model isn't downloaded yet, it asks whether to pull it. In the full-screen chat the mouse wheel scrolls the conversation; to select text, hold Fn (Terminal) or Option (iTerm2) while you drag.
 
 Flags: `--system <prompt>`, `--effort low|medium|high|xhigh|max`, `--think`, `--nothink`, `--hidethinking`, `--verbose` (tokens and speed after each reply), `-c`/`--continue`, `-p`/`--print` and `--inline` (draw in the scrollback instead of full screen).
 
-In the chat, type `/` for commands: `/model`, `/clear`, `/resume`, `/retry`, `/rewind`, `/set`, `/show`, `/effort`, `/think`, `/nothink`, `/system`, `/context`, `/cost`, `/copy`, `/save`, `/export` and `/bye`.
+In the chat, type `/` for commands: `/model`, `/load`, `/clear`, `/resume`, `/retry`, `/rewind`, `/set`, `/show`, `/effort`, `/think`, `/nothink`, `/system`, `/context`, `/cost`, `/copy`, `/save`, `/export` and `/bye`.
 
 Cloud models work too, once the provider is turned on in Settings: `bouncer run cloud:anthropic/claude-sonnet-5-5`. See [Cloud providers](providers.md). In Windows terminals, keys come from `ANTHROPIC_API_KEY`, `OPENAI_API_KEY` and `OPENROUTER_API_KEY`, because the keychain isn't reachable there.
 
