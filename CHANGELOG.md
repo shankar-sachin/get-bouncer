@@ -1,5 +1,14 @@
 # Changelog
 
+## v0.15.0
+
+API key sync and terminal fixes.
+
+- **API key sync**: your OpenAI, Anthropic and OpenRouter keys and your Hugging Face token can follow your account to every computer that syncs, end-to-end encrypted like the rest of sync. It's off until you turn it on for your account on the [account page](https://bouncer-ai.pages.dev/account#api-keys). See [Sync](docs/sync.md#api-keys).
+- `bouncer` on its own opens a full-screen chat with no model loaded; type `/load` to pick one. See [the terminal app](docs/cli.md#chat).
+- In the full-screen terminal app, the mouse wheel scrolls the conversation. To select text, hold Fn (Terminal) or Option (iTerm2) while you drag.
+- Fixes: the terminal app no longer flickers or stacks copies of a long reply; MLX models are reported ready only once their weights have loaded; MLX details say "Other builds"; the Library no longer shows a second "Import from LM Studio" button; quitting can no longer leave a half-closed app; About shows "(development build)" for builds run from source.
+
 ## v0.14.2
 
 Marketplace and polish.
