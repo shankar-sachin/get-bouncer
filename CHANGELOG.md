@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.16.2
+
+- Rebound has its own logo: the built-in Rebound bot now shows it. In the avatar picker it's the "rebound logo" choice.
+
 ## v0.16.1
 
 The background service.
