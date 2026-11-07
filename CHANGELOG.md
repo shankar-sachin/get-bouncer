@@ -1,5 +1,18 @@
 # Changelog
 
+## v0.16.0
+
+The design refresh. No new features; every screen got a pass in Light, Graphite and Obsidian.
+
+- A calmer, neutral graphite palette with crisper borders and a depth scale: cards lift under the pointer, menus float, and dialogs sit above a soft blurred backdrop.
+- Chat and Code greet you in a serif, the same reading face model replies use.
+- The command palette (⌘K or Ctrl+K) is rebuilt in a Spotlight style: a large search row, icons in tiles and key hints at the bottom.
+- The side rail marks the active place with an accent bar, groups places by what they're for, and names each one in a tooltip with its shortcut.
+- Settings is larger, and its sections have icon tiles.
+- **Obsidian**, reworked for OLED screens: pages and the editor are true black with the side panels barely above them; cards are lit from the top, the main action and the active place glow softly in your accent, and a faint halo sits behind the start screens.
+- Pages share one background, header and empty-state style; buttons, text fields and cards look the same everywhere, and buttons press down when clicked.
+- The terminal app is unchanged.
+
 ## v0.15.0
 
 API key sync and terminal fixes.
