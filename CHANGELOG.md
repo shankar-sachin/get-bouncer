@@ -1,5 +1,14 @@
 # Changelog
 
+## v0.16.1
+
+The background service.
+
+- `bouncer daemon`: Bouncer in the background, with no window. It keeps a model loaded, serves the local API (port 3133 unless you changed it) and runs your Rebound routines. The desktop app and the terminal app use its models, so a model loaded once is shared and closing the window doesn't unload it. `bouncer daemon start`, `stop`, `status`, `logs`; `enable` starts it when you log in. See [the background service](docs/cli.md#the-background-service).
+- Settings › Local server has the same controls: start, stop, and start at login.
+- `bouncer ps` shows the daemon's models.
+- A new macOS installer window: open the DMG and drag Bouncer onto Applications.
+
 ## v0.16.0
 
 The design refresh. No new features; every screen got a pass in Light, Graphite and Obsidian.

@@ -30,7 +30,7 @@ bouncer pull Qwen/Qwen3-8B-GGUF            # download, picking the quant that fi
 bouncer pull Qwen/Qwen3-8B-GGUF:Q4_K_M     # or name the quant
 bouncer list                               # or: bouncer ls
 bouncer show Qwen3-8B-GGUF                 # architecture, context, quant and template
-bouncer ps                                 # models loaded by the app and by other terminals
+bouncer ps                                 # models loaded by the app, the daemon and other terminals
 bouncer stop Qwen3-8B-GGUF                 # unload
 bouncer rm Qwen3-8B-GGUF                   # delete from the library
 ```
@@ -110,6 +110,21 @@ The terminal and the desktop app share one sign-in. An account is optional; ever
 ## The local API server
 
 `bouncer serve` runs Bouncer's local API server in the foreground, with OpenAI-compatible and Anthropic-compatible endpoints, and prints their addresses. Ctrl+C stops it.
+
+## The background service
+
+```sh
+bouncer daemon start                         # start it, with the last model you used
+bouncer daemon start --model Qwen3-8B-GGUF   # or name the model to keep loaded
+bouncer daemon status                        # running or not, its models and the API address (--json for scripts)
+bouncer daemon logs -n 100 -f                # the last 100 lines, then new ones until Ctrl+C
+bouncer daemon stop
+bouncer daemon enable                        # start it when you log in; disable stops that
+```
+
+`bouncer daemon` runs Bouncer in the background, with no window. It keeps a model loaded, serves the local API (port 3133 unless you changed it) and runs your [Rebound](rebound.md) routines. The desktop app and the terminal app use its models, so a model loaded once is shared, and closing the app's window doesn't unload it. `bouncer ps` lists the daemon's models with the others.
+
+The desktop app has the same controls in Settings › Local server › Background service: start, stop, and start at login.
 
 ## Coming from Ollama
 
