@@ -1,5 +1,16 @@
 # Changelog
 
+## v0.16.3
+
+Fixes for Claude Code on the local API.
+
+- Claude Code pointed at Bouncer's Anthropic-compatible endpoint no longer fails with `Each message needs role "user" or "assistant"`: a `system` message inside a conversation is accepted.
+- `POST /v1/messages/count_tokens` answers with an estimated count, so `/context` in Claude Code works.
+- Tool search works: the tools Claude Code holds back stay out of the prompt until it loads them, which keeps the prompt small for local models.
+- A request for JSON output (`output_config.format` with a JSON schema) is passed on to the model. Claude Code uses it for session titles.
+- An image or PDF inside a tool result shows as a short note, not an empty result.
+- Claude Code's web search still isn't available with local models.
+
 ## v0.16.2
 
 - Rebound has its own logo: the built-in Rebound bot now shows it. In the avatar picker it's the "rebound logo" choice.
