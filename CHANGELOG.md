@@ -1,5 +1,18 @@
 # Changelog
 
+## v0.18.0
+
+Rebound sync.
+
+- **Sync this bot**: edit a Rebound bot and turn on **sync this bot**, and the bot follows you to your other computers. It's off for every bot until you turn it on. A synced bot shows a sync mark on its card and in its room. See [Sync](docs/sync.md#rebound-bots).
+- **What syncs**: the bot (name, personality, avatar, greeting, model choice, creativity and memory switch), its chats, its memories and its routines. Connected folders and calendars, the bot's place in the list and routine run history stay on each computer.
+- **Chats need Chats on**: a synced bot's chats sync only while **Chats** is on in Settings › Account.
+- **Routines have a home**: a synced routine runs on one computer only. The others show "runs on" and its name; **run it here** moves it. See [Rebound](docs/rebound.md#routines).
+- **A model you don't have**: if a synced bot's model isn't on this computer, the bot says so and links to the Marketplace.
+- **Settings › Account** has a new **Rebound bots** category, on by default. A bot still syncs only when its own switch is on.
+- **Older apps keep syncing**: v0.17 and older carry on with settings, presets, chats and keys. They don't see synced bots until they update.
+- Switching a bot off stops syncing it and leaves it on your other computers. Deleting a synced bot deletes it everywhere.
+
 ## v0.17.0
 
 Plugins, and Ollama's API.
