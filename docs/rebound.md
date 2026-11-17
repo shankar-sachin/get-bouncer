@@ -78,7 +78,13 @@ Hover a bot's card and open its menu (the three dots):
 - **Edit** opens the builder with the bot's current settings.
 - **Duplicate** makes a copy you can change.
 - **Reset to original** restores a starter bot to how it shipped. It appears only on starter bots.
-- **Delete** removes the bot and all of its chats.
+- **Delete** removes the bot and all of its chats. If the bot is synced, it's removed from your other computers too.
+
+## Sync a bot to your other devices
+
+With [sync](sync.md) on, a bot can follow you to your other computers. Edit the bot and turn on **sync this bot**. Its chats, memories and routines go along. It's off for every bot until you turn it on.
+
+Folders and calendars you connected stay on this computer. If a synced bot's model isn't on another computer, the bot says so and links to the Marketplace. See [Rebound bots in Sync](sync.md#rebound-bots) for what syncs and what doesn't.
 
 ## Bring up Rebound from anywhere
 
@@ -89,7 +95,7 @@ Turn these on in **Settings › Rebound**. Both are off until you do, and they b
 
 ## Memory
 
-A bot can remember short facts about you across its chats, such as your name or a project you're on. Click **memory** in the bot's room to read, edit, add, delete or wipe them. Memories stay on this computer.
+A bot can remember short facts about you across its chats, such as your name or a project you're on. Click **memory** in the bot's room to read, edit, add, delete or wipe them. Memories stay on this computer, unless you [sync the bot](#sync-a-bot-to-your-other-devices).
 
 - The bot reads its memories in every chat, and saves new facts itself when your model can call tools.
 - Turn the **Memory** switch off to stop using them; the list is kept until you wipe it.
@@ -103,6 +109,8 @@ A routine sends a bot a prompt on a schedule and posts the reply in its own chat
 - **on demand**: only when you click **run now**.
 
 Routines run while Bouncer is open. Turn one off with its switch, or delete it.
+
+On a [synced bot](#sync-a-bot-to-your-other-devices), a routine runs on one computer only, its home, so you don't get the same reply twice. On your other computers it shows **runs on** and the home's name, for example "runs on Studio Mac". Choose **run it here** to move it: it runs on this computer from then on, and stops on the old one. **run now** still works anywhere.
 
 ## Voice
 
