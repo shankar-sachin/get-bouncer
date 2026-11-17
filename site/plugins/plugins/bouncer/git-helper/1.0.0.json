@@ -1,0 +1,30 @@
+{
+  "format": "bouncer.plugin",
+  "schema": 1,
+  "name": "bouncer/git-helper",
+  "version": "1.0.0",
+  "description": "Slash commands for everyday git writing: commit messages, branch names, changelog entries and explaining a diff.",
+  "license": "MIT",
+  "commands": [
+    {
+      "name": "commit-message",
+      "description": "Write a Conventional Commits message for the diff you paste",
+      "prompt": "Write a commit message for this diff in the Conventional Commits style: a type, an optional scope and a short summary of at most 72 characters in the imperative, then a blank line and a body that says why the change was made. Only describe what the diff shows.\n\n$ARGUMENTS"
+    },
+    {
+      "name": "branch-name",
+      "description": "Suggest short branch names for a task",
+      "prompt": "Suggest three short git branch names for this task. Use lowercase words joined by hyphens, with a prefix such as feat/, fix/ or chore/.\n\n$ARGUMENTS"
+    },
+    {
+      "name": "changelog",
+      "description": "Turn commits or merged PRs into changelog entries",
+      "prompt": "Turn these commits or pull requests into changelog entries. Group them under Added, Changed and Fixed. Write each entry as one plain sentence a user would understand, and leave out changes that users cannot see.\n\n$ARGUMENTS"
+    },
+    {
+      "name": "explain-diff",
+      "description": "Explain what a diff does, file by file",
+      "prompt": "Explain this diff to a teammate who has not seen it. Say what it does overall, then go file by file. Point out anything that could break.\n\n$ARGUMENTS"
+    }
+  ]
+}

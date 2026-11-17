@@ -23,8 +23,9 @@ Bouncer runs open models on your own computer, so chats and files stay local. Th
 - [IDE](ide.md): edit a folder in an editor, with Bouncer Code docked beside it.
 - [Models](models.md): find, download, load and tune models.
 - [Packages (bcr)](bcr.md): install a model with the settings it runs best with, in the app or with `bcr`.
+- [Plugins](plugins.md): add skills, slash commands, presets, workflows and MCP servers from the plugin index, a file or a URL.
 - [Cloud providers](providers.md): use Anthropic, OpenAI or OpenRouter models next to local ones.
-- [Terminal](cli.md): the `bouncer` command, with a guide for Ollama and Claude Code users.
+- [Terminal](cli.md): the `bouncer` command, the local API server with Ollama's API, and a guide for Ollama and Claude Code users.
 - [Account](account.md): optional sign-in with GitHub, Google or an emailed code, your profile and your devices.
 - [Sync](sync.md): keep settings, presets and chosen chats the same on every computer, end-to-end encrypted.
 
@@ -32,8 +33,8 @@ Bouncer runs open models on your own computer, so chats and files stay local. Th
 
 - [Slash commands](slash-commands.md): change settings from the keyboard.
 - [Keyboard shortcuts](keyboard-shortcuts.md): every shortcut in one place.
-- [File formats](file-formats.md): the `.bcn`, `.bml`, `.bproj` and `.bflow` files, and `.bcr.json` packages.
-- [Settings](settings.md): appearance, experience, engine, Hugging Face and hardware.
+- [File formats](file-formats.md): the `.bcn`, `.bml`, `.bproj` and `.bflow` files, and `.bcr.json` packages. Plugins have their own page.
+- [Settings](settings.md): appearance, experience, engine, Hugging Face, plugins, the local server and hardware.
 - [Privacy](privacy.md): what stays on your machine and what connects to the internet.
 
 ## Help
@@ -43,4 +44,4 @@ Bouncer runs open models on your own computer, so chats and files stay local. Th
 
 ## Build
 
-- [Plugins](plugins.md): planned. The guide will arrive when plugins are available.
+- [Plugins](plugins.md): write a `.bplugin` file and add it to the plugin index.

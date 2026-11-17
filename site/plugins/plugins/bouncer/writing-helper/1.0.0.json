@@ -1,0 +1,47 @@
+{
+  "format": "bouncer.plugin",
+  "schema": 1,
+  "name": "bouncer/writing-helper",
+  "version": "1.0.0",
+  "description": "Tighten, simplify and summarize your writing, with two skills, three slash commands and an editor preset.",
+  "license": "MIT",
+  "skills": [
+    {
+      "name": "plain-edit",
+      "description": "Edits text to be shorter and clearer without changing its meaning. Use when asked to tighten, simplify, proofread or edit writing.",
+      "instructions": "Edit the text you were given.\n\n- Keep the meaning, the facts and the writer's voice.\n- Cut filler words and repeated ideas. Prefer short sentences and plain words.\n- Fix spelling, grammar and punctuation.\n- Do not add new claims.\n\nGive the edited text first. Then list the three biggest changes you made, one line each."
+    },
+    {
+      "name": "summarize-text",
+      "description": "Summarizes an article, email thread or notes into a few lines and action items. Use when asked for a summary, TL;DR or key points.",
+      "instructions": "Summarize the text you were given:\n\n1. A one-sentence summary.\n2. Three to five bullets with the key points.\n3. Action items, if there are any, with who owns each one when the text says.\n\nUse only what is in the text. If something is unclear, say it is unclear."
+    }
+  ],
+  "commands": [
+    {
+      "name": "tighten",
+      "description": "Make the text shorter and clearer",
+      "prompt": "Tighten this text. Keep its meaning and voice. Use the plain-edit skill if you have it.\n\n$ARGUMENTS"
+    },
+    {
+      "name": "summarize",
+      "description": "Summarize the text into key points and action items",
+      "prompt": "Summarize this text. Use the summarize-text skill if you have it.\n\n$ARGUMENTS"
+    },
+    {
+      "name": "eli5",
+      "description": "Explain the text in simple words",
+      "prompt": "Explain this in simple words, as if to someone new to the subject. Use short sentences and one everyday example.\n\n$ARGUMENTS"
+    }
+  ],
+  "presets": [
+    {
+      "name": "editor",
+      "systemPrompt": "You are a calm, exact editor. You make writing shorter and clearer, you keep the author's voice and you never add facts that are not in the text.",
+      "sampling": {
+        "temperature": 0.4,
+        "topP": 0.9
+      }
+    }
+  ]
+}

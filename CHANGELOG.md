@@ -1,5 +1,16 @@
 # Changelog
 
+## v0.17.0
+
+Plugins, and Ollama's API.
+
+- **Plugins**: a plugin bundles skills, slash commands, presets, workflows, recommended packages and MCP servers into one `.bplugin` file. No plugin code runs inside Bouncer. Install from the plugin index in Settings › Plugins, with `bouncer plugin`, from an https URL, or from a file. Turn a plugin off without removing it; remove it and the presets and workflows it added go too. See [Plugins](docs/plugins.md).
+- **MCP servers**: a plugin can carry MCP servers. Each shows its exact command and stays off until you turn it on. The desktop app runs the ones that are on and gives their tools to Chat, Rebound bots and Bouncer Code. An update that changes a server's command turns it off again.
+- **Import what you have**: a JSON file of MCP servers (Claude Desktop, Claude Code and Cursor's `mcpServers`, or VS Code's `servers`) or a Claude Code plugin folder becomes a plugin: from Settings › Plugins (a button, or drop it there) or `bouncer plugin install`. Double-click a `.bplugin` to see what it holds and install it. Whatever Bouncer can't carry over, such as hooks, agents and servers reached over the network, is listed, not dropped silently.
+- **The first plugins** in the index: `bouncer/code-review`, `bouncer/writing-helper`, `bouncer/git-helper` and `bouncer/memory`.
+- **Ollama's API**: the local server answers `/api/version`, `/api/tags`, `/api/ps`, `/api/show`, `/api/chat`, `/api/generate`, `/api/embed`, `/api/embeddings` and `/api/pull`, in Ollama's shapes. Turn on **Also answer on Ollama's port (11434)** in Settings › Local server and apps made for Ollama work with Bouncer's models unchanged. It is off until you turn it on, and for this computer only. See [Ollama's API](docs/cli.md#ollamas-api).
+- **Linux installers**: the `.deb` and AppImage are built and checked for this release. See [Install](docs/install.md).
+
 ## v0.16.3
 
 Fixes for Claude Code on the local API.
