@@ -1,0 +1,27 @@
+{
+  "format": "bouncer.plugin",
+  "schema": 1,
+  "name": "bouncer/memory",
+  "version": "1.0.0",
+  "description": "Gives a model a memory that lasts between chats, using the official MCP memory server. The server is off until you turn it on.",
+  "license": "MIT",
+  "skills": [
+    {
+      "name": "use-memory",
+      "description": "Stores and recalls facts about the user and their projects with the memory tools. Use when the user asks you to remember something or refers to something said earlier.",
+      "instructions": "You have memory tools from the memory MCP server, if it is turned on.\n\n- When the user asks you to remember something, save it as an entity with short observations.\n- Before answering a question about the user or their projects, search the memory first.\n- Tell the user what you saved. Do not save passwords, keys or other secrets.\n- If the memory tools are not available, say that the memory server is off and where to turn it on: Settings › Plugins."
+    }
+  ],
+  "mcpServers": [
+    {
+      "name": "memory",
+      "description": "Knowledge-graph memory from the official MCP servers (@modelcontextprotocol/server-memory, MIT). Needs Node.js.",
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-memory"
+      ],
+      "env": {}
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "format": "bouncer.plugin",
+  "schema": 1,
+  "name": "bouncer/code-review",
+  "version": "1.0.0",
+  "description": "Review code changes the way a careful teammate would, with a skill, two slash commands and a low-temperature preset.",
+  "license": "MIT",
+  "skills": [
+    {
+      "name": "code-review",
+      "description": "Reviews a diff or a file for bugs, risky changes, missing tests and unclear code. Use when asked to review, check or critique code.",
+      "instructions": "Review the code you were given. Work in this order:\n\n1. Say in one sentence what the change does.\n2. List bugs and risks first: wrong logic, unhandled errors, edge cases, unsafe input, race conditions. Name the file and line or function for each one.\n3. List missing or weak tests.\n4. List smaller points last: naming, duplication, comments that do not match the code.\n\nRules:\n- Only report what you can point to in the code. If you are guessing, say so.\n- Keep each point to one or two sentences, with a suggested fix.\n- If the code looks fine, say that. Do not invent problems."
+    },
+    {
+      "name": "pr-description",
+      "description": "Writes a pull request description from a diff or a list of changes. Use when asked for a PR title or description.",
+      "instructions": "Write a pull request description with these parts:\n\n- A title of at most 70 characters, in the imperative (\"Add retry to the downloader\").\n- **What changed**: two to five short bullets.\n- **Why**: one or two sentences.\n- **How to test**: the steps or commands a reviewer can run.\n\nOnly describe changes that are in the diff. If the reason is not clear from it, ask instead of making one up."
+    }
+  ],
+  "commands": [
+    {
+      "name": "review",
+      "description": "Review the code or diff you paste after the command",
+      "prompt": "Review the following code or diff. Use the code-review skill if you have it. List bugs and risks first, then missing tests, then smaller points.\n\n$ARGUMENTS"
+    },
+    {
+      "name": "pr-description",
+      "description": "Write a pull request title and description",
+      "prompt": "Write a pull request title and description for this change. Use the pr-description skill if you have it.\n\n$ARGUMENTS"
+    }
+  ],
+  "presets": [
+    {
+      "name": "reviewer",
+      "systemPrompt": "You are a careful code reviewer. You point to specific lines, explain the risk in plain words and suggest a fix. You never invent problems to look thorough.",
+      "sampling": {
+        "temperature": 0.2,
+        "topP": 0.9
+      }
+    }
+  ],
+  "packages": [
+    "bouncer/qwen2.5-coder-7b"
+  ]
+}

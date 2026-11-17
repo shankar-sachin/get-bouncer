@@ -1,0 +1,54 @@
+{
+  "format": "bouncer.plugin-index",
+  "schema": 1,
+  "plugins": [
+    {
+      "name": "bouncer/code-review",
+      "description": "Review code changes the way a careful teammate would, with a skill, two slash commands and a low-temperature preset.",
+      "latest": "1.0.0",
+      "versions": [
+        "1.0.0"
+      ],
+      "tags": [
+        "code",
+        "review"
+      ]
+    },
+    {
+      "name": "bouncer/writing-helper",
+      "description": "Tighten, simplify and summarize your writing, with two skills, three slash commands and an editor preset.",
+      "latest": "1.0.0",
+      "versions": [
+        "1.0.0"
+      ],
+      "tags": [
+        "writing",
+        "editing"
+      ]
+    },
+    {
+      "name": "bouncer/git-helper",
+      "description": "Slash commands for everyday git writing: commit messages, branch names, changelog entries and explaining a diff.",
+      "latest": "1.0.0",
+      "versions": [
+        "1.0.0"
+      ],
+      "tags": [
+        "git",
+        "code"
+      ]
+    },
+    {
+      "name": "bouncer/memory",
+      "description": "Gives a model a memory that lasts between chats, using the official MCP memory server. The server is off until you turn it on.",
+      "latest": "1.0.0",
+      "versions": [
+        "1.0.0"
+      ],
+      "tags": [
+        "mcp",
+        "memory"
+      ]
+    }
+  ]
+}

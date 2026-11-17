@@ -94,6 +94,44 @@ bcr remove bouncer/qwen2.5-coder-7b
 
 `bcr` installs [packages](bcr.md): a model with its load options and preset. `bcr` is the same as `bouncer bcr`; on Linux, use `bouncer bcr`.
 
+## Plugins
+
+```sh
+bouncer plugin search review                  # plugins in the index
+bouncer plugin info bouncer/code-review       # what one holds, before you install it
+bouncer plugin install bouncer/code-review
+bouncer plugin list
+bouncer plugin update --check
+bouncer plugin mcp bouncer/memory             # the command an MCP server would run
+bouncer plugin mcp on bouncer/memory memory   # turn that server on
+```
+
+`bouncer plugin` installs [plugins](plugins.md): skills, slash commands, presets, workflows and MCP servers. `bouncer plugins` works too. A plugin is `owner/name` or `owner/name@1.0.0` from the plugin index, an https URL, or the path to a `.bplugin` file, a file of MCP servers, or a Claude Code plugin folder.
+
+| Subcommand | What it does |
+| --- | --- |
+| `search [words]` | Lists the plugins in the index whose name, description or tags hold every word. |
+| `info <plugin>` | Shows what a plugin holds, with each MCP server's command, without installing it. Also `show`. The plugin can be a name, a file or a URL. |
+| `install <plugin>` | Installs it, and lists any recommended packages and the MCP servers that are off. Also `add`. |
+| `list` | Lists installed plugins with their state (on or off), what each holds and when it was installed. Also `ls`. |
+| `update [plugin]` | Updates plugins from the index to their newest version, all of them or the one you name. A server whose command changed is off again. Also `upgrade`. |
+| `remove <plugin>` | Removes a plugin and the presets and workflows it added. Also `rm`. |
+| `enable <plugin>` | Turns a plugin on. |
+| `disable <plugin>` | Turns a plugin off: its skills, slash commands and MCP servers aren't offered. Its presets and workflows stay. |
+| `mcp [plugin]` | Lists MCP servers with their state, command and the environment variables they set. |
+| `mcp on <plugin> <server>` | Turns an MCP server on. Its command then runs on this computer; the desktop app runs it. |
+| `mcp off <plugin> <server>` | Turns it off. |
+
+Flags:
+
+- `--json` prints `search`, `info`, `list` and `mcp` as JSON.
+- `--force` installs a version that is already installed again.
+- `--check` with `update` lists the plugins that have a newer version, without installing.
+
+The terminal chat lists the slash commands of plugins that are on under **From your plugins** in `/help`.
+
+Set `BOUNCER_PLUGIN_INDEX` to read the index from another address, for example while you test your own.
+
 ## Account
 
 ```sh
@@ -110,6 +148,44 @@ The terminal and the desktop app share one sign-in. An account is optional; ever
 ## The local API server
 
 `bouncer serve` runs Bouncer's local API server in the foreground, with OpenAI-compatible and Anthropic-compatible endpoints, and prints their addresses. Ctrl+C stops it.
+
+### Ollama's API
+
+The local server also answers Ollama's API, so an app made for Ollama can use the models in your library. It answers on the server's own port (3133 unless you changed it), in Ollama's shapes. Streamed answers are one JSON object per line, as Ollama sends them.
+
+| Endpoint | What it does |
+| --- | --- |
+| `GET /api/version` | Says the version Ollama would. |
+| `GET /api/tags` | Lists your downloaded models. |
+| `GET /api/ps` | Lists the loaded models. |
+| `POST /api/show` | Shows one model: its family, size, quant, context length and what it can do (completion, tools, vision, embedding). |
+| `POST /api/chat` | Chat, with streaming, tools, images, `format` (`"json"` or a JSON schema) and `think`. |
+| `POST /api/generate` | A prompt, with `system`, images, `format`, `think`, and `raw` with `suffix`. |
+| `POST /api/embed` | Embeddings for `input`, a string or a list of strings. |
+| `POST /api/embeddings` | The older embeddings request, for one `prompt`. |
+| `POST /api/pull` | Downloads a model from Hugging Face. See below. |
+
+**Turn on Ollama's port.** Apps made for Ollama look for it at `127.0.0.1:11434`. In **Settings › Local server**, turn on **Also answer on Ollama's port (11434)**. It is off until you do. While it is on, and the local server is on, Bouncer listens on `127.0.0.1:11434` and `::1` too, and `GET /` answers `Ollama is running`, which apps check for. It is for this computer only, whatever the network setting says. If you set the server's own port to 11434, there is nothing more to open.
+
+If Ollama itself holds the port, the setting stays on and says so. Quit Ollama, then turn it on again. It also says when another Bouncer window or the background service already answers there, or another app holds the port. The setting is shared: the desktop app, `bouncer serve` and the background service all open the port when it is on.
+
+**Point an app at Bouncer.** If the app reads Ollama's usual address, turn on the port and you're done. Otherwise set its Ollama host to `http://localhost:11434`, or to `http://localhost:3133` without the port switch. A key isn't needed on this computer unless you turned on **Require a key on this computer too**; then send it as `Authorization: Bearer <key>`. Test it with:
+
+```sh
+curl http://localhost:11434/api/tags
+curl http://localhost:11434/api/chat -d '{"model": "qwen3", "messages": [{"role": "user", "content": "Hello"}], "stream": false}'
+```
+
+**Model names.** Name a model as Ollama does or as your library does. Bouncer tries, in order: the library id, the id without `:latest`, `hf.co/owner/repo:quant`, then the model's own name, so `qwen2.5-coder:7b` finds `Qwen2.5-Coder-7B-Instruct-GGUF`. A loaded model wins when several match. A name that matches nothing answers `model 'name' not found`. Models are listed under their library ids.
+
+**What isn't supported.**
+
+- Models come from Hugging Face, not Ollama's library. `POST /api/pull` finishes at once for a model you already have, and downloads a name like `hf.co/owner/repo:Q4_K_M`. A name from Ollama's library is refused.
+- `/api/create`, `/api/copy`, `/api/delete`, `/api/push` and the blob endpoints answer `404`. Use Bouncer to manage models.
+- Of `options`, Bouncer uses `temperature`, `top_p`, `top_k`, `min_p`, `seed`, `stop`, `repeat_penalty`, `presence_penalty`, `frequency_penalty` and `num_predict`. `num_ctx` and the rest are ignored: the context size is a load setting of the model.
+- An empty `/api/generate` or `/api/chat` loads the model. `keep_alive: 0` doesn't unload it, because Bouncer unloads models on its own schedule. `expires_at` in `/api/ps` is only an estimate, and `context` in an answer is always empty.
+- `/api/show` has no Modelfile `template` or `parameters`.
+- `/api/embed` needs a model that is set as the embedding model in Bouncer, and answers `400` otherwise.
 
 ## The background service
 

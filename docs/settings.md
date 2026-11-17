@@ -2,7 +2,7 @@
 
 Settings control how Bouncer looks and behaves, which engine it uses, how it connects to Hugging Face and cloud providers, and how it treats your hardware. Open it from the app, and pick a section from the list on the left.
 
-The sections are **Appearance**, **Experience**, **Engine**, **Hugging Face**, **Cloud providers**, **Skills**, **Hardware**, and **About**.
+The sections are **Appearance**, **Experience**, **Engine**, **Hugging Face**, **Cloud providers**, **Skills**, **Plugins**, **Local server**, **Hardware**, and **About**.
 
 ## Appearance
 
@@ -51,6 +51,14 @@ The **Cloud providers** section has a card for Anthropic, OpenAI and OpenRouter.
 ## Skills
 
 The **Skills** section lists your skills and the open project's, makes new ones, and edits or deletes them. See [skills](skills.md).
+
+## Plugins
+
+The **Plugins** section lists your installed plugins and the plugin index. Each installed plugin has a **Use this plugin** switch, a list of what it holds, and **update**, if the index has a newer version, and **remove** buttons. Each MCP server a plugin carries shows its command and a **Run this server** switch. A server runs a command on your computer, so it stays off until you turn it on. **Install from a file** opens a `.bplugin` file, and **Install from URL** takes an https address. See [plugins](plugins.md).
+
+## Local server
+
+The **Local server** section runs Bouncer's local API for apps on your computer, and sets who can reach it. **Also answer on Ollama's port (11434)** is off until you turn it on. Then apps made for Ollama find Bouncer at `http://localhost:11434`, on this computer only. See [Ollama's API](cli.md#ollamas-api).
 
 ## Hardware
 
