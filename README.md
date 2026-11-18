@@ -86,6 +86,10 @@ The full guide is at **[bouncer-ai.pages.dev/docs](https://bouncer-ai.pages.dev/
 - **Reference:** [Keyboard shortcuts](docs/keyboard-shortcuts.md) · [Slash commands](docs/slash-commands.md) · [Settings](docs/settings.md) · [File formats](docs/file-formats.md)
 - **Help:** [Troubleshooting](docs/troubleshooting.md) · [FAQ](docs/faq.md) · [Other providers (Ollama, LM Studio)](docs/other-providers.md)
 
+## Bouncer Ignis
+
+Want something lighter? [Bouncer Ignis](https://bouncer-ai.pages.dev/ignis) is the lean Rust edition of Bouncer: Chat, Code, Rebound and the Marketplace, with the same model library, in a fraction of the memory. macOS on Apple silicon for now. Its releases and docs are in [get-ignis](https://github.com/shankar-sachin/get-ignis).
+
 ## Unsigned builds
 
 Builds aren't signed or notarized yet.
