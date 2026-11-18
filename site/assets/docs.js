@@ -128,8 +128,8 @@
 
   function labelToggle(btn, theme) {
     var next = theme === 'light' ? 'dark' : 'light';
-    btn.setAttribute('aria-label', 'switch to ' + next + ' theme');
-    btn.setAttribute('title', 'switch to ' + next + ' theme');
+    btn.setAttribute('aria-label', 'Switch to ' + next + ' theme');
+    btn.setAttribute('title', 'Switch to ' + next + ' theme');
   }
 
   /* Light and obsidian screenshots are <picture> sources. Without a stored choice the browser picks by the
@@ -227,9 +227,9 @@
     pager.hidden = false;
     var prev = FLAT[idx - 1];
     var next = FLAT[idx + 1];
-    if (prev) pager.appendChild(pagerLink('prev', prev, 'previous'));
+    if (prev) pager.appendChild(pagerLink('prev', prev, 'Previous'));
     else pager.appendChild(el('span'));
-    if (next) pager.appendChild(pagerLink('next', next, 'next'));
+    if (next) pager.appendChild(pagerLink('next', next, 'Next'));
   }
 
   function pagerLink(cls, page, label) {
@@ -258,7 +258,7 @@
     var article = $('docs-article');
     article.textContent = '';
     article.appendChild(el('p', 'docs-kicker', '404'));
-    article.appendChild(el('h1', null, 'page not found'));
+    article.appendChild(el('h1', null, 'Page not found'));
     var p = el('p');
     p.appendChild(document.createTextNode('There is no page called '));
     p.appendChild(el('code', null, slug));
@@ -268,7 +268,7 @@
     p.appendChild(a);
     p.appendChild(document.createTextNode('.'));
     article.appendChild(p);
-    document.title = 'page not found · Bouncer docs';
+    document.title = 'Page not found · Bouncer docs';
     $('docs-toc-nav').textContent = '';
     $('docs-toc-nav').parentNode.hidden = true;
     $('docs-pager').hidden = true;
@@ -345,28 +345,28 @@
       var block = el('div', 'code-block');
       pre.parentNode.insertBefore(block, pre);
       block.appendChild(pre);
-      var btn = el('button', 'code-copy', 'copy');
+      var btn = el('button', 'code-copy', 'Copy');
       btn.type = 'button';
-      btn.setAttribute('aria-label', 'copy code');
+      btn.setAttribute('aria-label', 'Copy code');
       btn.addEventListener('click', function () {
         var text = pre.textContent;
         var done = function (label) {
           btn.textContent = label;
           setTimeout(function () {
-            btn.textContent = 'copy';
+            btn.textContent = 'Copy';
           }, 1600);
         };
         try {
           navigator.clipboard.writeText(text).then(
             function () {
-              done('copied');
+              done('Copied');
             },
             function () {
-              done('select the text');
+              done('Select the text');
             },
           );
         } catch (e) {
-          done('select the text');
+          done('Select the text');
         }
       });
       block.appendChild(btn);
@@ -468,7 +468,7 @@
       showError();
       return;
     }
-    setStatus('loading');
+    setStatus('Loading');
     $('docs-toc-nav').parentNode.hidden = true;
 
     fetch('docs/' + sourceName(slug) + '.md', { cache: 'no-cache' })

@@ -127,12 +127,12 @@
         cell.textContent = '';
         var link = document.createElement('a');
         link.href = asset.browser_download_url;
-        link.textContent = 'download';
-        link.setAttribute('aria-label', 'download ' + asset.name);
+        link.textContent = 'Download';
+        link.setAttribute('aria-label', 'Download ' + asset.name);
         cell.appendChild(link);
         if (fileEl) fileEl.textContent = asset.name;
       } else {
-        cell.textContent = 'coming soon';
+        cell.textContent = 'Coming soon';
       }
     });
   }
@@ -144,7 +144,7 @@
     var status = $('#download-status');
 
     if (!release || !assets) {
-      setBadge('prerelease · coming soon', false);
+      setBadge('Prerelease · coming soon', false);
       setPrimary('Downloads coming soon', RELEASES_URL);
       if (status) {
         status.textContent =
@@ -155,7 +155,7 @@
     }
 
     var version = versionOf(release);
-    setBadge('prerelease · v' + version, true);
+    setBadge('Prerelease · v' + version, true);
 
     var primaryAsset = null;
     var label = 'Download Bouncer';
@@ -193,21 +193,21 @@
       btn.addEventListener('click', function () {
         var text = btn.getAttribute('data-copy');
         var done = function () {
-          btn.textContent = 'copied';
+          btn.textContent = 'Copied';
           setTimeout(function () {
-            btn.textContent = 'copy';
+            btn.textContent = 'Copy';
           }, 1600);
         };
         try {
           if (navigator.clipboard && navigator.clipboard.writeText) {
             navigator.clipboard.writeText(text).then(done, function () {
-              btn.textContent = 'select the text';
+              btn.textContent = 'Select the text';
             });
           } else {
-            btn.textContent = 'select the text';
+            btn.textContent = 'Select the text';
           }
         } catch (e) {
-          btn.textContent = 'select the text';
+          btn.textContent = 'Select the text';
         }
       });
     });
@@ -223,8 +223,8 @@
 
   function labelToggle(btn, theme) {
     var next = theme === 'light' ? 'dark' : 'light';
-    btn.setAttribute('aria-label', 'switch to ' + next + ' theme');
-    btn.setAttribute('title', 'switch to ' + next + ' theme');
+    btn.setAttribute('aria-label', 'Switch to ' + next + ' theme');
+    btn.setAttribute('title', 'Switch to ' + next + ' theme');
   }
 
   /* Screenshots come in a light and an obsidian version. Without a stored choice the browser picks by the
@@ -264,6 +264,7 @@
   function init() {
     setupTheme();
     setupCopy();
+    initIgnisBanner();
 
     state.os = detectOS();
     var label = OS_LABEL[state.os];
@@ -290,6 +291,25 @@
         state.assets = null;
         render();
       });
+  }
+
+  /* The Bouncer Ignis card at the bottom right: shown until it is closed, and remembered closed. */
+  function initIgnisBanner() {
+    var banner = document.getElementById('ignis-banner');
+    if (!banner) return;
+    var KEY = 'bouncer-ignis-banner-hidden';
+    var hidden = false;
+    try {
+      hidden = localStorage.getItem(KEY) === '1';
+    } catch (e) {}
+    if (hidden) return;
+    banner.hidden = false;
+    banner.querySelector('.ignis-banner-close').addEventListener('click', function () {
+      banner.hidden = true;
+      try {
+        localStorage.setItem(KEY, '1');
+      } catch (e) {}
+    });
   }
 
   if (document.readyState === 'loading') {

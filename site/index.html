@@ -40,7 +40,7 @@
   <script src="assets/app.js" defer></script>
 </head>
 <body>
-  <a class="skip-link" href="#main">skip to content</a>
+  <a class="skip-link" href="#main">Skip to content</a>
 
   <header class="site-header">
     <div class="wrap header-inner">
@@ -48,20 +48,20 @@
         <img src="assets/brand/orb-ball.png" width="28" height="28" alt="" />
         <span>Bouncer</span>
       </a>
-      <nav class="site-nav" aria-label="main">
-        <a href="#features">features</a>
-        <a href="#rebound">rebound</a>
-        <a href="#download">download</a>
-        <a href="#faq">faq</a>
-        <a href="docs.html#/getting-started">docs</a>
-        <a href="ignis/">ignis</a>
+      <nav class="site-nav" aria-label="Main">
+        <a href="#features">Features</a>
+        <a href="#rebound">Rebound</a>
+        <a href="#download">Download</a>
+        <a href="#faq">FAQ</a>
+        <a href="docs.html#/getting-started">Docs</a>
       </nav>
       <div class="header-tools">
-        <button class="btn btn-quiet btn-icon" type="button" id="theme-toggle" aria-label="switch to light theme">
+        <button class="btn btn-quiet btn-icon" type="button" id="theme-toggle" aria-label="Switch to light theme">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
             <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z" />
           </svg>
         </button>
+        <a class="gh ignis-link" href="/ignis/" aria-label="Bouncer Ignis, the lean Rust edition" title="Bouncer Ignis"><img src="/assets/brand/ignis-ball.png" width="20" height="20" alt="" /></a>
         <a class="gh" href="https://github.com/shankar-sachin/get-bouncer" aria-label="Bouncer on GitHub" title="GitHub"><svg viewBox="0 0 16 16" width="20" height="20" aria-hidden="true" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg></a>
       </div>
     </div>
@@ -73,7 +73,7 @@
       <div class="wrap hero-grid">
         <div>
           <img class="hero-orb" src="assets/brand/orb.png" width="1024" height="925" alt="" />
-          <span class="badge" id="release-badge"><span class="dot" aria-hidden="true"></span><span data-release-label>prerelease · coming soon</span></span>
+          <span class="badge" id="release-badge"><span class="dot" aria-hidden="true"></span><span data-release-label>Prerelease · coming soon</span></span>
           <h1 id="hero-title">Your models. Your machine. Your bots.</h1>
           <p class="lede">Bouncer runs open models on your own computer. Chat with them, let Bouncer Code work in your folders, and make Rebound agents with their own names and faces.</p>
         </div>
@@ -81,7 +81,7 @@
         <div class="hero-actions">
           <a class="btn btn-primary" id="hero-download" href="https://github.com/shankar-sachin/get-bouncer/releases" data-primary>Download for macOS</a>
           <p class="small">
-            <a href="#download">other platforms</a>
+            <a href="#download">Other platforms</a>
           </p>
         </div>
 
@@ -95,100 +95,100 @@
     <section id="features" aria-labelledby="features-title">
       <div class="wrap">
         <div class="section-head">
-          <span class="eyebrow">the surfaces</span>
+          <span class="eyebrow">The surfaces</span>
           <h2 id="features-title">One app, four ways to work.</h2>
           <p>Everything runs on your machine with llama.cpp. Models come from Hugging Face, and nothing you type or open leaves the computer.</p>
         </div>
 
         <div class="feature">
           <div class="copy-col">
-            <span class="kicker">bouncer chat</span>
+            <span class="kicker">Bouncer chat</span>
             <h3 style="margin-top: 8px; font-size: 1.5rem">Fast, private chat with your models.</h3>
             <p>Stream replies at full speed, expand the reasoning, and branch a conversation when you want a different answer.</p>
             <ul>
-              <li>effort levels from low to max</li>
-              <li>presets, system prompts and slash commands like /model and /effort</li>
-              <li>file, folder and image attachments, with full-text search over every chat</li>
+              <li>Effort levels from low to max</li>
+              <li>Presets, system prompts and slash commands like /model and /effort</li>
+              <li>File, folder and image attachments, with full-text search over every chat</li>
             </ul>
           </div>
           <figure class="shot">
             <picture><source data-scheme="dark" media="(prefers-color-scheme: dark)" srcset="assets/screens/hero-obsidian.jpg" /><source data-scheme="light" media="(prefers-color-scheme: light)" srcset="assets/screens/hero-light.jpg" /><img src="assets/screens/hero-light.jpg" width="1600" height="1000" loading="lazy" alt="Bouncer Chat with a finished reply: a TypeScript code block, and the Bouncer orb under the reply" /></picture>
-            <figcaption>chat</figcaption>
+            <figcaption>Chat</figcaption>
           </figure>
         </div>
 
         <div class="feature is-flip">
           <div class="copy-col">
-            <span class="kicker">bouncer code</span>
+            <span class="kicker">Bouncer code</span>
             <h3 style="margin-top: 8px; font-size: 1.5rem">Bouncer Code asks before it acts.</h3>
             <p>Point a model at a folder. Pick how much it may do with Shift+Tab, and read each change before you approve it.</p>
             <ul>
-              <li>modes: plan, manual, accept edits and autopilot</li>
-              <li>diffs you approve, with checkpoints you can rewind to</li>
-              <li>scheduled tasks run in their own git worktree and never commit</li>
+              <li>Modes: plan, manual, accept edits and autopilot</li>
+              <li>Diffs you approve, with checkpoints you can rewind to</li>
+              <li>Scheduled tasks run in their own git worktree and never commit</li>
             </ul>
           </div>
           <div>
             <figure class="shot">
               <picture><source data-scheme="dark" media="(prefers-color-scheme: dark)" srcset="assets/screens/code-obsidian.jpg" /><source data-scheme="light" media="(prefers-color-scheme: light)" srcset="assets/screens/code-light.jpg" /><img src="assets/screens/code-light.jpg" width="1600" height="1000" loading="lazy" alt="Bouncer Code with a finished session: it read greet.txt, edited it and ran a check, and the review panel shows the change" /></picture>
-              <figcaption>code</figcaption>
+              <figcaption>Code</figcaption>
             </figure>
             <figure class="shot" style="margin-top: 20px">
               <picture><source data-scheme="dark" media="(prefers-color-scheme: dark)" srcset="assets/screens/code-scheduled-obsidian.jpg" /><source data-scheme="light" media="(prefers-color-scheme: light)" srcset="assets/screens/code-scheduled-light.jpg" /><img src="assets/screens/code-scheduled-light.jpg" width="1600" height="1000" loading="lazy" alt="Scheduled coding tasks: a finished run in the inbox, with its change and the merge and discard buttons" /></picture>
-              <figcaption>scheduled tasks</figcaption>
+              <figcaption>Scheduled tasks</figcaption>
             </figure>
           </div>
         </div>
 
         <div class="feature">
           <div class="copy-col">
-            <span class="kicker">bouncer ide</span>
+            <span class="kicker">Bouncer ide</span>
             <h3 style="margin-top: 8px; font-size: 1.5rem">A real editor, with Bouncer Code beside it.</h3>
             <p>A file tree, editor tabs, a terminal, search and git in one window. Bouncer Code sits beside your files and opens the folder you were working on, so you can ask about a file without switching apps.</p>
             <ul>
-              <li>editor tabs and a terminal</li>
-              <li>search and git</li>
+              <li>Editor tabs and a terminal</li>
+              <li>Search and git</li>
               <li>Bouncer Code docked next to your files</li>
             </ul>
           </div>
           <figure class="shot">
             <picture><source data-scheme="dark" media="(prefers-color-scheme: dark)" srcset="assets/screens/ide-obsidian.jpg" /><source data-scheme="light" media="(prefers-color-scheme: light)" srcset="assets/screens/ide-light.jpg" /><img src="assets/screens/ide-light.jpg" width="1600" height="1000" loading="lazy" alt="Bouncer IDE with the explorer, an open file, the terminal and Bouncer Code docked on the right" /></picture>
-            <figcaption>ide</figcaption>
+            <figcaption>Ide</figcaption>
           </figure>
         </div>
 
         <div class="feature is-flip">
           <div class="copy-col">
-            <span class="kicker">marketplace</span>
+            <span class="kicker">Marketplace</span>
             <h3 style="margin-top: 8px; font-size: 1.5rem">Find models that fit your machine.</h3>
             <p>Browse GGUF models from Hugging Face. Bouncer reads each model and estimates the memory it needs, so you see what will run before you download.</p>
             <ul>
-              <li>a fit estimate for every quant on this machine</li>
-              <li>model cards and quant pickers</li>
-              <li>hardware view with CPU, GPU and memory use</li>
+              <li>A fit estimate for every quant on this machine</li>
+              <li>Model cards and quant pickers</li>
+              <li>Hardware view with CPU, GPU and memory use</li>
             </ul>
           </div>
           <div>
             <figure class="shot">
               <picture><source data-scheme="dark" media="(prefers-color-scheme: dark)" srcset="assets/screens/model-detail-obsidian.jpg" /><source data-scheme="light" media="(prefers-color-scheme: light)" srcset="assets/screens/model-detail-light.jpg" /><img src="assets/screens/model-detail-light.jpg" width="1600" height="1000" loading="lazy" alt="Marketplace model detail with the quant picker and the model card" /></picture>
-              <figcaption>model detail</figcaption>
+              <figcaption>Model detail</figcaption>
             </figure>
             <figure class="shot" style="margin-top: 20px">
               <picture><source data-scheme="dark" media="(prefers-color-scheme: dark)" srcset="assets/screens/settings-hardware-obsidian.jpg" /><source data-scheme="light" media="(prefers-color-scheme: light)" srcset="assets/screens/settings-hardware-light.jpg" /><img src="assets/screens/settings-hardware-light.jpg" width="1600" height="1000" loading="lazy" alt="Settings, hardware section: CPU features, unified memory and the GPU that was found" /></picture>
-              <figcaption>hardware settings</figcaption>
+              <figcaption>Hardware settings</figcaption>
             </figure>
           </div>
         </div>
 
         <div class="feature">
           <div class="copy-col">
-            <span class="kicker">first run</span>
+            <span class="kicker">First run</span>
             <h3 style="margin-top: 8px; font-size: 1.5rem">Pick a theme and a first model.</h3>
             <p>The first launch shows the surfaces, lets you choose a theme (graphite, light or obsidian) with a preview of each, and helps you download your first model.</p>
           </div>
           <figure class="shot">
             <picture><source data-scheme="dark" media="(prefers-color-scheme: dark)" srcset="assets/screens/onboarding-obsidian.jpg" /><source data-scheme="light" media="(prefers-color-scheme: light)" srcset="assets/screens/onboarding-light.jpg" /><img src="assets/screens/onboarding-light.jpg" width="1600" height="1000" loading="lazy" alt="First-run onboarding, welcome step: the Bouncer orb and the headline" /></picture>
-            <figcaption>onboarding</figcaption>
+            <figcaption>Onboarding</figcaption>
           </figure>
         </div>
       </div>
@@ -198,12 +198,12 @@
     <section class="rebound" id="rebound" aria-labelledby="rebound-title">
       <div class="wrap">
         <div class="section-head">
-          <span class="eyebrow">rebound</span>
+          <span class="eyebrow">Rebound</span>
           <h2 id="rebound-title">Make your own Rebound agents.</h2>
           <p>Each one has a name, a personality and a face. Give it instructions, pick its eyes, and chat with it in Rebound. Its chats live with it, separate from Bouncer Chat.</p>
         </div>
 
-        <div class="bots" aria-label="starter bots">
+        <div class="bots" aria-label="Starter bots">
           <article class="bot">
             <svg viewBox="0 0 100 100" role="img" aria-label="Pip, a mint blob with round eyes">
               <g class="blob-body">
@@ -217,7 +217,7 @@
               </g>
             </svg>
             <span class="bot-name">Pip</span>
-            <span class="bot-role">starter bot</span>
+            <span class="bot-role">Starter bot</span>
           </article>
 
           <article class="bot">
@@ -233,7 +233,7 @@
               </g>
             </svg>
             <span class="bot-name">Juno</span>
-            <span class="bot-role">starter bot</span>
+            <span class="bot-role">Starter bot</span>
           </article>
 
           <article class="bot">
@@ -249,7 +249,7 @@
               </g>
             </svg>
             <span class="bot-name">Sage</span>
-            <span class="bot-role">starter bot</span>
+            <span class="bot-role">Starter bot</span>
           </article>
 
           <article class="bot">
@@ -267,7 +267,7 @@
               </g>
             </svg>
             <span class="bot-name">Quill</span>
-            <span class="bot-role">starter bot</span>
+            <span class="bot-role">Starter bot</span>
           </article>
         </div>
 
@@ -311,7 +311,7 @@
 
         <figure class="shot rebound-shot">
           <picture><source data-scheme="dark" media="(prefers-color-scheme: dark)" srcset="assets/screens/rebound-builder-obsidian.jpg" /><source data-scheme="light" media="(prefers-color-scheme: light)" srcset="assets/screens/rebound-builder-light.jpg" /><img src="assets/screens/rebound-builder-light.jpg" width="1600" height="1000" loading="lazy" alt="Rebound bot builder with the name, tagline, personality, traits and face fields" /></picture>
-          <figcaption>the rebound builder</figcaption>
+          <figcaption>The rebound builder</figcaption>
         </figure>
       </div>
     </section>
@@ -320,7 +320,7 @@
     <section aria-labelledby="private-title">
       <div class="wrap">
         <div class="section-head">
-          <span class="eyebrow">private by design</span>
+          <span class="eyebrow">Private by design</span>
           <h2 id="private-title">It stays on your machine.</h2>
           <p>After a model is downloaded, Bouncer works without a connection. Your prompts, files and chats are not sent to a server. The one exception is web search, which you turn on per chat.</p>
         </div>
@@ -348,7 +348,7 @@
     <section id="download" aria-labelledby="download-title">
       <div class="wrap">
         <div class="section-head">
-          <span class="eyebrow">download</span>
+          <span class="eyebrow">Download</span>
           <h2 id="download-title">Install in one line.</h2>
           <p>The installers come from this repository. They pick the newest release and check its SHA256SUMS before they install.</p>
         </div>
@@ -359,7 +359,7 @@
             <p class="hint">Terminal, bash or zsh</p>
             <div class="cmd">
               <code>curl -fsSL https://bouncer-ai.pages.dev/install.sh | sh</code>
-              <button class="btn copy" type="button" data-copy="curl -fsSL https://bouncer-ai.pages.dev/install.sh | sh">copy</button>
+              <button class="btn copy" type="button" data-copy="curl -fsSL https://bouncer-ai.pages.dev/install.sh | sh">Copy</button>
             </div>
           </div>
           <div class="card">
@@ -367,7 +367,7 @@
             <p class="hint">PowerShell 5.1 or 7</p>
             <div class="cmd">
               <code>irm https://bouncer-ai.pages.dev/install.ps1 | iex</code>
-              <button class="btn copy" type="button" data-copy="irm https://bouncer-ai.pages.dev/install.ps1 | iex">copy</button>
+              <button class="btn copy" type="button" data-copy="irm https://bouncer-ai.pages.dev/install.ps1 | iex">Copy</button>
             </div>
           </div>
         </div>
@@ -380,23 +380,23 @@
           <ul class="platforms">
             <li>
               <span><span class="name">macOS, Apple Silicon</span><span class="file" data-file="macArm">Bouncer-arm64.dmg</span></span>
-              <span class="state" data-state="macArm">coming soon</span>
+              <span class="state" data-state="macArm">Coming soon</span>
             </li>
             <li>
               <span><span class="name">macOS, Intel</span><span class="file" data-file="macIntel">Bouncer.dmg</span></span>
-              <span class="state" data-state="macIntel">coming soon</span>
+              <span class="state" data-state="macIntel">Coming soon</span>
             </li>
             <li>
               <span><span class="name">Windows</span><span class="file" data-file="win">Bouncer-Setup.exe</span></span>
-              <span class="state" data-state="win">coming soon</span>
+              <span class="state" data-state="win">Coming soon</span>
             </li>
             <li>
               <span><span class="name">Linux, AppImage</span><span class="file" data-file="appimage">Bouncer.AppImage</span></span>
-              <span class="state" data-state="appimage">coming soon</span>
+              <span class="state" data-state="appimage">Coming soon</span>
             </li>
             <li>
               <span><span class="name">Linux, Debian and Ubuntu</span><span class="file" data-file="deb">Bouncer.deb</span></span>
-              <span class="state" data-state="deb">coming soon</span>
+              <span class="state" data-state="deb">Coming soon</span>
             </li>
           </ul>
           <p class="download-note"><a href="https://github.com/shankar-sachin/get-bouncer/releases" data-releases>All releases on GitHub</a></p>
@@ -418,7 +418,7 @@
     <section id="faq" aria-labelledby="faq-title">
       <div class="wrap">
         <div class="section-head">
-          <span class="eyebrow">faq</span>
+          <span class="eyebrow">FAQ</span>
           <h2 id="faq-title">Questions, answered plainly.</h2>
         </div>
         <div class="faq">
@@ -466,7 +466,7 @@
   <footer class="site-footer">
     <div class="wrap">
       <p>© Sachin Shankar. All rights reserved.</p>
-      <nav aria-label="footer">
+      <nav aria-label="Footer">
         <a href="https://github.com/shankar-sachin/get-bouncer/releases">Releases</a>
         <a href="https://github.com/shankar-sachin/get-bouncer/blob/main/install.sh">Install scripts</a>
         <a href="account">Account</a>
@@ -476,5 +476,12 @@
       </nav>
     </div>
   </footer>
+  <aside class="ignis-banner" id="ignis-banner" hidden>
+    <img src="assets/brand/ignis-ball.png" width="28" height="28" alt="" />
+    <a class="ignis-banner-text" href="ignis/">Want faster runs? Try <strong>Bouncer Ignis</strong>, built in pure Rust.</a>
+    <button class="ignis-banner-close" type="button" aria-label="Hide this" title="Hide">
+      <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+    </button>
+  </aside>
 </body>
 </html>

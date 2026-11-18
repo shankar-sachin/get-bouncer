@@ -268,7 +268,7 @@ function emailStep() {
         else render()
       },
     },
-    h('label', { for: 'portal-code', text: 'code from the email' }),
+    h('label', { for: 'portal-code', text: 'Code from the email' }),
     code,
     h('div', { class: 'portal-actions' }, button('Sign in', null, { kind: 'btn-primary', type: 'submit', testid: 'portal-verify' })),
   )
@@ -284,7 +284,7 @@ function emailStep() {
         code.focus()
       },
     },
-    h('label', { for: 'portal-email', text: 'email' }),
+    h('label', { for: 'portal-email', text: 'Email' }),
     email,
     h('div', { class: 'portal-actions' }, button('Send code', null, { type: 'submit', testid: 'portal-send' }), button('Back', () => signedOut(), { kind: 'btn-quiet' })),
   )
@@ -486,7 +486,7 @@ function deleteAccount(user) {
   const section = card(
     'Delete account',
     h('p', { class: 'portal-text', text: 'Deletes your account, its passkeys, its devices and everything synced. Chats, models and settings on your computers stay. This can’t be undone.' }),
-    h('form', { onsubmit: (e) => e.preventDefault() }, h('label', { for: 'portal-delete-word', text: 'type delete to confirm' }), typed),
+    h('form', { onsubmit: (e) => e.preventDefault() }, h('label', { for: 'portal-delete-word', text: 'Type delete to confirm' }), typed),
     status,
     h('div', { class: 'portal-actions' }, go),
   )
