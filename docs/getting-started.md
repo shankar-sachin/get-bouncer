@@ -16,7 +16,7 @@ When Bouncer opens for the first time, a short onboarding dialog walks you throu
 
 1. **Welcome.** A summary of what Bouncer does: chat and code with models that run on this computer.
 2. **Customize your experience.** Pick a theme from three cards: **Graphite** (soft dark gray), **Light** (paper) or **Obsidian** (pitch black). Each card previews its theme, and the choice applies at once. You can change it later in Settings.
-3. **Three ways to work.** An overview of **Bouncer Chat**, **Bouncer Code** and **Bouncer Studio**, which is coming later.
+3. **Three ways to work.** An overview of **Bouncer Chat**, **Bouncer Code** and **Bouncer Studio**.
 4. **Bring a model.** A note that Bouncer checks what fits your machine before anything downloads. Use **Browse models** to go to the Marketplace now, or **Later** to finish.
 
 <picture><source media="(prefers-color-scheme: dark)" srcset="images/onboarding-obsidian.png"><source media="(prefers-color-scheme: light)" srcset="images/onboarding-light.png"><img src="images/onboarding-light.png" alt="The onboarding dialog on the welcome step" /></picture>

@@ -29,9 +29,11 @@ Drag the dividers between the panels to resize them.
 
 The Explorer lists the files and folders in the folder. Click a folder to open or close it.
 
+The folder's own row sits at the top. Click its name to fold the whole tree away, or hover over it for four buttons: **New file**, **New folder**, **Collapse folders** (closes every open folder) and **Reveal in Finder** (**Reveal in file manager** on Windows and Linux). Right-click it for the same menu as the empty space below the files.
+
 - Click a file once to open it as a **preview tab**. Its name is in italics. Opening another file with a single click replaces the preview tab.
 - Double-click a file, or start editing it, to keep it open as a normal tab.
-- Use the **New file** and **New folder** buttons at the top of the Explorer, or right-click an item for **Rename**, **Delete**, **Copy path** and **Copy relative path**.
+- Use **New file** and **New folder** on the folder's row, or right-click an item for **Rename**, **Delete**, **Copy path** and **Copy relative path**. A new file goes into the selected folder.
 
 ## Tabs and split groups
 
@@ -85,6 +87,19 @@ Bouncer watches the folder. Changes made outside the IDE, by another program, by
 - A file deleted on disk closes its tab if it has no unsaved edits. If it has edits, the tab stays open and is flagged.
 
 Files that are binary, or too large to open here, show a message instead of an editor.
+
+## Language support
+
+Language servers add errors as you type, hovers, completions, go to definition, references and signature help. They also color names by what they are, so types, functions, parameters, properties and constants each get their own color, as in VS Code.
+
+| Language | Server | How you get it |
+| --- | --- | --- |
+| Python | Pyright | Ships with Bouncer. Python files also get Bouncer's own name colors. |
+| TypeScript and JavaScript | typescript-language-server | The first time you open one of these files, a bar offers to **install** it: about 5 MB from the npm registry, pinned and checked. **not now** hides the offer. |
+| Go | gopls | Used when it's installed on your computer: `go install golang.org/x/tools/gopls@latest`. |
+| Rust | rust-analyzer | Used when it's installed on your computer: `rustup component add rust-analyzer`. |
+
+Bouncer never downloads gopls or rust-analyzer. It looks for them on the PATH a new terminal gets when the app starts, and checks that each one runs, so restart Bouncer after you install one. Each folder gets its own server process, and it stops when you open another folder.
 
 ## Editor settings
 
