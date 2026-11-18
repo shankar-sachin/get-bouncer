@@ -1,5 +1,16 @@
 # Changelog
 
+## v0.19.0
+
+IDE and Studio polish.
+
+- **The folder's row in the Explorer**: the open folder's name sits at the top of the Explorer. Click it to fold the tree, or use its buttons: **New file**, **New folder**, **Collapse folders** and **Reveal in Finder**. See [IDE](docs/ide.md#explorer).
+- **Names in color**: TypeScript, JavaScript, Go and Rust files color types, functions, methods, parameters, properties and constants from their language server, as in VS Code. Python already did.
+- **Go and Rust**: if gopls or rust-analyzer is installed on your computer, the IDE uses it for errors, hovers, completions and go to definition. Bouncer doesn't download them. See [Language support](docs/ide.md#language-support).
+- **A deck from a document**: turn a Docs document into slides in the theme you pick, with **New Relic** › **Deck from a document** or **make a deck** on the document's card. The loaded model writes the slides and speaker notes; with no model, the slides follow the document's headings. See [Studio](docs/studio.md#a-deck-from-a-document).
+- **Export a design to code**: a Design page or graphic becomes a React component or HTML and CSS, with its images, in the folder open in the IDE. Bouncer asks before it replaces a file. See [Studio](docs/studio.md#export-to-code).
+- **A Studio guide**: [Studio](docs/studio.md) covers Docs, Deck, Grid and Design.
+
 ## v0.18.0
 
 Rebound sync.

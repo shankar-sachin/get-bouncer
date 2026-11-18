@@ -21,6 +21,7 @@ Bouncer runs open models on your own computer, so chats and files stay local. Th
 - [Bouncer Code](code.md): work on a folder with a model, with changes you review before they apply.
 - [Scheduled tasks](scheduled-tasks.md): run a prompt in a folder later, and review its changes.
 - [IDE](ide.md): edit a folder in an editor, with Bouncer Code docked beside it.
+- [Studio](studio.md): documents, decks, spreadsheets and designs made with a model; a deck from a document, and a design as code.
 - [Models](models.md): find, download, load and tune models.
 - [Packages (bcr)](bcr.md): install a model with the settings it runs best with, in the app or with `bcr`.
 - [Plugins](plugins.md): add skills, slash commands, presets, workflows and MCP servers from the plugin index, a file or a URL.

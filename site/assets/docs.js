@@ -29,6 +29,7 @@
         ['code', 'Bouncer Code'],
         ['scheduled-tasks', 'Scheduled tasks'],
         ['ide', 'IDE'],
+        ['studio', 'Studio'],
         ['models', 'Models'],
         ['providers', 'Cloud providers'],
         ['cli', 'Terminal'],
