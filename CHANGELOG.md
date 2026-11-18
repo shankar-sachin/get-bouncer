@@ -1,5 +1,11 @@
 # Changelog
 
+## v0.19.1
+
+Labels in sentence case.
+
+- **Sentence case everywhere**: labels, buttons, menu items, tabs and empty states start with a capital letter instead of being all lowercase, in Chat, Rebound, Bouncer Code, the IDE, Studio, Lab, Workflows, the Marketplace and Settings. Your own content, model names, file names and code are unchanged.
+
 ## v0.19.0
 
 IDE and Studio polish.
