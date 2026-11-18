@@ -985,3 +985,81 @@ section {
 .legal li + li {
   margin-top: 8px;
 }
+
+/* Bouncer Ignis: a grey ball before the GitHub mark, and a small card at the bottom right of the home page. */
+.header-tools .ignis-link img {
+  filter: grayscale(1);
+  opacity: 0.7;
+  transition: opacity 120ms var(--ease);
+}
+
+.header-tools .ignis-link:hover img {
+  opacity: 1;
+}
+
+.ignis-banner {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 40;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  max-width: 360px;
+  padding: 10px 10px 10px 12px;
+  border-radius: var(--r-card);
+  background: var(--raised);
+  box-shadow: var(--shadow);
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.ignis-banner[hidden] {
+  display: none;
+}
+
+.ignis-banner img {
+  flex: none;
+}
+
+.ignis-banner-text {
+  color: var(--text-2);
+  text-decoration: none;
+}
+
+.ignis-banner-text strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.ignis-banner-text:hover strong {
+  text-decoration: underline;
+}
+
+.ignis-banner-close {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border: 0;
+  border-radius: var(--r-control);
+  background: transparent;
+  color: var(--text-3);
+  cursor: pointer;
+}
+
+.ignis-banner-close:hover {
+  background: var(--hover);
+  color: var(--text);
+}
+
+@media (max-width: 520px) {
+  .ignis-banner {
+    left: 16px;
+    right: 16px;
+    bottom: 16px;
+    max-width: none;
+  }
+}
