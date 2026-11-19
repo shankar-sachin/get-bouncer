@@ -1,6 +1,7 @@
 /*
  * The Bouncer account portal (account.html): sign in with a passkey, GitHub, Google or an emailed code; add and
- * remove passkeys; see and sign out devices; see sync and start it over; delete the account.
+ * remove passkeys; see and sign out devices; see sync and start it over; make teams, invite people and manage
+ * members; delete the account.
  *
  * Opened by the desktop app as `account?app=<loopback>&state=<random>`, it signs in with a passkey only and posts
  * the session to the app's loopback on this computer, then forgets it. Synced data is end-to-end encrypted, so
@@ -219,7 +220,7 @@ const supabase = createClient(url, key, {
 
 function signedOut(error) {
   title.textContent = 'Your Bouncer account'
-  lede.textContent = 'Passkeys, signed-in devices, sync, and deleting your account. Bouncer works fully without an account.'
+  lede.textContent = 'Passkeys, signed-in devices, sync, teams, and deleting your account. Bouncer works fully without an account.'
   const status = h('div')
   const fail = (e) => status.replaceChildren(errorNote(messageOf(e)))
   const oauth = (provider) => async () => {
@@ -494,6 +495,308 @@ function deleteAccount(user) {
   return section
 }
 
+/* ---------- teams (M18) ---------- */
+
+/*
+ * Teams share presets, model lists and packages, sealed with a team key that only members' apps hold. This page
+ * makes teams, invites people and manages members; the shared items themselves show in the app (Settings › Teams).
+ * An invite link is `account#invite=<id>.<secret>`: the part after # never reaches a server.
+ */
+const INVITE_KEY = 'portal-invite'
+const INVITE_RE = /^#invite=([0-9a-f-]{36})\.([0-9a-f]{64})$/
+
+/* Keeps an invite from the link across signing in (OAuth leaves the page), and takes it off the address bar. */
+function pendingInvite() {
+  const m = INVITE_RE.exec(location.hash)
+  if (m) {
+    try {
+      sessionStorage.setItem(INVITE_KEY, JSON.stringify({ id: m[1], token: m[2] }))
+    } catch (e) {
+      /* storage blocked: the invite lasts for this load */
+    }
+    history.replaceState(null, '', location.pathname + location.search)
+    return { id: m[1], token: m[2] }
+  }
+  try {
+    const saved = JSON.parse(sessionStorage.getItem(INVITE_KEY) || 'null')
+    if (saved && saved.id && saved.token) return saved
+  } catch (e) {
+    /* nothing kept */
+  }
+  return null
+}
+
+function forgetInvite() {
+  try {
+    sessionStorage.removeItem(INVITE_KEY)
+  } catch (e) {
+    /* nothing kept */
+  }
+}
+
+const inviteLink = (id, token) => `${location.origin}${location.pathname}#invite=${id}.${token}`
+
+function inviteCard(invite, onJoined) {
+  const body = h('div', { class: 'card-body' }, h('p', { class: 'portal-muted', role: 'status', text: 'Reading the invite…' }))
+  const section = card('Team invite', body)
+  section.id = 'invite'
+  section.setAttribute('data-testid', 'portal-invite')
+  async function load() {
+    const { data, error } = await supabase.rpc('team_invite_preview', { p_invite: invite.id, p_token: invite.token })
+    if (error) return body.replaceChildren(errorNote(messageOf(error)))
+    const done = (node) => {
+      forgetInvite()
+      body.replaceChildren(node)
+    }
+    if (!data) return done(errorNote('This invite link isn’t valid. Ask for a new one.'))
+    if (data.member) return done(h('p', { class: 'portal-note', role: 'status', text: `You’re already in ${data.team_name}.` }))
+    if (data.accepted) return done(errorNote('This invite was already used. Ask for a new one.'))
+    if (data.expired) return done(errorNote('This invite has expired. Ask for a new one.'))
+    const status = h('div')
+    const join = button(`Join ${data.team_name}`, async () => {
+      join.disabled = true
+      const res = await supabase.rpc('accept_team_invite', { p_invite: invite.id, p_token: invite.token })
+      if (res.error) {
+        join.disabled = false
+        return status.replaceChildren(errorNote(messageOf(res.error)))
+      }
+      done(
+        h(
+          'p',
+          { class: 'portal-note', role: 'status', 'data-testid': 'portal-invite-joined' },
+          `You’re in ${data.team_name}. Open Bouncer › Settings › Teams to see what it shares. Sync has to be on in the app; the team key reaches your computers through it.`,
+        ),
+      )
+      onJoined()
+    }, { kind: 'btn-primary', testid: 'portal-invite-accept', disabled: !data.email_matches })
+    body.replaceChildren(
+      h('p', { class: 'portal-text', 'data-testid': 'portal-invite-text', text: `${data.owner_name || 'The owner'} invited ${data.email} to join ${data.team_name}.` }),
+      data.email_matches
+        ? ''
+        : errorNote(`You’re signed in with another email. Sign out of this page and sign in as ${data.email} to join.`),
+      status,
+      h(
+        'div',
+        { class: 'portal-actions' },
+        join,
+        button('Not now', () => {
+          forgetInvite()
+          section.remove()
+        }, { kind: 'btn-quiet' }),
+      ),
+    )
+  }
+  load()
+  return section
+}
+
+const keyStatus = (m) =>
+  m.wrapped_key ? 'has the team key' : m.public_key ? 'waiting for the team key' : 'hasn’t opened Bouncer with sync on yet'
+
+function teams(user) {
+  const body = h('div', { class: 'card-body' }, h('p', { class: 'portal-muted', text: 'Loading…' }))
+  const section = card(
+    'Teams',
+    h('p', { class: 'portal-text', text: 'Share presets, model lists and packages with people you invite. What a team shares is end-to-end encrypted with the team key, so this page shows the members, not the items. Shared items show in the app: Settings › Teams.' }),
+    body,
+  )
+  section.id = 'teams'
+  section.setAttribute('data-testid', 'portal-teams')
+
+  async function load(note) {
+    const [teamsRes, membersRes, invitesRes] = await Promise.all([
+      supabase.from('teams').select('id,name,owner_id,created_at').order('created_at', { ascending: true }),
+      supabase.from('team_members').select('team_id,user_id,role,name,email,public_key,wrapped_key,joined_at').order('joined_at', { ascending: true }),
+      supabase.from('team_invites').select('id,team_id,email,created_at,expires_at').is('accepted_at', null).order('created_at', { ascending: false }),
+    ])
+    const error = teamsRes.error || membersRes.error || invitesRes.error
+    if (error) return body.replaceChildren(errorNote(messageOf(error)))
+    const now = Date.now()
+    const invites = (invitesRes.data || []).filter((i) => Date.parse(i.expires_at) > now)
+    body.replaceChildren(
+      note || '',
+      ...(teamsRes.data || []).map((t) =>
+        teamBlock(
+          t,
+          (membersRes.data || []).filter((m) => m.team_id === t.id),
+          invites.filter((i) => i.team_id === t.id),
+        ),
+      ),
+      (teamsRes.data || []).length ? '' : h('p', { class: 'portal-muted', 'data-testid': 'portal-teams-empty', text: 'You’re not in a team yet.' }),
+      createForm(),
+    )
+  }
+
+  function createForm() {
+    const name = h('input', { id: 'portal-team-name', maxlength: '80', autocomplete: 'off', required: true, 'data-testid': 'portal-team-name' })
+    const status = h('div')
+    return h(
+      'form',
+      {
+        class: 'team-create',
+        onsubmit: async (e) => {
+          e.preventDefault()
+          const value = name.value.trim()
+          if (!value) return
+          const res = await supabase.rpc('create_team', { p_name: value })
+          if (res.error) return status.replaceChildren(errorNote(messageOf(res.error)))
+          load(h('p', { class: 'portal-note', role: 'status', text: `Made ${value}. Invite people below it.` }))
+        },
+      },
+      h('label', { for: 'portal-team-name', text: 'New team' }),
+      h('div', { class: 'inline-field' }, name, button('Create team', null, { type: 'submit', testid: 'portal-team-create' })),
+      status,
+    )
+  }
+
+  function teamBlock(team, members, invites) {
+    const owner = team.owner_id === user.id
+    const status = h('div')
+    const fail = (e) => status.replaceChildren(errorNote(messageOf(e)))
+    const memberRows = h(
+      'ul',
+      { class: 'rows', 'aria-label': `Members of ${team.name}`, 'data-testid': 'portal-team-members' },
+      members.map((m) => {
+        const me = m.user_id === user.id
+        const remove =
+          owner && !me
+            ? button('Remove', async () => {
+                if (!window.confirm(`Remove ${m.name || m.email} from ${team.name}? The team key changes, and they lose access to what it shares.`)) return
+                const res = await supabase.rpc('remove_team_member', { p_team: team.id, p_user: m.user_id })
+                if (res.error) return fail(res.error)
+                load()
+              }, { kind: 'btn-quiet btn-small', testid: 'portal-team-remove' })
+            : null
+        return h(
+          'li',
+          { 'data-testid': 'portal-team-member' },
+          h(
+            'div',
+            { class: 'row-main' },
+            h('span', { class: 'row-title' }, `${m.name || m.email}${me ? ' (you)' : ''}`, m.role === 'owner' ? h('span', { class: 'pill', text: 'Owner' }) : null),
+            h('span', { class: 'row-sub', text: `${m.email} · ${keyStatus(m)}` }),
+          ),
+          remove,
+        )
+      }),
+    )
+
+    const pieces = [
+      h('div', { class: 'team-head' }, h('h3', { text: team.name }), h('span', { class: 'row-sub', text: owner ? 'You own this team' : 'Member' })),
+      memberRows,
+    ]
+
+    if (owner) {
+      if (invites.length) {
+        pieces.push(
+          h(
+            'ul',
+            { class: 'rows', 'aria-label': 'Open invites', 'data-testid': 'portal-team-invites' },
+            invites.map((i) =>
+              h(
+                'li',
+                { 'data-testid': 'portal-team-invite-row' },
+                h('div', { class: 'row-main' }, h('span', { class: 'row-title', text: i.email }), h('span', { class: 'row-sub', text: `invited ${ago(i.created_at)} · open until ${dateOnly(i.expires_at)}` })),
+                button('Cancel', async () => {
+                  const res = await supabase.rpc('revoke_team_invite', { p_invite: i.id })
+                  if (res.error) return fail(res.error)
+                  load()
+                }, { kind: 'btn-quiet btn-small', testid: 'portal-team-invite-cancel' }),
+              ),
+            ),
+          ),
+        )
+      }
+      const email = h('input', { id: `portal-invite-${team.id}`, type: 'email', autocomplete: 'off', maxlength: '320', required: true, 'data-testid': 'portal-team-invite-email' })
+      const made = h('div')
+      pieces.push(
+        h(
+          'form',
+          {
+            onsubmit: async (e) => {
+              e.preventDefault()
+              const address = email.value.trim()
+              const res = await supabase.rpc('create_team_invite', { p_team: team.id, p_email: address })
+              if (res.error) return fail(res.error)
+              status.replaceChildren()
+              email.value = ''
+              const link = inviteLink(res.data.id, res.data.token)
+              const copy = button('Copy link', async () => {
+                try {
+                  await navigator.clipboard.writeText(link)
+                  copy.lastChild.textContent = 'Copied'
+                } catch (err) {
+                  fail(err)
+                }
+              }, { kind: 'btn-small', testid: 'portal-team-invite-copy' })
+              const subject = encodeURIComponent(`Join ${team.name} on Bouncer`)
+              const text = encodeURIComponent(`I'd like you to join ${team.name} on Bouncer. Open this link and sign in as ${address}:\n\n${link}\n\nIt works for 7 days.`)
+              made.replaceChildren(
+                h(
+                  'div',
+                  { class: 'invite-made', 'data-testid': 'portal-team-invite-made' },
+                  h('p', { class: 'portal-text', text: `Send ${address} this link. Only that email can use it, for 7 days. It’s shown once.` }),
+                  h('input', { class: 'invite-link', readonly: true, value: link, 'aria-label': 'Invite link', 'data-testid': 'portal-team-invite-link', onfocus: (ev) => ev.target.select() }),
+                  h('div', { class: 'portal-actions' }, copy, h('a', { class: 'btn btn-small btn-quiet', href: `mailto:${encodeURIComponent(address)}?subject=${subject}&body=${text}` }, icon(icons.mail), 'Email it')),
+                ),
+              )
+              reloadInvites()
+            },
+          },
+          h('label', { for: `portal-invite-${team.id}`, text: 'Invite by email' }),
+          h('div', { class: 'inline-field' }, email, button('Invite', null, { type: 'submit', testid: 'portal-team-invite' })),
+        ),
+        made,
+      )
+      const confirm = h(
+        'div',
+        { class: 'confirm', role: 'alertdialog', 'aria-label': `Delete ${team.name}?`, hidden: true },
+        h('p', { text: `This deletes ${team.name}, its members and everything it shares. Copies members made stay on their computers.` }),
+        h(
+          'div',
+          { class: 'portal-actions' },
+          button('Delete team', async () => {
+            const res = await supabase.rpc('delete_team', { p_team: team.id })
+            if (res.error) return fail(res.error)
+            load(h('p', { class: 'portal-note', role: 'status', text: `${team.name} was deleted.` }))
+          }, { kind: 'btn-danger btn-small', testid: 'portal-team-delete-confirm' }),
+          button('Cancel', () => (confirm.hidden = true), { kind: 'btn-quiet btn-small' }),
+        ),
+      )
+      pieces.push(h('div', { class: 'portal-actions' }, button('Delete team…', () => (confirm.hidden = false), { kind: 'btn-quiet btn-small', testid: 'portal-team-delete' })), confirm)
+    } else {
+      pieces.push(
+        h(
+          'div',
+          { class: 'portal-actions' },
+          button('Leave team', async () => {
+            if (!window.confirm(`Leave ${team.name}? You need a new invite to join again.`)) return
+            const res = await supabase.rpc('remove_team_member', { p_team: team.id, p_user: user.id })
+            if (res.error) return fail(res.error)
+            load(h('p', { class: 'portal-note', role: 'status', text: `You left ${team.name}.` }))
+          }, { kind: 'btn-quiet btn-small', testid: 'portal-team-leave' }),
+        ),
+      )
+    }
+    pieces.push(status)
+    // A new invite shows in the list without dropping the link just made.
+    const block = h('div', { class: 'team', 'data-testid': 'portal-team', 'data-team': team.name }, ...pieces)
+    async function reloadInvites() {
+      const res = await supabase.from('team_invites').select('id,team_id,email,created_at,expires_at').eq('team_id', team.id).is('accepted_at', null).order('created_at', { ascending: false })
+      if (res.error) return
+      const open = res.data.filter((i) => Date.parse(i.expires_at) > Date.now())
+      const fresh = teamBlock(team, members, open)
+      const madeNow = block.querySelector('.invite-made')
+      if (madeNow) fresh.querySelector('form').after(madeNow)
+      block.replaceWith(fresh)
+    }
+    return block
+  }
+
+  load()
+  return section
+}
+
 /** The account-wide switch for API key sync. The app reads it; the keys themselves sync sealed, like chats. */
 const KEY_SYNC = 'bouncer_sync_api_keys'
 
@@ -542,12 +845,32 @@ function apiKeys(user) {
 async function render() {
   const { data } = await supabase.auth.getUser()
   const user = data && data.user
-  if (!user) return signedOut(new URLSearchParams(location.hash.slice(1)).get('error_description'))
+  if (!user) {
+    const invited = pendingInvite()
+    signedOut(new URLSearchParams(location.hash.slice(1)).get('error_description'))
+    if (invited) {
+      title.textContent = 'Join a team on Bouncer'
+      lede.textContent = 'Sign in with the account the invite was sent to. Then you can join.'
+    }
+    return
+  }
   title.textContent = 'Your Bouncer account'
-  lede.textContent = 'Passkeys, signed-in devices, sync, and deleting your account.'
-  show(profile(user), passkeys(), devices(user), sync(), apiKeys(user), deleteAccount(user))
-  // The app's "Turn on" opens this page at #api-keys.
+  lede.textContent = 'Passkeys, signed-in devices, sync, teams, and deleting your account.'
+  const invite = pendingInvite()
+  const teamsCard = teams(user)
+  show(
+    invite ? inviteCard(invite, () => teamsCard.replaceWith(teams(user))) : '',
+    profile(user),
+    passkeys(),
+    devices(user),
+    sync(),
+    teamsCard,
+    apiKeys(user),
+    deleteAccount(user),
+  )
+  // The app's "Turn on" opens this page at #api-keys, and "Create or invite" at #teams.
   if (location.hash === '#api-keys') document.getElementById('api-keys')?.scrollIntoView({ block: 'center' })
+  if (location.hash === '#teams') document.getElementById('teams')?.scrollIntoView({ block: 'start' })
 }
 
 /* ---------- boot ---------- */
