@@ -69,7 +69,7 @@ Click **Show chat settings** in the chat header to open the panel on the right. 
 
 - **model**: the loaded model, its quantization, size, trained and loaded context length, and the llama.cpp version and backend.
 - **preset**: the preset for this chat, its system prompt, and whether it is built in.
-- **sampling**: temperature, top-p, top-k, min-p, repeat penalty, and max tokens. A max tokens value of `0` means the reply runs until the model stops.
+- **sampling**: temperature, top-p, top-k, min-p, repeat penalty, and max tokens. A max tokens value of `0` means the reply runs until the model stops. Hidden for a cloud model, which uses its provider's own settings.
 
 To set sampling for just the open chat, open the model panel from the model pill in the title bar and use its **Inference** tab.
 
@@ -86,6 +86,12 @@ Under each reply, use these actions:
 To change one of your messages, hover over it and choose **Edit message**. Press <kbd>⌘</kbd> <kbd>↵</kbd> (<kbd>Ctrl</kbd> <kbd>Enter</kbd> on Windows and Linux) to save, or <kbd>Esc</kbd> to cancel. Saving creates a new branch with a fresh reply.
 
 If a reply fails, the error appears with a **Retry** button.
+
+### Relics
+
+Ask for a document, spreadsheet, slide deck or web page, and the model makes it as a [Relic](studio.md) instead of writing it into the reply. The reply shows the Relic's card, with "Bouncer Relic · Only you". Click the card to open the Relic in Studio, with this chat on the left. Keep talking there and the model reads and changes the Relic. The chat stays in your Chat list.
+
+Models under 1.1B parameters don't make Relics: they can't do it reliably. Their profile in the Marketplace says **Relics: Incompatible**.
 
 ### Reasoning blocks
 

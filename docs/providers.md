@@ -6,9 +6,9 @@ Bouncer runs models on your computer. If you also want a large hosted model, you
 
 1. Make an API key on the provider's site: console.anthropic.com, platform.openai.com or openrouter.ai/keys.
 2. In Bouncer, open **Settings > Cloud providers**.
-3. Turn on the provider's switch. Bouncer asks you to confirm, because prompts sent to its models go to that company.
-4. Paste the key into **API key** and click **Save key**.
-5. Click **Test**. Bouncer asks the provider for its model list and shows how many models it found.
+3. Paste the key into **API key** and click **Save key**.
+4. If the provider is off, Bouncer asks whether to turn it on, because prompts sent to its models go to that company. Click **Turn on**. You can also use the provider's switch.
+5. Click **Test**. Bouncer checks the key with the provider and shows how many models it found. If the provider is still off, Test says so: its models only show up in the model list once it's on.
 
 To stop using a provider, turn its switch off. Its models leave the menu, and nothing more is sent to it. **Remove key** deletes the saved key.
 
@@ -25,6 +25,8 @@ Cloud models work in:
 - **Studio**: the AI features in Docs, Deck, Grid and Design.
 
 These always stay on your local models: the [local server](settings.md), the codebase index, inline autocomplete and the helper models.
+
+Cloud models run with their provider's own sampling. Bouncer doesn't send them temperature, top-p or other sampling values, and **Chat settings** hides **Sampling** while a cloud model is picked.
 
 ## What is sent
 
