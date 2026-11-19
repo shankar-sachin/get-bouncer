@@ -29,6 +29,7 @@ Bouncer runs open models on your own computer, so chats and files stay local. Th
 - [Terminal](cli.md): the `bouncer` command, the local API server with Ollama's API, and a guide for Ollama and Claude Code users.
 - [Account](account.md): optional sign-in with GitHub, Google or an emailed code, your profile and your devices.
 - [Sync](sync.md): keep settings, presets, chosen chats and chosen Rebound bots the same on every computer, end-to-end encrypted.
+- [Teams](teams.md): share presets, model lists and packages with people you invite, end-to-end encrypted.
 
 ## Reference
 

@@ -32,6 +32,10 @@ Under the mode choice, use **Export settings…** to save your settings as a `.b
 
 Click **Replay onboarding** to see the first-run tour again.
 
+## Teams
+
+The **Teams** section lists your teams and what each one shares, with buttons to copy an item into your library, **Share** something of yours, see the **Members**, and leave. It needs sync on. **Create or invite** opens the account page, where teams are made and people invited. See [teams](teams.md).
+
 ## Engine
 
 The **Engine** section manages llama.cpp, the program that runs your models. It lists installed builds, sets the active one, checks for updates, and shows logs. It also sets the backend that matches your hardware. See [models](models.md#engine) for the full list of controls.

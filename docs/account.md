@@ -29,6 +29,7 @@ The account page at [bouncer-ai.pages.dev/account](https://bouncer-ai.pages.dev/
 - **See and sign out devices**, or sign out everywhere.
 - **See whether sync is on**, how many items it holds and when they last changed. It can't show what they are: they're encrypted with a key only your computers hold. **Start sync over** deletes them from the server.
 - **Turn API key sync on or off** for the whole account. See [Sync › API keys](sync.md#api-keys).
+- **Make teams, invite people and manage members.** See [Teams](teams.md).
 - **Delete your account.** Type `delete` to confirm. This removes the account, its passkeys, devices and everything synced. Chats, models and settings on your computers stay.
 
 Open it from Bouncer with **Settings › Account › Open account page**.
