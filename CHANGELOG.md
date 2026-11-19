@@ -1,5 +1,16 @@
 # Changelog
 
+## v0.19.2
+
+Fixes for cloud providers and Relics.
+
+- **Turning a provider on**: saving an API key for a provider that's off now asks to turn it on. Before, a key could be saved and tested while the provider stayed off, so its models never showed up in the model list. Testing a key while the provider is off says so. See [Cloud providers](docs/providers.md#turn-on-a-provider).
+- **OpenRouter's key test checks the key**: **Test** used to pass with any key, because OpenRouter's model list is public. A wrong or expired key now fails with what to do.
+- **No sampling for cloud models**: cloud models run with their provider's own settings. Chat settings hide **Sampling** while a cloud model is picked, and Bouncer sends no temperature, top-p or other sampling values to a provider.
+- **A Relic opens beside its chat**: click a Relic's card in Chat and Studio opens it with that chat on the left, instead of an empty one. Keep talking there and the model reads and changes the Relic. The chat stays in your Chat list. See [Chat](docs/chat.md#relics).
+- **A new Relic card**: a filled card with the Relic's icon, its title and "Bouncer Relic · Only you".
+- **Small models don't make Relics**: models under 1.1B parameters aren't offered Relics, so they answer instead of announcing what they can make. Their profile in the Marketplace shows **Relics: Incompatible** and "This model cannot create relics".
+
 ## v0.19.1
 
 Labels in sentence case.
