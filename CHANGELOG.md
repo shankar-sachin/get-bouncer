@@ -1,5 +1,15 @@
 # Changelog
 
+## v0.20.0
+
+Teams.
+
+- **Teams**: share presets, model lists and packages with people you invite. Make a team and invite people by email on the [account page](https://bouncer-ai.pages.dev/account#teams); what the team shares shows in **Settings › Teams**. See [Teams](docs/teams.md).
+- **End-to-end encrypted**: shared items are sealed with a team key that only members' computers hold. Bouncer's server sees who's in a team, not what it shares.
+- **Copy into your library**: add a shared preset to your presets, download the models in a model list, or install a shared package.
+- **Invite links**: an invite works for 7 days and only for the email it was sent to. The owner can cancel it.
+- **Members and the key**: see whether each member's Bouncer has the team key, with a six-digit key code to compare in person. Removing a member, or a member leaving, changes the key.
+
 ## v0.19.2
 
 Fixes for cloud providers and Relics.
