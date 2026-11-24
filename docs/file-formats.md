@@ -47,7 +47,7 @@ Fields:
 | `settings.theme` | `system`, `dark`, `light`, `obsidian` | The app theme. `dark` is the Graphite theme. |
 | `settings.accent` | `auto`, `signal`, `slate`, `mono`, `ember`, `glacier`, `ultraviolet`, `lime` | The accent color. |
 | `settings.highContrast` | boolean | Stronger text and borders. |
-| `settings.surface` | `chat`, `code`, `ide`, `rebound`, `studio`, `models` | The screen Bouncer opens to. |
+| `settings.surface` | `chat`, `code`, `ide`, `rebound`, `studio`, `models` | The screen Bouncer opens to. `studio` is Relics. |
 | `settings.uiMode` | `standard`, `developer` | Standard or developer mode. |
 | `settings.guardrails` | `off`, `relaxed`, `strict` | How Bouncer treats models that won't fit. |
 | `settings.enabledGpus` | array of GPU indexes, or `null` | Which GPUs the engine may use. `null` means all. |

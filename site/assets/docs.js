@@ -9,6 +9,8 @@
   var DEFAULT_PAGE = 'getting-started';
   // #/index shows docs/README.md. It is not in the sidebar.
   var INDEX_ROUTE = 'index';
+  // Pages that moved: old links (#/studio) open the new page.
+  var RENAMED = { studio: 'relics' };
 
   // Same grouping as the wiki sidebar. Titles here label the sidebar and pager.
   var SECTIONS = [
@@ -29,7 +31,7 @@
         ['code', 'Bouncer Code'],
         ['scheduled-tasks', 'Scheduled tasks'],
         ['ide', 'IDE'],
-        ['studio', 'Studio'],
+        ['relics', 'Relics'],
         ['models', 'Models'],
         ['providers', 'Cloud providers'],
         ['cli', 'Terminal'],
@@ -101,6 +103,7 @@
     } catch (e) {
       /* malformed escape: keep the raw text */
     }
+    if (Object.prototype.hasOwnProperty.call(RENAMED, page)) page = RENAMED[page];
     return { page: page || DEFAULT_PAGE, anchor: anchor };
   }
 

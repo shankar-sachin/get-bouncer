@@ -65,7 +65,7 @@ More in the [install guide](docs/install.md) and the [system requirements](docs/
 | **[IDE](docs/ide.md)** | A file tree, editor tabs, a terminal, search and git in one window, with Bouncer Code docked beside it. |
 | **[Rebound](docs/rebound.md)** | Your own bots, each with a name, a personality, a face and its own chats. Five starter bots to begin with. Also at [rebound.web.app](https://rebound.web.app). |
 | **[Marketplace](docs/models.md)** | Find GGUF and MLX models on Hugging Face, with an estimate of how each one fits your machine. Install [packages](docs/bcr.md) that come with the settings a model runs best with. |
-| **[Studio](docs/studio.md)** | Docs, decks, grids and designs you make with a model. Each one opens beside a chat. Turn a document into a deck, or a design into code. |
+| **[Bouncer Relics](docs/relics.md)** | Documents, slideshows, spreadsheets and pages the model makes, opening beside the chat. Present a deck, read a doc, turn a document into a deck or a design into code. Formerly Studio; the new name and the side panel are coming in v0.21. |
 | **[Lab](docs/lab.md)** | Send one prompt to several models and compare the replies side by side, or rate them blind. |
 | **[Workflows](docs/workflows.md)** | Chain models, tools and agents into steps. Run them by hand, on a schedule, from Rebound or from the terminal. |
 | **[Skills](docs/skills.md)** | Reusable instructions that Chat, Rebound and Bouncer Code load when a task needs them. |
