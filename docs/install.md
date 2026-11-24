@@ -18,6 +18,16 @@ irm https://bouncer-ai.pages.dev/install.ps1 | iex
 
 When the script finishes, open Bouncer from your Applications folder, your application menu or the Start menu.
 
+## Homebrew
+
+On macOS 13 or later, Bouncer is also a Homebrew cask in [shankar-sachin/tap](https://github.com/shankar-sachin/homebrew-tap):
+
+```sh
+brew install --cask shankar-sachin/tap/bouncer
+```
+
+The cask installs the newest release for Apple silicon or Intel and follows new releases on its own. Bouncer updates itself, and `brew upgrade --cask bouncer` works too. The builds aren't signed yet, so see [Unsigned builds](#unsigned-builds) if macOS won't open Bouncer. To remove it, run `brew uninstall --cask bouncer`. Add `--zap` to also delete its models and settings.
+
 ## Installer options
 
 ### macOS and Linux: `install.sh`
