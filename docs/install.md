@@ -26,7 +26,7 @@ On macOS 13 or later, Bouncer is also a Homebrew cask in [shankar-sachin/tap](ht
 brew install --cask shankar-sachin/tap/bouncer
 ```
 
-The cask installs the newest release for Apple silicon or Intel and follows new releases on its own. Bouncer updates itself, and `brew upgrade --cask bouncer` works too. The builds aren't signed yet, so see [Unsigned builds](#unsigned-builds) if macOS won't open Bouncer. To remove it, run `brew uninstall --cask bouncer`. Add `--zap` to also delete its models and settings.
+The cask installs the newest release for Apple silicon or Intel, adds the `bouncer` and `bcr` commands, and follows new releases on its own. Bouncer updates itself, and `brew upgrade --cask bouncer` works too. The builds aren't signed yet, so see [Unsigned builds](#unsigned-builds) if macOS won't open Bouncer. To remove it, run `brew uninstall --cask bouncer`. Add `--zap` to also delete its models and settings.
 
 ## Installer options
 
@@ -140,6 +140,7 @@ Windows SmartScreen may show *Windows protected your PC* on the first run. Click
 Uninstalling removes the app, not your models and chats. To delete those too, remove the data folder listed in the [FAQ](faq.md#where-is-my-data-stored).
 
 - **macOS:** quit Bouncer, then move `Bouncer.app` from Applications (or `~/Applications`) to the Trash. Delete `~/.local/bin/bouncer` too.
+- **Homebrew:** `brew uninstall --cask bouncer`. Add `--zap` to delete your models, chats and settings too.
 - **Windows:** open **Settings → Apps → Installed apps**, choose Bouncer, and select **Uninstall**. This also takes the `bouncer` command off your `PATH`.
 - **Debian and Ubuntu:** `sudo apt remove bouncer`.
 - **AppImage:** delete `~/.local/bin/bouncer.AppImage`, `~/.local/share/applications/bouncer.desktop` and `~/.local/share/mime/packages/bouncer.xml`. Then run `update-desktop-database ~/.local/share/applications` and `update-mime-database ~/.local/share/mime` if you have them.
