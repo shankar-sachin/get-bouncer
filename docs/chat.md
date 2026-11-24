@@ -91,7 +91,7 @@ If a reply fails, the error appears with a **Retry** button.
 
 Ask for a document, spreadsheet, slideshow or web page, and the model makes it as a [Relic](relics.md) instead of writing it into the reply. The reply shows the Relic's card, with "Bouncer Relic · Only you". Click the card to open the Relic with this chat beside it. Keep talking there and the model reads and changes the Relic. The chat stays in your Chat list.
 
-*Coming in v0.21:* the Relic opens in a panel beside the chat as soon as the reply makes it: a document to read, a slideshow to flip through and present, a spreadsheet with its formulas worked out, or a page with its versions. **Open in Relics** opens it in its app to edit. If a reply says it made or changed a Relic but didn't, the model is asked once more to make it; if it still doesn't, the reply says no Relic was made, with **Try again**.
+The Relic opens in a panel beside the chat as soon as the reply makes it: a document to read, a slideshow to flip through and present, a spreadsheet with its formulas worked out, or a page with its versions. **Open in Relics** opens it in its app to edit. If a reply says it made or changed a Relic but didn't, the model is asked once more to make it; if it still doesn't, the reply says no Relic was made, with **Try again**.
 
 Models under 1.1B parameters don't make Relics: they can't do it reliably. Their profile in the Marketplace says **Relics: Incompatible**.
 
