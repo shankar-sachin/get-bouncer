@@ -37,6 +37,12 @@ Bouncer is a local-first AI app for macOS, Windows and Linux. It finds open mode
 curl -fsSL https://bouncer-ai.pages.dev/install.sh | sh
 ```
 
+**macOS with Homebrew**
+
+```sh
+brew install --cask shankar-sachin/tap/bouncer
+```
+
 **Windows** (PowerShell 5.1 or 7)
 
 ```powershell
