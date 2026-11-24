@@ -22,7 +22,7 @@ Cloud models work in:
 
 - **Chat**.
 - **Bouncer Code**, where a cloud model runs at effort high, and **ultracode**, which runs up to 4 parts at a time on a cloud model.
-- **Studio**: the AI features in Docs, Deck, Grid and Design.
+- **Relics**: the AI features in Docs, Deck, Grid and Design.
 
 These always stay on your local models: the [local server](settings.md), the codebase index, inline autocomplete and the helper models.
 
