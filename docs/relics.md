@@ -2,7 +2,9 @@
 
 A **Relic** is something the model makes for you on your computer: a document, a slideshow, a spreadsheet or a web page. Ask for one in a chat and it opens beside the chat, where the model can read it and change it as you talk. Nothing leaves the computer.
 
-> **Coming in v0.21:** Bouncer Relics is the new name for Bouncer Studio. Until v0.21 is out, the app still calls it **Studio**, and the features marked *coming in v0.21* on this page aren't there yet.
+<picture><source media="(prefers-color-scheme: dark)" srcset="images/relics-obsidian.png"><source media="(prefers-color-scheme: light)" srcset="images/relics-light.png"><img src="images/relics-light.png" alt="Bouncer Relics home: New Relic, Import file, recent Relics and the four apps" width="900" /></picture>
+
+Bouncer Relics was called Bouncer Studio before v0.21.
 
 Open Relics from the activity bar: **Relics** (<kbd>⌘</kbd> <kbd>5</kbd>, <kbd>Ctrl</kbd> <kbd>5</kbd> on Windows and Linux). The home page has **New Relic**, **Import file** (a `.md` or `.txt` document, or a `.csv` or `.xlsx` spreadsheet), your recent Relics and the four apps: Docs, Deck, Grid and Design.
 
@@ -10,7 +12,7 @@ Each card in **Recent** has a menu with **Rename**, **Duplicate** and **Delete**
 
 ## Relics beside the chat
 
-*Coming in v0.21.* When a reply makes a Relic, it opens in a panel beside the chat:
+When a reply makes a Relic, it opens in a panel beside the chat:
 
 - a document to read,
 - a slideshow to flip through and present,
@@ -19,26 +21,40 @@ Each card in **Recent** has a menu with **Rename**, **Duplicate** and **Delete**
 
 Click the Relic's card in the reply to open it in the panel again. The panel keeps up as the model changes the Relic. **Open in Relics** opens the Relic in its app to edit, with the chat beside it. See [Chat](chat.md#relics) for how to ask for one.
 
+<picture><source media="(prefers-color-scheme: dark)" srcset="images/relics-panel-obsidian.png"><source media="(prefers-color-scheme: light)" srcset="images/relics-panel-light.png"><img src="images/relics-panel-light.png" alt="A chat asked for a weekend plan; the document it made is open beside the chat, with a cover, contents and the plan" width="900" /></picture>
+
+## Versions
+
+Every Relic keeps its versions: a doc, a deck, a spreadsheet or a page. The model's first draft is version 1, and each change the model makes is a new version. Your own edits are saved as a version too, folded into one while you keep typing.
+
+- **In the panel beside the chat**, step through the versions with the arrows. An older version is shown read-only.
+- **In Docs, Deck and Grid**, the **Versions** menu in the header (it shows the version number, such as **v3**) lists each version with who made it and when. Pick an older one to bring it back. It comes back as a new version, so nothing newer is lost.
+- Each Relic keeps its last 50 versions.
+
 ## Docs
 
 Long-form writing. Select text to rewrite, shorten, expand, fix the grammar or change its tone, or ask the model to continue or draft. Export a document as Markdown, Word or PDF.
 
+<picture><source media="(prefers-color-scheme: dark)" srcset="images/relics-docs-obsidian.png"><source media="(prefers-color-scheme: light)" srcset="images/relics-docs-light.png"><img src="images/relics-docs-light.png" alt="Bouncer Docs editing the Lake Tahoe plan, with the Relic chat on the left" width="900" /></picture>
+
 ### Read view
 
-*Coming in v0.21.* **Read** shows the document as a finished piece: a cover with the title, reading time, word count and date, contents that jump to each heading, and typography set for reading. Links open in your browser. **Edit** goes back to editing.
+**Read** shows the document as a finished piece: a cover with the title, reading time, word count and date, contents that jump to each heading, and typography set for reading. Links open in your browser. **Edit** goes back to editing.
 
 ## Deck
 
 Slideshows with speaker notes and five themes: **Graphite**, **Paper**, **Obsidian**, **Ember** and **Glacier**. Export a deck as PowerPoint, PDF or Markdown.
 
-Slides come in four layouts: title, title and bullets, two columns, and quote. *Coming in v0.21:*
+Slides come in these layouts: title, title and bullets, two columns, quote, section, big number, numbered list and table.
 
-- **More layouts**: section, big number, numbered list and table. The model picks one from what a slide says, such as a figure as its heading or rows of a table.
+<picture><source media="(prefers-color-scheme: dark)" srcset="images/relics-deck-obsidian.png"><source media="(prefers-color-scheme: light)" srcset="images/relics-deck-light.png"><img src="images/relics-deck-light.png" alt="Bouncer Deck with a six-slide talk in the Ember theme: slide thumbnails, the title slide and speaker notes" width="900" /></picture>
+
+- **Layouts from the text**: the model picks a layout from what a slide says, such as a figure as its heading or rows of a table.
 - **Rich text**: slide points keep **bold**, *italic* and `code`, and a point can have sub-points (<kbd>Tab</kbd> and <kbd>Shift</kbd> <kbd>Tab</kbd> in the editor). PowerPoint and PDF exports keep them too.
 
 ### Present
 
-**Present** shows the deck full screen. Move with the arrow keys and press <kbd>Esc</kbd> to stop. *Coming in v0.21*, presenting has a progress bar and these keys:
+**Present** shows the deck full screen. Move with the arrow keys and press <kbd>Esc</kbd> to stop. A progress bar runs along the bottom, and these keys help:
 
 | Key | What it does |
 | --- | --- |
@@ -46,6 +62,8 @@ Slides come in four layouts: title, title and bullets, two columns, and quote. *
 | <kbd>G</kbd> | All slides at once; pick one to jump to it |
 | <kbd>B</kbd> | Blank the screen |
 | <kbd>Esc</kbd> | Close the presenter view, the slide overview or the blank screen, then stop presenting |
+
+<picture><source media="(prefers-color-scheme: dark)" srcset="images/relics-present-obsidian.png"><source media="(prefers-color-scheme: light)" srcset="images/relics-present-light.png"><img src="images/relics-present-light.png" alt="Presenter view: the current slide, the next one, speaker notes and a timer" width="900" /></picture>
 
 ### A deck from a document
 

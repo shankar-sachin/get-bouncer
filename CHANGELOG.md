@@ -1,5 +1,16 @@
 # Changelog
 
+## v0.21.0
+
+Bouncer Relics.
+
+- **Bouncer Studio is now Bouncer Relics**: the same apps, Docs, Deck, Grid and Design, under a new name. Find them under **Relics** in the activity bar. See [Relics](docs/relics.md).
+- **Relics open beside the chat**: when a reply makes a Relic, it opens in a panel next to the chat. A document opens ready to read, a deck shows its slides with **Present**, and a spreadsheet shows its values. **Open in Relics** opens it to edit. See [Relics beside the chat](docs/relics.md#relics-beside-the-chat).
+- **Versions for every Relic**: docs, decks and spreadsheets now keep their versions, as pages already did. Step through them in the panel, or bring one back from the **Versions** menu in each editor. See [Versions](docs/relics.md#versions).
+- **Real slideshows**: new section, big number, numbered list and table layouts. Bold, italic, code and sub-points on slides, kept in PowerPoint and PDF. When presenting: a progress bar, a presenter view with your notes, the next slide and a timer (<kbd>S</kbd>), all slides at once (<kbd>G</kbd>) and a blank screen (<kbd>B</kbd>). See [Present](docs/relics.md#present).
+- **A Read view for documents**: a cover with the title, reading time and date, contents that jump to each heading, and type set for reading. See [Read view](docs/relics.md#read-view).
+- **No more pretend Relics**: if a model says it made or changed a Relic without making it, it's asked once more. If it still doesn't, the reply says no Relic was made, with **Try again**.
+
 ## v0.20.0
 
 Teams.
